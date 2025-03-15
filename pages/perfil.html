@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Delights - Perfil de Usuario</title>
+    <meta
+      name="description"
+      content="Gestiona tu información personal, revisa tu historial de pedidos y configura tus preferencias en My Delights."
+    />
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/perfil.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+
+    <style>
+      html,
+      body,
+      #header-container,
+      header,
+      main {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="profile-page">
+      <section class="profile-hero">
+        <div class="container">
+          <div class="profile-hero-content">
+            <h1>Mi Perfil</h1>
+            <p>Gestiona tu información personal y preferencias</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-content section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-4">
+              <div class="profile-sidebar">
+                <div class="user-info-summary" id="userInfoSummary"></div>
+
+                <ul class="profile-menu" id="profileMenu">
+                  <li class="active" data-section="personal-info">
+                    <a href="#personal-info"
+                      ><i class="fas fa-user"></i> Información Personal</a
+                    >
+                  </li>
+                  <li data-section="order-history">
+                    <a href="#order-history"
+                      ><i class="fas fa-shopping-bag"></i> Historial de
+                      Pedidos</a
+                    >
+                  </li>
+                  <li data-section="preferences">
+                    <a href="#preferences"
+                      ><i class="fas fa-cog"></i> Preferencias</a
+                    >
+                  </li>
+                  <li data-section="addresses">
+                    <a href="#addresses"
+                      ><i class="fas fa-map-marker-alt"></i> Direcciones</a
+                    >
+                  </li>
+                  <li class="logout-option">
+                    <a href="#" id="logoutBtn"
+                      ><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-9 col-md-8">
+              <div class="profile-main-content">
+                <div class="profile-section active" id="personal-info">
+                  <div class="section-header">
+                    <h2>Información Personal</h2>
+                    <button
+                      class="btn btn-sm btn-outline-primary edit-btn"
+                      id="editPersonalInfoBtn"
+                    >
+                      <i class="fas fa-edit"></i> Editar
+                    </button>
+                  </div>
+
+                  <div
+                    class="profile-info-display"
+                    id="personalInfoDisplay"
+                  ></div>
+
+                  <div
+                    class="profile-info-form"
+                    id="personalInfoForm"
+                    style="display: none"
+                  >
+                    <form id="userProfileForm">
+                      <div class="mb-3">
+                        <label for="userName" class="form-label"
+                          >Nombre Completo</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="userName"
+                          name="name"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="userEmail" class="form-label"
+                          >Correo Electrónico</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="userEmail"
+                          name="email"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="userPhone" class="form-label"
+                          >Teléfono</label
+                        >
+                        <input
+                          type="tel"
+                          class="form-control"
+                          id="userPhone"
+                          name="phone"
+                          placeholder="+57 300 123 4567"
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">Tipo de Cliente</label>
+                        <div
+                          class="customer-type-badge"
+                          id="customerTypeDisplay"
+                        ></div>
+                        <small class="text-muted"
+                          >El tipo de cliente se asigna automáticamente según tu
+                          historial de compras.</small
+                        >
+                      </div>
+
+                      <div class="form-buttons">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          id="cancelEditBtn"
+                        >
+                          Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                          Guardar Cambios
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="profile-section" id="order-history">
+                  <div class="section-header">
+                    <h2>Historial de Pedidos</h2>
+                  </div>
+
+                  <div class="order-filters">
+                    <div class="row align-items-center">
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Buscar pedidos..."
+                            id="orderSearchInput"
+                          />
+                          <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            id="orderSearchBtn"
+                          >
+                            <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="filter-options">
+                          <label for="orderFilterSelect">Filtrar por:</label>
+                          <select class="form-select" id="orderFilterSelect">
+                            <option value="all">Todos los pedidos</option>
+                            <option value="recent">Últimos 30 días</option>
+                            <option value="pending">Pendientes</option>
+                            <option value="completed">Completados</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="orders-list" id="ordersList">
+                    <div class="no-orders-message" id="noOrdersMessage">
+                      <i class="fas fa-shopping-bag"></i>
+                      <p>No tienes pedidos registrados</p>
+                      <a href="/pages/menu-carta.html" class="btn btn-primary"
+                        >Ir al Menú</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="profile-section" id="preferences">
+                  <div class="section-header">
+                    <h2>Preferencias</h2>
+                  </div>
+
+                  <div class="preferences-form">
+                    <form id="userPreferencesForm">
+                      <div class="mb-4">
+                        <h3>Notificaciones</h3>
+
+                        <div class="form-check form-switch mb-2">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="emailNotif"
+                            checked
+                          />
+                          <label class="form-check-label" for="emailNotif"
+                            >Notificaciones por correo electrónico</label
+                          >
+                        </div>
+
+                        <div class="form-check form-switch mb-2">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="promoNotif"
+                            checked
+                          />
+                          <label class="form-check-label" for="promoNotif"
+                            >Recibir ofertas y promociones</label
+                          >
+                        </div>
+
+                        <div class="form-check form-switch mb-2">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="orderStatusNotif"
+                            checked
+                          />
+                          <label class="form-check-label" for="orderStatusNotif"
+                            >Actualizaciones de estado de pedidos</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="mb-4">
+                        <h3>Preferencias de Menú</h3>
+
+                        <div class="mb-3">
+                          <label for="favoriteFoods" class="form-label"
+                            >Comidas Favoritas</label
+                          >
+                          <select
+                            class="form-select"
+                            id="favoriteFoods"
+                            multiple
+                          >
+                            <option value="carnes">Carnes</option>
+                            <option value="pescados">
+                              Pescados y Mariscos
+                            </option>
+                            <option value="vegetariano">Vegetariano</option>
+                            <option value="postres">Postres</option>
+                            <option value="bebidas">Bebidas</option>
+                          </select>
+                          <small class="text-muted"
+                            >Mantén presionada la tecla Ctrl (o Cmd en Mac) para
+                            seleccionar múltiples opciones.</small
+                          >
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="dietaryRestrictions" class="form-label"
+                            >Restricciones Alimentarias</label
+                          >
+                          <div class="dietary-options">
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="glutenFree"
+                                value="gluten-free"
+                              />
+                              <label class="form-check-label" for="glutenFree"
+                                >Sin Gluten</label
+                              >
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="lactoseFree"
+                                value="lactose-free"
+                              />
+                              <label class="form-check-label" for="lactoseFree"
+                                >Sin Lactosa</label
+                              >
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="vegan"
+                                value="vegan"
+                              />
+                              <label class="form-check-label" for="vegan"
+                                >Vegano</label
+                              >
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="vegetarian"
+                                value="vegetarian"
+                              />
+                              <label class="form-check-label" for="vegetarian"
+                                >Vegetariano</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">
+                        Guardar Preferencias
+                      </button>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="profile-section" id="addresses">
+                  <div class="section-header">
+                    <h2>Mis Direcciones</h2>
+                    <button class="btn btn-sm btn-primary" id="addAddressBtn">
+                      <i class="fas fa-plus"></i> Agregar Dirección
+                    </button>
+                  </div>
+
+                  <div class="addresses-list" id="addressesList">
+                    <div class="no-addresses-message" id="noAddressesMessage">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <p>No tienes direcciones guardadas</p>
+                      <button class="btn btn-primary" id="addFirstAddressBtn">
+                        Agregar Dirección
+                      </button>
+                    </div>
+                  </div>
+
+                  <div
+                    class="modal fade"
+                    id="addressModal"
+                    tabindex="-1"
+                    aria-labelledby="addressModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="addressModalLabel">
+                            Agregar Nueva Dirección
+                          </h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="addressForm">
+                            <input type="hidden" id="addressId" />
+
+                            <div class="mb-3">
+                              <label for="addressAlias" class="form-label"
+                                >Alias de la dirección</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="addressAlias"
+                                placeholder="Ej: Casa, Trabajo, etc."
+                              />
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="addressStreet" class="form-label"
+                                >Dirección</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="addressStreet"
+                                placeholder="Calle, número, piso, etc."
+                              />
+                            </div>
+
+                            <div class="row mb-3">
+                              <div class="col">
+                                <label for="addressCity" class="form-label"
+                                  >Ciudad</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="addressCity"
+                                />
+                              </div>
+                              <div class="col">
+                                <label
+                                  for="addressPostalCode"
+                                  class="form-label"
+                                  >Código Postal</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="addressPostalCode"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="mb-3">
+                              <label
+                                for="addressInstructions"
+                                class="form-label"
+                                >Instrucciones de entrega (opcional)</label
+                              >
+                              <textarea
+                                class="form-control"
+                                id="addressInstructions"
+                                rows="2"
+                                placeholder="Ej: Timbre 4B, edificio azul, etc."
+                              ></textarea>
+                            </div>
+
+                            <div class="form-check mb-3">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="addressDefault"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="addressDefault"
+                              >
+                                Establecer como dirección predeterminada
+                              </label>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Cancelar
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="saveAddressBtn"
+                          >
+                            Guardar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="modal fade"
+        id="orderDetailsModal"
+        tabindex="-1"
+        aria-labelledby="orderDetailsModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="orderDetailsModalLabel">
+                Detalles del Pedido
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="orderDetailsContent"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/perfil.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("Iniciando script de prueba para perfil");
+
+        if (!localStorage.getItem("userSession")) {
+          const testUser = {
+            id: "test_user",
+            name: "Usuario de Prueba",
+            email: "test@example.com",
+            customerType: "casual",
+            createdAt: new Date().toISOString(),
+            sessionExpiry: new Date().getTime() + 24 * 60 * 60 * 1000,
+          };
+          localStorage.setItem("userSession", JSON.stringify(testUser));
+          console.log("Sesión de prueba creada");
+        }
+
+        const userSession = JSON.parse(localStorage.getItem("userSession"));
+        const userInfoSummary = document.getElementById("userInfoSummary");
+
+        if (userInfoSummary && userSession) {
+          const initials = userSession.name
+            .split(" ")
+            .map((word) => word.charAt(0))
+            .join("")
+            .toUpperCase()
+            .substring(0, 2);
+
+          userInfoSummary.innerHTML = `
+          <div class="user-avatar">
+            ${initials}
+          </div>
+          <div class="user-name">${userSession.name}</div>
+          <div class="user-email">${userSession.email}</div>
+          <div class="user-type casual">Cliente Casual</div>
+        `;
+          console.log("Información de usuario cargada en sidebar");
+        }
+
+        const personalInfoDisplay = document.getElementById(
+          "personalInfoDisplay"
+        );
+        if (personalInfoDisplay && userSession) {
+          personalInfoDisplay.innerHTML = `
+          <div class="info-group">
+            <label>Nombre Completo</label>
+            <div class="value">${userSession.name || "No especificado"}</div>
+          </div>
+          
+          <div class="info-group">
+            <label>Correo Electrónico</label>
+            <div class="value">${userSession.email || "No especificado"}</div>
+          </div>
+          
+          <div class="info-group">
+            <label>Teléfono</label>
+            <div class="value">${userSession.phone || "No especificado"}</div>
+          </div>
+          
+          <div class="info-group">
+            <label>Tipo de Cliente</label>
+            <div class="customer-type-badge casual">Cliente Casual</div>
+          </div>
+          
+          <div class="info-group">
+            <label>Fecha de Registro</label>
+            <div class="value">${
+              new Date(userSession.createdAt).toLocaleDateString("es-ES") ||
+              "No disponible"
+            }</div>
+          </div>
+        `;
+          console.log("Información personal cargada");
+        }
+
+        const profileMenu = document.getElementById("profileMenu");
+        const profileSections = document.querySelectorAll(".profile-section");
+
+        if (profileMenu) {
+          profileMenu.addEventListener("click", (e) => {
+            const link = e.target.closest("a");
+            if (link && link.id !== "logoutBtn") {
+              e.preventDefault();
+              const href = link.getAttribute("href");
+              const sectionId = href.substring(1);
+
+              const menuItems = profileMenu.querySelectorAll("li");
+              menuItems.forEach((item) => {
+                if (item.dataset.section === sectionId) {
+                  item.classList.add("active");
+                } else {
+                  item.classList.remove("active");
+                }
+              });
+
+              profileSections.forEach((section) => {
+                if (section.id === sectionId) {
+                  section.classList.add("active");
+                } else {
+                  section.classList.remove("active");
+                }
+              });
+
+              console.log(`Navegado a sección: ${sectionId}`);
+            }
+          });
+          console.log("Navegación entre pestañas configurada");
+        }
+
+        const editBtn = document.getElementById("editPersonalInfoBtn");
+        const cancelBtn = document.getElementById("cancelEditBtn");
+        const personalInfoForm = document.getElementById("personalInfoForm");
+
+        if (editBtn && personalInfoForm) {
+          editBtn.addEventListener("click", () => {
+            personalInfoDisplay.style.display = "none";
+            personalInfoForm.style.display = "block";
+
+            document.getElementById("userName").value = userSession.name || "";
+            document.getElementById("userEmail").value =
+              userSession.email || "";
+            document.getElementById("userPhone").value =
+              userSession.phone || "";
+
+            const customerTypeDisplay = document.getElementById(
+              "customerTypeDisplay"
+            );
+            if (customerTypeDisplay) {
+              customerTypeDisplay.textContent = "Cliente Casual";
+              customerTypeDisplay.className = "customer-type-badge casual";
+            }
+
+            console.log("Modo edición activado");
+          });
+
+          if (cancelBtn) {
+            cancelBtn.addEventListener("click", () => {
+              personalInfoDisplay.style.display = "block";
+              personalInfoForm.style.display = "none";
+              console.log("Edición cancelada");
+            });
+          }
+
+          const userProfileForm = document.getElementById("userProfileForm");
+          if (userProfileForm) {
+            userProfileForm.addEventListener("submit", (e) => {
+              e.preventDefault();
+
+              userSession.name = document.getElementById("userName").value;
+              userSession.email = document.getElementById("userEmail").value;
+              userSession.phone = document.getElementById("userPhone").value;
+
+              localStorage.setItem("userSession", JSON.stringify(userSession));
+
+              personalInfoDisplay.innerHTML = `
+              <div class="info-group">
+                <label>Nombre Completo</label>
+                <div class="value">${
+                  userSession.name || "No especificado"
+                }</div>
+              </div>
+              
+              <div class="info-group">
+                <label>Correo Electrónico</label>
+                <div class="value">${
+                  userSession.email || "No especificado"
+                }</div>
+              </div>
+              
+              <div class="info-group">
+                <label>Teléfono</label>
+                <div class="value">${
+                  userSession.phone || "No especificado"
+                }</div>
+              </div>
+              
+              <div class="info-group">
+                <label>Tipo de Cliente</label>
+                <div class="customer-type-badge casual">Cliente Casual</div>
+              </div>
+              
+              <div class="info-group">
+                <label>Fecha de Registro</label>
+                <div class="value">${
+                  new Date(userSession.createdAt).toLocaleDateString("es-ES") ||
+                  "No disponible"
+                }</div>
+              </div>
+            `;
+
+              userInfoSummary.innerHTML = `
+              <div class="user-avatar">
+                ${userSession.name
+                  .split(" ")
+                  .map((word) => word.charAt(0))
+                  .join("")
+                  .toUpperCase()
+                  .substring(0, 2)}
+              </div>
+              <div class="user-name">${userSession.name}</div>
+              <div class="user-email">${userSession.email}</div>
+              <div class="user-type casual">Cliente Casual</div>
+            `;
+
+              personalInfoDisplay.style.display = "block";
+              personalInfoForm.style.display = "none";
+
+              console.log("Información actualizada y guardada");
+
+              alert("Información personal actualizada correctamente");
+            });
+          }
+        }
+
+        console.log("Script de prueba finalizado");
+      });
+    </script>
+  </body>
+</html>

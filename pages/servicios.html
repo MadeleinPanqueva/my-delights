@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Delights - Servicios</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/servicios.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="services-page">
+      <section class="services-hero">
+        <div class="container">
+          <h1>Nuestros Servicios</h1>
+          <p>
+            Soluciones gastronómicas para todos tus eventos y momentos
+            especiales
+          </p>
+        </div>
+      </section>
+
+      <section class="services-container">
+        <div class="service-grid">
+          <div class="service-card">
+            <i class="fas fa-utensils"></i>
+            <h3>Banquetes Corporativos</h3>
+            <p>
+              Servicio de catering profesional para eventos empresariales. Menús
+              personalizados y servicio de primera.
+            </p>
+            <button
+              class="btn schedule-btn"
+              data-service="Banquetes Corporativos"
+            >
+              Agendar Servicio
+            </button>
+          </div>
+
+          <div class="service-card">
+            <i class="fas fa-home"></i>
+            <h3>Eventos Familiares</h3>
+            <p>
+              Celebraciones únicas con menús adaptados a tus necesidades. Desde
+              cumpleaños hasta reuniones familiares.
+            </p>
+            <button class="btn schedule-btn" data-service="Eventos Familiares">
+              Agendar Servicio
+            </button>
+          </div>
+
+          <div class="service-card">
+            <i class="fas fa-birthday-cake"></i>
+            <h3>Bufetes Especiales</h3>
+            <p>
+              Buffets temáticos y personalizados para todo tipo de
+              celebraciones. Variedad gastronómica excepcional.
+            </p>
+            <button class="btn schedule-btn" data-service="Bufetes Especiales">
+              Agendar Servicio
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Agendar Servicio</h2>
+          <form id="scheduleForm">
+            <input type="text" placeholder="Nombre Completo" required />
+            <input type="email" placeholder="Correo Electrónico" required />
+            <input type="tel" placeholder="Teléfono" required />
+            <select id="serviceType" required>
+              <option value="">Seleccionar Tipo de Servicio</option>
+              <option value="Banquetes Corporativos">
+                Banquetes Corporativos
+              </option>
+              <option value="Eventos Familiares">Eventos Familiares</option>
+              <option value="Bufetes Especiales">Bufetes Especiales</option>
+            </select>
+            <input type="date" placeholder="Fecha del Evento" required />
+            <textarea placeholder="Detalles adicionales" rows="4"></textarea>
+            <button type="submit" class="btn">Enviar Solicitud</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/services.js"></script>
+    <script>
+      async function loadComponent(url, containerId) {
+        try {
+          console.log(`Intentando cargar componente desde: ${url}`);
+          const response = await fetch(url);
+
+          if (!response.ok) {
+            throw new Error(`Error cargando ${url}: ${response.status}`);
+          }
+
+          const html = await response.text();
+          const container = document.getElementById(containerId);
+
+          if (container) {
+            container.innerHTML = html;
+            console.log(`Componente ${url} cargado correctamente`);
+
+            const event = new CustomEvent("componentLoaded", {
+              detail: { id: containerId, url: url },
+            });
+            document.dispatchEvent(event);
+          } else {
+            console.error(`Contenedor #${containerId} no encontrado`);
+          }
+        } catch (error) {
+          console.error(`Error al cargar componente ${url}:`, error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM cargado, iniciando carga de componentes");
+
+        loadComponent("/components/header.html", "header-container").then(
+          () => {
+            console.log("Header cargado, verificando scripts...");
+
+            if (
+              !document.querySelector('script[src="/js/components/header.js"]')
+            ) {
+              console.log("Cargando script del header...");
+              const headerScript = document.createElement("script");
+              headerScript.src = "/js/components/header.js";
+              document.body.appendChild(headerScript);
+            }
+          }
+        );
+
+        if (document.getElementById("footer-container")) {
+          loadComponent("/components/footer.html", "footer-container").then(
+            () => {
+              console.log("Footer cargado, verificando scripts...");
+
+              if (
+                !document.querySelector(
+                  'script[src="/js/components/footer.js"]'
+                )
+              ) {
+                console.log("Cargando script del footer...");
+                const footerScript = document.createElement("script");
+                footerScript.src = "/js/components/footer.js";
+                document.body.appendChild(footerScript);
+              }
+            }
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

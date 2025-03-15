@@ -499,6 +499,7 @@ function proceedToCheckout() {
       total
     )}. En un sistema real, serías redirigido a la pasarela de pago.`
   );
+  
 
   localStorage.setItem("lastOrder", JSON.stringify(orderData));
   localStorage.setItem("cartItems", JSON.stringify([]));

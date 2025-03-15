@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Delights - Menú Corriente</title>
+    <meta
+      name="description"
+      content="Disfruta de nuestra selección de menús corrientes, preparados con ingredientes frescos y sabrosos a un precio accesible."
+    />
+
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/menu.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="menu-page">
+      <section class="menu-hero">
+        <div class="container">
+          <div class="menu-hero-content">
+            <h1>Menú Corriente</h1>
+            <p>
+              Descubre nuestros deliciosos menús del día preparados con
+              ingredientes frescos y recetas tradicionales a precios accesibles
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-navigation">
+        <div class="container">
+          <div class="category-tabs">
+            <button class="category-btn active" data-category="ejecutivo">
+              Menú Ejecutivo
+            </button>
+            <button class="category-btn" data-category="combos">
+              Combos Familiares
+            </button>
+            <button class="category-btn" data-category="adicionales">
+              Adicionales
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-content section-padding">
+        <div class="container">
+          <div class="menu-category active" id="ejecutivo">
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/c5/0c/70/c4/e7/v1_E10/E109ROEV.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=dd1ed688cec952b3ae990ed51294d3e0569da04e05f4337c438eb2ed05d3ee01"
+                    alt="Ejecutivo Premium"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Ejecutivo Premium</h3>
+                    <span class="menu-item-price">$18.900</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Entrada del día, plato principal con proteína premium (lomo
+                    o pescado), postre y bebida.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Completo</span>
+                    <span class="tag">Premium</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="ej1"
+                    data-name="Ejecutivo Premium"
+                    data-price="18900"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/1a/08/bc/ae/70/v1_E11/E113MIJX.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=b86e6fb6f2ee40812a96f520d3a21a41ed37b81163f8da5d06cca118f009ed12"
+                    alt="Ejecutivo Clásico"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Ejecutivo Clásico</h3>
+                    <span class="menu-item-price">$15.500</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Sopa del día, plato principal (pollo, cerdo o res), arroz,
+                    ensalada, postre y bebida.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Tradicional</span>
+                    <span class="tag">Popular</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="ej2"
+                    data-name="Ejecutivo Clásico"
+                    data-price="15500"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/06/62/4e/47/9c/v1_E11/E115N8CK.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=68aa8048e22ede9bd8c0d43aad79e9be0efcdd6a2e0078dc6f1f60e71debdfe4"
+                    alt="Ejecutivo Vegetariano"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Ejecutivo Vegetariano</h3>
+                    <span class="menu-item-price">$16.200</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Ensalada de entrada, plato principal vegetariano (pasta o
+                    risotto), postre y bebida natural.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Vegetariano</span>
+                    <span class="tag">Saludable</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="ej3"
+                    data-name="Ejecutivo Vegetariano"
+                    data-price="16200"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-category" id="combos">
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/aa/38/ba/4f/30/v1_E10/E109K4JO.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=baa39ed6b9b6c1939ef4899d51674f01470c99e4228696ff127eadda642ba038"
+                    alt="Combo Familiar Completo"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Combo Familiar Completo</h3>
+                    <span class="menu-item-price">$54.900</span>
+                  </div>
+                  <p class="menu-item-description">
+                    4 platos principales a elección del día, 4 sopas, 4 postres
+                    y jarra de limonada (1 Lt). Ideal para 4 personas.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Familiar</span>
+                    <span class="tag">Económico</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="c1"
+                    data-name="Combo Familiar Completo"
+                    data-price="54900"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-shoebox/8532/c05b-3723-45a8-84e7-a63b63a3785a/AlvaroHernandez_BBQ_7.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=f0b38948f097708db0f9a7c910c76cf078aedb4ab1440604d2a1a83f90f5260c"
+                    alt="Combo Parrilla Mixta"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Combo Parrilla Mixta</h3>
+                    <span class="menu-item-price">$65.900</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Selección de carnes a la parrilla (pollo, res, cerdo),
+                    chorizo, papa criolla, yuca, patacones, ensalada y 4
+                    bebidas.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Parrilla</span>
+                    <span class="tag">Para compartir</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="c2"
+                    data-name="Combo Parrilla Mixta"
+                    data-price="65900"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/2a/f6/f6/a7/34/v1_E10/E1050N40.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=7aeffd7e681066fb08a2e32a882a0daa35e99cf53eaf1bf1ae02ec3ce614d0d7"
+                    alt="Bandeja de Fritanga"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Bandeja de Fritanga</h3>
+                    <span class="menu-item-price">$48.500</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Chicharrón, chorizo, morcilla, papa criolla, yuca, arepa,
+                    plátano maduro y ají casero. Para 3-4 personas.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Tradicional</span>
+                    <span class="tag">Fritanga</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="c3"
+                    data-name="Bandeja de Fritanga"
+                    data-price="48500"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-category" id="adicionales">
+            <div class="menu-items">
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/1d/9d/b2/67/90/v1_E10/E107R2FP.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=cc3bdee2327e788b01d45e807d45e0ea1dc44fe6df5ad76ee0eae8cce3b1403c"
+                    alt="Porción de Papa Francesa"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Porción de Papa Francesa</h3>
+                    <span class="menu-item-price">$6.500</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Crujientes papas fritas acompañadas de salsa de la casa.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Adicional</span>
+                    <span class="tag">Para compartir</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="ad1"
+                    data-name="Porción de Papa Francesa"
+                    data-price="6500"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/f6/e7/38/fc/d6/v1_E10/E101ZY8O.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=e50b8872bfa9795041bf71b9bbc1373b60fff5d0bfb7aa9db0bcedb7be737558"
+                    alt="Ensalada Mixta"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Ensalada Mixta</h3>
+                    <span class="menu-item-price">$7.200</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Mezcla de lechugas, tomate, pepino, zanahoria, maíz y
+                    aderezo de la casa.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Saludable</span>
+                    <span class="tag">Vegetariano</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="ad2"
+                    data-name="Ensalada Mixta"
+                    data-price="7200"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-image">
+                  <img
+                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/8b/45/b7/14/9b/v1_E10/E103K6X9.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=08aab6ad71aeef8af8f9794e3bc9caa96e7fab8c0c344c5785d943db4a06c9ab"
+                    alt="Jarra de Limonada"
+                  />
+                </div>
+                <div class="menu-item-info">
+                  <div class="menu-item-header">
+                    <h3>Jarra de Limonada</h3>
+                    <span class="menu-item-price">$8.900</span>
+                  </div>
+                  <p class="menu-item-description">
+                    Refrescante limonada natural preparada al momento. Jarra de
+                    1 litro.
+                  </p>
+                  <div class="menu-item-tags">
+                    <span class="tag">Bebida</span>
+                    <span class="tag">Refrescante</span>
+                  </div>
+                  <button
+                    class="btn btn-sm add-to-cart"
+                    data-id="ad3"
+                    data-name="Jarra de Limonada"
+                    data-price="8900"
+                  >
+                    <i class="fas fa-cart-plus"></i> Añadir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cart-notification" id="cartNotification">
+        <div class="notification-content">
+          <p><span id="itemAddedName"></span> agregado al carrito</p>
+          <div class="notification-actions">
+            <button class="btn btn-sm continue-shopping">
+              Seguir comprando
+            </button>
+            <a href="/pages/carrito.html" class="btn btn-sm view-cart"
+              >Ver carrito</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/menu.js"></script>
+
+    <script>
+      async function loadComponent(url, containerId) {
+        try {
+          console.log(`Intentando cargar componente desde: ${url}`);
+          const response = await fetch(url);
+
+          if (!response.ok) {
+            throw new Error(`Error cargando ${url}: ${response.status}`);
+          }
+
+          const html = await response.text();
+          const container = document.getElementById(containerId);
+
+          if (container) {
+            container.innerHTML = html;
+            console.log(`Componente ${url} cargado correctamente`);
+
+            const event = new CustomEvent("componentLoaded", {
+              detail: { id: containerId, url: url },
+            });
+            document.dispatchEvent(event);
+          } else {
+            console.error(`Contenedor #${containerId} no encontrado`);
+          }
+        } catch (error) {
+          console.error(`Error al cargar componente ${url}:`, error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM cargado, iniciando carga de componentes");
+
+        loadComponent("/components/header.html", "header-container").then(
+          () => {
+            console.log("Header cargado, verificando scripts...");
+
+            if (
+              !document.querySelector('script[src="/js/components/header.js"]')
+            ) {
+              console.log("Cargando script del header...");
+              const headerScript = document.createElement("script");
+              headerScript.src = "/js/components/header.js";
+              document.body.appendChild(headerScript);
+            }
+          }
+        );
+
+        if (document.getElementById("footer-container")) {
+          loadComponent("/components/footer.html", "footer-container").then(
+            () => {
+              console.log("Footer cargado, verificando scripts...");
+
+              if (
+                !document.querySelector(
+                  'script[src="/js/components/footer.js"]'
+                )
+              ) {
+                console.log("Cargando script del footer...");
+                const footerScript = document.createElement("script");
+                footerScript.src = "/js/components/footer.js";
+                document.body.appendChild(footerScript);
+              }
+            }
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
