@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
           link.classList.add("active");
           console.log("Enlace activo (página interna): " + linkPath);
         }
-        // Caso especial para la página de inicio
         else if (
           (currentPath === "/" || currentPath === "/index.html") &&
           (linkPath === "/index.html" || linkPath === "/")
@@ -57,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Cargar el contador del carrito desde localStorage
       const cartCount = document.getElementById("cartCount");
       if (cartCount) {
         try {

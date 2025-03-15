@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Delights - Iniciar Sesión</title>
+  <meta name="description" content="Inicia sesión en My Delights para acceder a descuentos exclusivos y gestionar tus pedidos.">
+  
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    html, body, #header-container, header, main {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header - Será incluido mediante JavaScript -->
+  <div id="header-container"></div>
+  
+  <main class="login-page">
+    <section class="login-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="login-container">
+              <div class="login-header">
+                <h1>Iniciar Sesión</h1>
+                <p>Accede a tu cuenta para disfrutar de descuentos exclusivos</p>
+              </div>
+              
+              <div class="login-form">
+                <form id="loginForm">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <div class="password-input">
+                      <input type="password" class="form-control" id="password" required>
+                      <button type="button" class="toggle-password" tabindex="-1">
+                        <i class="far fa-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Recordarme</label>
+                  </div>
+                  
+                  <div class="login-error-message" id="loginErrorMessage"></div>
+                  
+                  <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                </form>
+                
+                <div class="login-options">
+                  <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+              </div>
+              
+              <div class="register-section">
+                <p>¿No tienes una cuenta?</p>
+                <a href="/pages/registro.html" class="btn btn-outline-primary">Registrarse</a>
+              </div>
+              
+              <div class="demo-login-section">
+                <h5>Acceso rápido para pruebas</h5>
+                <div class="demo-buttons">
+                  <button class="btn btn-sm btn-outline-secondary demo-login" data-type="nuevo">Cliente Nuevo</button>
+                  <button class="btn btn-sm btn-outline-secondary demo-login" data-type="casual">Cliente Casual</button>
+                  <button class="btn btn-sm btn-outline-secondary demo-login" data-type="permanente">Cliente Permanente</button>
+                  <button class="btn btn-sm btn-outline-secondary demo-login" data-type="credito">Cliente con Crédito</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <div id="footer-container"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/validation.js"></script>
+  
+  <script>
+    async function loadComponent(url, containerId) {
+      try {
+        console.log(`Cargando componente desde: ${url}`);
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`Error cargando ${url}: ${response.status}`);
+        }
+        
+        const html = await response.text();
+        const container = document.getElementById(containerId);
+        
+        if (container) {
+          container.style.margin = '0';
+          container.style.padding = '0';
+          container.style.display = 'block';
+          
+          container.innerHTML = html;
+          console.log(`Componente ${url} cargado correctamente`);
+          
+          const event = new CustomEvent('componentLoaded', { 
+            detail: { id: containerId, url: url } 
+          });
+          document.dispatchEvent(event);
+          
+          const headerElement = container.querySelector('header');
+          if (headerElement) {
+            headerElement.style.margin = '0';
+            headerElement.style.padding = headerElement.style.padding || '15px 0';
+            console.log('Espaciado del header ajustado');
+          }
+        } else {
+          console.error(`Contenedor #${containerId} no encontrado`);
+        }
+      } catch (error) {
+        console.error(`Error al cargar componente ${url}:`, error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM cargado, iniciando carga de componentes');
+      
+      const containers = document.querySelectorAll('#header-container, #footer-container');
+      containers.forEach(container => {
+        if (container) {
+          container.style.margin = '0';
+          container.style.padding = '0';
+          container.style.display = 'block';
+        }
+      });
+      
+      loadComponent('/components/header.html', 'header-container')
+        .then(() => {
+          console.log('Header cargado, verificando scripts...');
+          
+          if (!document.querySelector('script[src="/js/components/header.js"]')) {
+            console.log('Cargando script del header...');
+            const headerScript = document.createElement('script');
+            headerScript.src = '/js/components/header.js';
+            document.body.appendChild(headerScript);
+          }
+        });
+      
+      loadComponent('/components/footer.html', 'footer-container')
+        .then(() => {
+          console.log('Footer cargado, verificando scripts...');
+          
+          if (!document.querySelector('script[src="/js/components/footer.js"]')) {
+            console.log('Cargando script del footer...');
+            const footerScript = document.createElement('script');
+            footerScript.src = '/js/components/footer.js';
+            document.body.appendChild(footerScript);
+          }
+        });
+    });
+  </script>
+</body>
+</html>
