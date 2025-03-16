@@ -17,7 +17,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
 
-
     <style>
       html,
       body,
@@ -68,11 +67,6 @@
                   <li data-section="preferences">
                     <a href="#preferences"
                       ><i class="fas fa-cog"></i> Preferencias</a
-                    >
-                  </li>
-                  <li data-section="addresses">
-                    <a href="#addresses"
-                      ><i class="fas fa-map-marker-alt"></i> Direcciones</a
                     >
                   </li>
                   <li class="logout-option">
@@ -354,147 +348,6 @@
                     </form>
                   </div>
                 </div>
-
-                <div class="profile-section" id="addresses">
-                  <div class="section-header">
-                    <h2>Mis Direcciones</h2>
-                    <button class="btn btn-sm btn-primary" id="addAddressBtn">
-                      <i class="fas fa-plus"></i> Agregar Dirección
-                    </button>
-                  </div>
-
-                  <div class="addresses-list" id="addressesList">
-                    <div class="no-addresses-message" id="noAddressesMessage">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <p>No tienes direcciones guardadas</p>
-                      <button class="btn btn-primary" id="addFirstAddressBtn">
-                        Agregar Dirección
-                      </button>
-                    </div>
-                  </div>
-
-                  <div
-                    class="modal fade"
-                    id="addressModal"
-                    tabindex="-1"
-                    aria-labelledby="addressModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="addressModalLabel">
-                            Agregar Nueva Dirección
-                          </h5>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          ></button>
-                        </div>
-                        <div class="modal-body">
-                          <form id="addressForm">
-                            <input type="hidden" id="addressId" />
-
-                            <div class="mb-3">
-                              <label for="addressAlias" class="form-label"
-                                >Alias de la dirección</label
-                              >
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="addressAlias"
-                                placeholder="Ej: Casa, Trabajo, etc."
-                              />
-                            </div>
-
-                            <div class="mb-3">
-                              <label for="addressStreet" class="form-label"
-                                >Dirección</label
-                              >
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="addressStreet"
-                                placeholder="Calle, número, piso, etc."
-                              />
-                            </div>
-
-                            <div class="row mb-3">
-                              <div class="col">
-                                <label for="addressCity" class="form-label"
-                                  >Ciudad</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="addressCity"
-                                />
-                              </div>
-                              <div class="col">
-                                <label
-                                  for="addressPostalCode"
-                                  class="form-label"
-                                  >Código Postal</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="addressPostalCode"
-                                />
-                              </div>
-                            </div>
-
-                            <div class="mb-3">
-                              <label
-                                for="addressInstructions"
-                                class="form-label"
-                                >Instrucciones de entrega (opcional)</label
-                              >
-                              <textarea
-                                class="form-control"
-                                id="addressInstructions"
-                                rows="2"
-                                placeholder="Ej: Timbre 4B, edificio azul, etc."
-                              ></textarea>
-                            </div>
-
-                            <div class="form-check mb-3">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="addressDefault"
-                              />
-                              <label
-                                class="form-check-label"
-                                for="addressDefault"
-                              >
-                                Establecer como dirección predeterminada
-                              </label>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                          >
-                            Cancelar
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-primary"
-                            id="saveAddressBtn"
-                          >
-                            Guardar
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -538,84 +391,40 @@
 
     <div id="footer-container"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/perfil.js"></script>
-
+    <script src="../js/perfil.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        console.log("Iniciando script de prueba para perfil");
+        const userSession = getUserSession();
 
-        if (!localStorage.getItem("userSession")) {
-          const testUser = {
-            id: "test_user",
-            name: "Usuario de Prueba",
-            email: "test@example.com",
-            customerType: "casual",
-            createdAt: new Date().toISOString(),
-            sessionExpiry: new Date().getTime() + 24 * 60 * 60 * 1000,
-          };
-          localStorage.setItem("userSession", JSON.stringify(testUser));
-          console.log("Sesión de prueba creada");
+        // Verificar si hay sesión activa
+        if (!userSession) {
+          redirectToLoginPage(window.location.pathname);
+          return;
         }
 
-        const userSession = JSON.parse(localStorage.getItem("userSession"));
-        const userInfoSummary = document.getElementById("userInfoSummary");
+        // Configurar navegación entre secciones del perfil
+        setupProfileNavigation();
 
-        if (userInfoSummary && userSession) {
-          const initials = userSession.name
-            .split(" ")
-            .map((word) => word.charAt(0))
-            .join("")
-            .toUpperCase()
-            .substring(0, 2);
+        // Mostrar información del usuario
+        setupUserInfoDisplay(userSession);
 
-          userInfoSummary.innerHTML = `
-          <div class="user-avatar">
-            ${initials}
-          </div>
-          <div class="user-name">${userSession.name}</div>
-          <div class="user-email">${userSession.email}</div>
-          <div class="user-type casual">Cliente Casual</div>
-        `;
-          console.log("Información de usuario cargada en sidebar");
-        }
+        // Configurar edición de información personal
+        setupPersonalInfoEditing(userSession);
 
-        const personalInfoDisplay = document.getElementById(
-          "personalInfoDisplay"
-        );
-        if (personalInfoDisplay && userSession) {
-          personalInfoDisplay.innerHTML = `
-          <div class="info-group">
-            <label>Nombre Completo</label>
-            <div class="value">${userSession.name || "No especificado"}</div>
-          </div>
-          
-          <div class="info-group">
-            <label>Correo Electrónico</label>
-            <div class="value">${userSession.email || "No especificado"}</div>
-          </div>
-          
-          <div class="info-group">
-            <label>Teléfono</label>
-            <div class="value">${userSession.phone || "No especificado"}</div>
-          </div>
-          
-          <div class="info-group">
-            <label>Tipo de Cliente</label>
-            <div class="customer-type-badge casual">Cliente Casual</div>
-          </div>
-          
-          <div class="info-group">
-            <label>Fecha de Registro</label>
-            <div class="value">${
-              new Date(userSession.createdAt).toLocaleDateString("es-ES") ||
-              "No disponible"
-            }</div>
-          </div>
-        `;
-          console.log("Información personal cargada");
-        }
+        // Configurar preferencias de usuario
+        setupUserPreferences(userSession);
 
+        // Cargar historial de pedidos
+        loadPurchaseHistory();
+
+        // Configurar botón de cerrar sesión
+        setupLogoutButton();
+      });
+
+      // Configurar navegación entre secciones del perfil
+      function setupProfileNavigation() {
         const profileMenu = document.getElementById("profileMenu");
         const profileSections = document.querySelectorAll(".profile-section");
 
@@ -627,6 +436,7 @@
               const href = link.getAttribute("href");
               const sectionId = href.substring(1);
 
+              // Actualizar estado activo en el menú
               const menuItems = profileMenu.querySelectorAll("li");
               menuItems.forEach((item) => {
                 if (item.dataset.section === sectionId) {
@@ -636,6 +446,7 @@
                 }
               });
 
+              // Mostrar sección correspondiente
               profileSections.forEach((section) => {
                 if (section.id === sectionId) {
                   section.classList.add("active");
@@ -643,120 +454,412 @@
                   section.classList.remove("active");
                 }
               });
-
-              console.log(`Navegado a sección: ${sectionId}`);
             }
           });
-          console.log("Navegación entre pestañas configurada");
         }
+      }
 
+      // Mostrar información del usuario
+      function setupUserInfoDisplay(userSession) {
+        // Actualizar sidebar
+        const userInfoSummary = document.getElementById("userInfoSummary");
+        updateSidebarInfo(userSession, userInfoSummary);
+
+        // Actualizar panel principal
+        const personalInfoDisplay = document.getElementById(
+          "personalInfoDisplay"
+        );
+        updateMainProfileInfo(userSession, personalInfoDisplay);
+      }
+
+      // Actualizar información en el sidebar
+      function updateSidebarInfo(userSession, container) {
+        if (!container) return;
+
+        const initials = userSession.name
+          .split(" ")
+          .map((word) => word.charAt(0))
+          .join("")
+          .toUpperCase()
+          .substring(0, 2);
+
+        container.innerHTML = `
+    <div class="user-avatar">
+      ${initials}
+    </div>
+    <div class="user-name">${userSession.name}</div>
+    <div class="user-email">${userSession.email}</div>
+    <div class="user-type ${userSession.customerType || "nuevo"}">
+      ${getCustomerTypeText(userSession.customerType)}
+    </div>
+  `;
+      }
+
+      // Actualizar información en el panel principal
+      function updateMainProfileInfo(userSession, container) {
+        if (!container) return;
+
+        container.innerHTML = `
+    <div class="info-group">
+      <label>Nombre Completo</label>
+      <div class="value">${userSession.name || "No especificado"}</div>
+    </div>
+    
+    <div class="info-group">
+      <label>Correo Electrónico</label>
+      <div class="value">${userSession.email || "No especificado"}</div>
+    </div>
+    
+    <div class="info-group">
+      <label>Teléfono</label>
+      <div class="value">${userSession.phone || "No especificado"}</div>
+    </div>
+    
+    <div class="info-group">
+      <label>Tipo de Cliente</label>
+      <div class="customer-type-badge ${userSession.customerType || "nuevo"}">
+        ${getCustomerTypeText(userSession.customerType)}
+      </div>
+    </div>
+    
+    <div class="info-group">
+      <label>Fecha de Registro</label>
+      <div class="value">
+        ${
+          userSession.createdAt
+            ? new Date(userSession.createdAt).toLocaleDateString("es-ES")
+            : "No disponible"
+        }
+      </div>
+    </div>
+  `;
+      }
+
+      // Configurar edición de información personal
+      function setupPersonalInfoEditing(userSession) {
         const editBtn = document.getElementById("editPersonalInfoBtn");
         const cancelBtn = document.getElementById("cancelEditBtn");
+        const personalInfoDisplay = document.getElementById(
+          "personalInfoDisplay"
+        );
         const personalInfoForm = document.getElementById("personalInfoForm");
+        const userProfileForm = document.getElementById("userProfileForm");
+        const userInfoSummary = document.getElementById("userInfoSummary");
 
-        if (editBtn && personalInfoForm) {
-          editBtn.addEventListener("click", () => {
-            personalInfoDisplay.style.display = "none";
-            personalInfoForm.style.display = "block";
-
-            document.getElementById("userName").value = userSession.name || "";
-            document.getElementById("userEmail").value =
-              userSession.email || "";
-            document.getElementById("userPhone").value =
-              userSession.phone || "";
-
-            const customerTypeDisplay = document.getElementById(
-              "customerTypeDisplay"
-            );
-            if (customerTypeDisplay) {
-              customerTypeDisplay.textContent = "Cliente Casual";
-              customerTypeDisplay.className = "customer-type-badge casual";
-            }
-
-            console.log("Modo edición activado");
-          });
-
-          if (cancelBtn) {
-            cancelBtn.addEventListener("click", () => {
-              personalInfoDisplay.style.display = "block";
-              personalInfoForm.style.display = "none";
-              console.log("Edición cancelada");
-            });
-          }
-
-          const userProfileForm = document.getElementById("userProfileForm");
-          if (userProfileForm) {
-            userProfileForm.addEventListener("submit", (e) => {
-              e.preventDefault();
-
-              userSession.name = document.getElementById("userName").value;
-              userSession.email = document.getElementById("userEmail").value;
-              userSession.phone = document.getElementById("userPhone").value;
-
-              localStorage.setItem("userSession", JSON.stringify(userSession));
-
-              personalInfoDisplay.innerHTML = `
-              <div class="info-group">
-                <label>Nombre Completo</label>
-                <div class="value">${
-                  userSession.name || "No especificado"
-                }</div>
-              </div>
-              
-              <div class="info-group">
-                <label>Correo Electrónico</label>
-                <div class="value">${
-                  userSession.email || "No especificado"
-                }</div>
-              </div>
-              
-              <div class="info-group">
-                <label>Teléfono</label>
-                <div class="value">${
-                  userSession.phone || "No especificado"
-                }</div>
-              </div>
-              
-              <div class="info-group">
-                <label>Tipo de Cliente</label>
-                <div class="customer-type-badge casual">Cliente Casual</div>
-              </div>
-              
-              <div class="info-group">
-                <label>Fecha de Registro</label>
-                <div class="value">${
-                  new Date(userSession.createdAt).toLocaleDateString("es-ES") ||
-                  "No disponible"
-                }</div>
-              </div>
-            `;
-
-              userInfoSummary.innerHTML = `
-              <div class="user-avatar">
-                ${userSession.name
-                  .split(" ")
-                  .map((word) => word.charAt(0))
-                  .join("")
-                  .toUpperCase()
-                  .substring(0, 2)}
-              </div>
-              <div class="user-name">${userSession.name}</div>
-              <div class="user-email">${userSession.email}</div>
-              <div class="user-type casual">Cliente Casual</div>
-            `;
-
-              personalInfoDisplay.style.display = "block";
-              personalInfoForm.style.display = "none";
-
-              console.log("Información actualizada y guardada");
-
-              alert("Información personal actualizada correctamente");
-            });
-          }
+        if (
+          !editBtn ||
+          !personalInfoDisplay ||
+          !personalInfoForm ||
+          !userProfileForm
+        ) {
+          console.error(
+            "Faltan elementos necesarios para la edición del perfil"
+          );
+          return;
         }
 
-        console.log("Script de prueba finalizado");
-      });
+        editBtn.addEventListener("click", () => {
+          personalInfoDisplay.style.display = "none";
+          personalInfoForm.style.display = "block";
+
+          // Llenar los campos del formulario
+          document.getElementById("userName").value = userSession.name || "";
+          document.getElementById("userEmail").value = userSession.email || "";
+          document.getElementById("userPhone").value = userSession.phone || "";
+
+          const customerTypeDisplay = document.getElementById(
+            "customerTypeDisplay"
+          );
+          if (customerTypeDisplay) {
+            customerTypeDisplay.textContent = getCustomerTypeText(
+              userSession.customerType
+            );
+            customerTypeDisplay.className = `customer-type-badge ${
+              userSession.customerType || "nuevo"
+            }`;
+          }
+        });
+
+        // Configurar botón cancelar
+        cancelBtn.addEventListener("click", () => {
+          personalInfoDisplay.style.display = "block";
+          personalInfoForm.style.display = "none";
+        });
+
+        // Configurar envío del formulario
+        userProfileForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const updatedUserData = {
+            name: document.getElementById("userName").value.trim(),
+            email: document.getElementById("userEmail").value.trim(),
+            phone: document.getElementById("userPhone").value.trim(),
+          };
+
+          if (!updatedUserData.name || !updatedUserData.email) {
+            showToast(
+              "Error",
+              "Por favor, completa los campos obligatorios.",
+              "error"
+            );
+            return;
+          }
+
+          if (updateUserProfile(userSession, updatedUserData)) {
+            const updatedSession = JSON.parse(
+              localStorage.getItem("userSession")
+            );
+
+            updateMainProfileInfo(updatedSession, personalInfoDisplay);
+            updateSidebarInfo(updatedSession, userInfoSummary);
+
+            personalInfoDisplay.style.display = "block";
+            personalInfoForm.style.display = "none";
+
+            showToast(
+              "Éxito",
+              "Información personal actualizada correctamente.",
+              "success"
+            );
+          } else {
+            showToast(
+              "Error",
+              "No se pudo actualizar la información.",
+              "error"
+            );
+          }
+        });
+      }
+      function updateUserProfile(userSession, updatedData) {
+        try {
+          // Obtener lista de usuarios registrados
+          const users =
+            JSON.parse(localStorage.getItem("registeredUsers")) || [];
+
+          // Encontrar el índice del usuario actual
+          const userIndex = users.findIndex(
+            (user) => user.id === userSession.id
+          );
+
+          if (userIndex === -1) {
+            console.error("Usuario no encontrado");
+            return false;
+          }
+
+          // Actualizar datos del usuario
+          const updatedUser = {
+            ...users[userIndex],
+            ...updatedData,
+            updatedAt: new Date().toISOString(),
+          };
+
+          // Reemplazar el usuario en la lista
+          users[userIndex] = updatedUser;
+
+          // Guardar lista actualizada de usuarios
+          localStorage.setItem("registeredUsers", JSON.stringify(users));
+
+          // Actualizar sesión actual
+          const updatedSession = {
+            ...userSession,
+            ...updatedData,
+            updatedAt: new Date().toISOString(),
+          };
+
+          // Guardar sesión actualizada
+          localStorage.setItem("userSession", JSON.stringify(updatedSession));
+
+          return true;
+        } catch (error) {
+          console.error("Error al actualizar perfil:", error);
+          return false;
+        }
+      }
+
+      function setupUserPreferences(userSession) {
+        const preferencesForm = document.getElementById("userPreferencesForm");
+
+        if (!preferencesForm) return;
+
+        const savedPreferences = JSON.parse(
+          localStorage.getItem(`userPreferences_${userSession.id}`)
+        ) || {
+          emailNotif: true,
+          promoNotif: true,
+          orderStatusNotif: true,
+          favoriteFoods: [],
+          dietaryRestrictions: [],
+        };
+
+        document.getElementById("emailNotif").checked =
+          savedPreferences.emailNotif;
+        document.getElementById("promoNotif").checked =
+          savedPreferences.promoNotif;
+        document.getElementById("orderStatusNotif").checked =
+          savedPreferences.orderStatusNotif;
+
+        const favoriteFoodsSelect = document.getElementById("favoriteFoods");
+        savedPreferences.favoriteFoods.forEach((food) => {
+          const option = favoriteFoodsSelect.querySelector(
+            `option[value="${food}"]`
+          );
+          if (option) option.selected = true;
+        });
+
+        savedPreferences.dietaryRestrictions.forEach((restriction) => {
+          const checkbox = document.getElementById(restriction);
+          if (checkbox) checkbox.checked = true;
+        });
+
+        preferencesForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const updatedPreferences = {
+            emailNotif: document.getElementById("emailNotif").checked,
+            promoNotif: document.getElementById("promoNotif").checked,
+            orderStatusNotif:
+              document.getElementById("orderStatusNotif").checked,
+            favoriteFoods: Array.from(
+              document.getElementById("favoriteFoods").selectedOptions
+            ).map((option) => option.value),
+            dietaryRestrictions: [
+              "glutenFree",
+              "lactoseFree",
+              "vegan",
+              "vegetarian",
+            ].filter(
+              (restriction) => document.getElementById(restriction).checked
+            ),
+          };
+
+          // Guardar preferencias en localStorage
+          localStorage.setItem(
+            `userPreferences_${userSession.id}`,
+            JSON.stringify(updatedPreferences)
+          );
+
+          showToast(
+            "Éxito",
+            "Preferencias actualizadas correctamente.",
+            "success"
+          );
+        });
+      }
+
+      // Función para cargar el historial de pedidos
+      function loadPurchaseHistory() {
+        const ordersList = document.getElementById("ordersList");
+        const noOrdersMessage = document.getElementById("noOrdersMessage");
+
+        if (!ordersList) return;
+
+        const userSession = getUserSession();
+
+        if (!userSession) {
+          console.error("No hay sesión de usuario activa");
+          return;
+        }
+
+        const userId = userSession.id;
+        const orderHistory =
+          JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+        // Filtrar pedidos del usuario actual
+        const userOrders = orderHistory.filter(
+          (order) => order.customer && order.customer.id === userId
+        );
+
+        if (userOrders.length === 0) {
+          if (noOrdersMessage) {
+            noOrdersMessage.style.display = "block";
+          }
+          ordersList.innerHTML = "";
+          return;
+        }
+
+        if (noOrdersMessage) {
+          noOrdersMessage.style.display = "none";
+        }
+
+        let ordersHTML = "";
+
+        userOrders.forEach((order, index) => {
+          const totalItems = order.items.reduce(
+            (sum, item) => sum + item.quantity,
+            0
+          );
+          const totalPrice = order.summary
+            ? order.summary.total
+            : order.items.reduce(
+                (sum, item) => sum + item.price * item.quantity,
+                0
+              );
+
+          ordersHTML += `
+      <div class="order-card">
+        <div class="order-header">
+          <div>
+            <span class="order-number">Pedido #${index + 1}</span>
+            <span class="order-date">${new Date(
+              order.orderDate
+            ).toLocaleDateString()}</span>
+          </div>
+          <div class="order-status ${order.status}">
+            ${getOrderStatusLabel(order.status)}
+          </div>
+        </div>
+        
+        <div class="order-summary">
+          <div>Número de Items: ${totalItems}</div>
+          <div>Total: $${formatPrice(totalPrice)}</div>
+        </div>
+        
+        <div class="order-actions">
+          <button class="btn btn-sm view-order-details" data-order-index="${index}">
+            Ver Detalles
+          </button>
+        </div>
+      </div>
+    `;
+        });
+
+        ordersList.innerHTML = ordersHTML;
+
+        const viewDetailsButtons = ordersList.querySelectorAll(
+          ".view-order-details"
+        );
+        viewDetailsButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const orderIndex = button.dataset.orderIndex;
+            showOrderDetails(userOrders[orderIndex]);
+          });
+        });
+      }
+
+      function setupLogoutButton() {
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            logout();
+          });
+        }
+      }
+
+      function getCustomerTypeText(customerType) {
+        switch (customerType) {
+          case "nuevo":
+            return "Cliente Nuevo";
+          case "casual":
+            return "Cliente Casual";
+          case "permanente":
+            return "Cliente Permanente";
+          case "credito":
+            return "Cliente con Crédito";
+          default:
+            return "Cliente";
+        }
+      }
     </script>
   </body>
 </html>

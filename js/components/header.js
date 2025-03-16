@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
+        
         navList.classList.toggle("active");
         console.log(
           "Menú toggle: " +
             (navList.classList.contains("active") ? "abierto" : "cerrado")
         );
       });
-
       document.addEventListener("click", (event) => {
         if (
           !navList.contains(event.target) &&

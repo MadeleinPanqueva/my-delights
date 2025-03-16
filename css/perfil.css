@@ -355,22 +355,19 @@
   gap: 10px;
 }
 
-.no-orders-message,
-.no-addresses-message {
+.no-orders-message {
   text-align: center;
   padding: 30px;
   color: #6c757d;
 }
 
-.no-orders-message i,
-.no-addresses-message i {
+.no-orders-message i {
   font-size: 3rem;
   color: #dee2e6;
   margin-bottom: 15px;
 }
 
-.no-orders-message p,
-.no-addresses-message p {
+.no-orders-message p {
   margin-bottom: 20px;
 }
 
@@ -692,36 +689,6 @@
 .toast-body {
   padding: 15px;
   color: #333;
-}
-
-/* Addresses Two-Column Layout */
-.addresses-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
-}
-
-.address-card {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.address-card:hover {
-  border-color: #fd7e14;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-5px);
-}
-
-.address-card.default {
-  border-color: #fd7e14;
-  box-shadow: 0 2px 8px rgba(253, 126, 20, 0.2);
 }
 
 .default-badge {

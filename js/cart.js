@@ -158,14 +158,19 @@ function renderCartSummary(subtotal) {
   const deliveryOption = document.querySelector("#deliveryOption:checked");
   const isDelivery = deliveryOption !== null;
 
+  const activePromoData = localStorage.getItem("activePromoCode");
+  const activePromo = activePromoData ? JSON.parse(activePromoData) : null;
+
   const {
     discount,
     discountAmount,
+    promoDiscount,
+    promoDiscountAmount,
     deliveryFee,
     ivaPortion,
     total,
     discountExplanation,
-  } = calculateTotals(subtotal, customerType, isDelivery);
+  } = calculateTotals(subtotal, customerType, isDelivery, activePromo);
 
   let summaryHTML = `
     <div class="summary-row">
@@ -182,6 +187,18 @@ function renderCartSummary(subtotal) {
       </div>
       <div class="discount-explanation">
         <small>${discountExplanation}</small>
+      </div>
+    `;
+  }
+
+  if (activePromo && promoDiscount > 0) {
+    summaryHTML += `
+      <div class="summary-row promo-discount">
+        <span>Código promocional ${activePromo.code} (${promoDiscount}%)</span>
+        <span>-$${formatPrice(promoDiscountAmount)}</span>
+      </div>
+      <div class="promo-explanation">
+        <small>${activePromo.description}</small>
       </div>
     `;
   }
@@ -206,14 +223,35 @@ function renderCartSummary(subtotal) {
     </div>
   `;
 
+  if (activePromo) {
+    summaryHTML += `
+      <button id="removePromoBtn" class="btn btn-outline-secondary btn-sm mt-2">
+        Quitar código promocional
+      </button>
+    `;
+  }
+
   summaryHTML += `
     <button id="checkoutBtn" class="btn btn-primary btn-block ${
       total === 0 ? "disabled" : ""
-    }">
+    } mt-3">
       Proceder al pago
     </button>`;
 
   cartSummary.innerHTML = summaryHTML;
+
+  const removePromoBtn = document.getElementById("removePromoBtn");
+  if (removePromoBtn) {
+    removePromoBtn.addEventListener("click", () => {
+      localStorage.removeItem("activePromoCode");
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const subtotal = cartItems.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+      renderCartSummary(subtotal);
+    });
+  }
 
   const checkoutBtn = document.getElementById("checkoutBtn");
   if (checkoutBtn && total > 0) {
@@ -238,21 +276,31 @@ function calculateTotals(subtotal, customerType, isDelivery) {
       discountExplanation = "Descuento por cliente casual";
 
       if (subtotal >= 200000) {
-        discount = 6;
+        discount = 6; 
         discountExplanation =
-          "Descuento por cliente casual + compra mayor a $200.000";
+          "Descuento por cliente casual (2%) + compra mayor a $200.000 (4% adicional)";
       }
       break;
 
     case "permanente":
-    case "credito":
       discount = 4;
       discountExplanation = "Descuento por cliente permanente";
 
       if (subtotal >= 150000) {
         discount = 10;
         discountExplanation =
-          "Descuento por cliente permanente + compra mayor a $150.000";
+          "Descuento por cliente permanente (4%) + compra mayor a $150.000 (6% adicional)";
+      }
+      break;
+
+    case "credito":
+      discount = 4;
+      discountExplanation = "Descuento por cliente permanente con crédito";
+
+      if (subtotal >= 150000) {
+        discount = 10;
+        discountExplanation =
+          "Descuento por cliente permanente con crédito (4%) + compra mayor a $150.000 (6% adicional)";
       }
       break;
 
@@ -260,15 +308,29 @@ function calculateTotals(subtotal, customerType, isDelivery) {
       discount = 0;
   }
 
-  const discountAmount = (subtotal * discount) / 100;
+  const activePromoData = localStorage.getItem("activePromoCode");
+  const activePromo = activePromoData ? JSON.parse(activePromoData) : null;
+
+  let totalDiscount = discount;
+
+  if (activePromo && activePromo.discount) {
+    totalDiscount += activePromo.discount;
+    if (discountExplanation) {
+      discountExplanation +=
+        " + " + activePromo.description + " (" + activePromo.discount + "%)";
+    } else {
+      discountExplanation =
+        activePromo.description + " (" + activePromo.discount + "%)";
+    }
+  }
+
+  const discountAmount = (subtotal * totalDiscount) / 100;
   const deliveryFee = isDelivery ? Math.round(subtotal * 0.02) : 0;
-
   const ivaPortion = Math.round((subtotal * 0.19) / 1.19);
-
   const total = subtotal - discountAmount + deliveryFee;
 
   return {
-    discount,
+    discount: totalDiscount,
     discountAmount,
     deliveryFee,
     ivaPortion,
@@ -499,7 +561,6 @@ function proceedToCheckout() {
       total
     )}. En un sistema real, serías redirigido a la pasarela de pago.`
   );
-  
 
   localStorage.setItem("lastOrder", JSON.stringify(orderData));
   localStorage.setItem("cartItems", JSON.stringify([]));
