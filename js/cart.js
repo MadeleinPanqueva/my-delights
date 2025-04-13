@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCartCount();
 
-  if (window.location.pathname.includes("carrito.html")) {
+  if (window.location.pathname.includes("carrito.php")) {
     renderCartItems();
     initCartControls();
     initDeliveryOptions();
@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function checkUserSession() {
-  if (window.location.pathname.includes("carrito.html")) {
+  if (window.location.pathname.includes("carrito.php")) {
     const userSession = getUserSession();
 
     if (!userSession) {
       const returnUrl = encodeURIComponent(window.location.pathname);
-      window.location.href = `/pages/login.html?returnUrl=${returnUrl}`;
+      window.location.href = `/pages/login.php?returnUrl=${returnUrl}`;
       return;
     }
 

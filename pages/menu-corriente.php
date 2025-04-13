@@ -9,9 +9,9 @@
       content="Disfruta de nuestra selección de menús corrientes, preparados con ingredientes frescos y sabrosos a un precio accesible."
     />
 
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/menu.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -351,7 +351,7 @@
             <button class="btn btn-sm continue-shopping">
               Seguir comprando
             </button>
-            <a href="/pages/carrito.html" class="btn btn-sm view-cart"
+            <a href="/pages/carrito.php" class="btn btn-sm view-cart"
               >Ver carrito</a
             >
           </div>
@@ -397,7 +397,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         console.log("DOM cargado, iniciando carga de componentes");
 
-        loadComponent("/components/header.html", "header-container").then(
+        loadComponent("/components/header.php", "header-container").then(
           () => {
             console.log("Header cargado, verificando scripts...");
 
@@ -413,7 +413,7 @@
         );
 
         if (document.getElementById("footer-container")) {
-          loadComponent("/components/footer.html", "footer-container").then(
+          loadComponent("/components/footer.php", "footer-container").then(
             () => {
               console.log("Footer cargado, verificando scripts...");
 

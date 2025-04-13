@@ -9,9 +9,9 @@
       content="Gestiona tu información personal, revisa tu historial de pedidos y configura tus preferencias en My Delights."
     />
 
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/perfil.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/perfil.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -234,7 +234,7 @@
                     <div class="no-orders-message" id="noOrdersMessage">
                       <i class="fas fa-shopping-bag"></i>
                       <p>No tienes pedidos registrados</p>
-                      <a href="/pages/menu-carta.html" class="btn btn-primary"
+                      <a href="/pages/menu-carta.php" class="btn btn-primary"
                         >Ir al Menú</a
                       >
                     </div>

@@ -28,10 +28,10 @@
       <div class="footer-links">
         <h3>Enlaces rápidos</h3>
         <ul>
-          <li><a href="/index.html">Inicio</a></li>
-          <li><a href="/pages/menu-carta.html">Menú a la Carta</a></li>
-          <li><a href="/pages/menu-corriente.html">Menú Corriente</a></li>
-          <li><a href="/pages/servicios.html">Servicios</a></li>
+          <li><a href="../index.php">Inicio</a></li>
+          <li><a href="../pages/menu-carta.php">Menú a la Carta</a></li>
+          <li><a href="../pages/menu-corriente.php">Menú Corriente</a></li>
+          <li><a href="../pages/servicios.php">Servicios</a></li>
         </ul>
       </div>
       <div class="footer-contact">
@@ -54,4 +54,4 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> 

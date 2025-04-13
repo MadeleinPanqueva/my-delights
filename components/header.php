@@ -1,6 +1,6 @@
 <header>
   <link rel="stylesheet" href="../css/components/header.css" />
-  <link href="../js/components/header.js" />
+  <link rel="stylesheet" href="../js/components/header.js" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -9,8 +9,8 @@
   <div class="container">
     <div class="header-content">
       <div class="logo">
-        <a href="/index.html">
-          <img src="/images/banners/logo.png" alt="Logo My Delights" />
+        <a href="../index.php">
+          <img src="../images/banners/logo.png" alt="Logo My Delights" />
         </a>
       </div>
       <nav class="main-nav">
@@ -18,18 +18,18 @@
           <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-list" id="navList">
-          <li><a href="/index.html">Inicio</a></li>
-          <li><a href="/pages/menu-carta.html">Menú a la Carta</a></li>
-          <li><a href="/pages/menu-corriente.html">Menú Corriente</a></li>
-          <li><a href="/pages/servicios.html">Servicios</a></li>
+          <li><a href="../index.php">Inicio</a></li>
+          <li><a href="../pages/menu-carta.php">Menú a la Carta</a></li>
+          <li><a href="../pages/menu-corriente.php">Menú Corriente</a></li>
+          <li><a href="../pages/servicios.php">Servicios</a></li>
           <li class="cart-icon">
-            <a href="/pages/carrito.html">
+            <a href="../pages/carrito.php">
               <i class="fas fa-shopping-cart"></i>
               <!-- <span class="cart-count" id="cartCount">0</span> -->
             </a>
           </li>
           <li class="user-profile">
-            <a href="/pages/perfil.html">
+            <a href="../pages/perfil.php">
               <i class="fas fa-user"></i>
             </a>
           </li>
@@ -37,4 +37,4 @@
       </nav>
     </div>
   </div>
-</header>
+</header> 

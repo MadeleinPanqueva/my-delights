@@ -9,9 +9,9 @@
       content="Inicia sesión o regístrate en My Delights para acceder a descuentos exclusivos y gestionar tus pedidos."
     />
 
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/login.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -221,7 +221,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        loadComponent("/components/header.html", "header-container").then(() => {
+        loadComponent("/components/header.php", "header-container").then(() => {
           if (!document.querySelector('script[src="/js/components/header.js"]')) {
             const headerScript = document.createElement("script");
             headerScript.src = "/js/components/header.js";
@@ -229,7 +229,7 @@
           }
         });
 
-        loadComponent("/components/footer.html", "footer-container").then(() => {
+        loadComponent("/components/footer.php", "footer-container").then(() => {
           if (!document.querySelector('script[src="/js/components/footer.js"]')) {
             const footerScript = document.createElement("script");
             footerScript.src = "/js/components/footer.js";

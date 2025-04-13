@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("Enlace activo (página interna): " + linkPath);
         }
         else if (
-          (currentPath === "/" || currentPath === "/index.html") &&
-          (linkPath === "/index.html" || linkPath === "/")
+          (currentPath === "/" || currentPath === "/index.php") &&
+          (linkPath === "/index.php" || linkPath === "/")
         ) {
           link.classList.add("active");
           console.log("Enlace activo (página de inicio): " + linkPath);

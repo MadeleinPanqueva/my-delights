@@ -9,10 +9,10 @@
       content="Revisa los productos seleccionados en tu carrito de compra y finaliza tu pedido en My Delights."
     />
 
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
-    <link rel="stylesheet" href="/css/carrito.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/carrito.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -56,7 +56,7 @@
                   <i class="fas fa-shopping-cart"></i>
                   <h3>Tu carrito está vacío</h3>
                   <p>Parece que aún no has añadido productos a tu carrito</p>
-                  <a href="/pages/menu-carta.html" class="btn btn-primary"
+                  <a href="/pages/menu-carta.php" class="btn btn-primary"
                     >Ver menú</a
                   >
                 </div>
@@ -69,7 +69,7 @@
                   <i class="fas fa-trash-alt"></i> Vaciar carrito
                 </button>
                 <a
-                  href="/pages/menu-carta.html"
+                  href="/pages/menu-carta.php"
                   class="btn btn-outline-primary"
                 >
                   <i class="fas fa-utensils"></i> Seguir comprando
@@ -137,8 +137,8 @@
 
     <div id="footer-container"></div>
 
-    <script src="/js/main.js"></script>
-    <script src="/js/cart.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
 
     <script>
       async function loadComponent(url, containerId) {
@@ -224,19 +224,19 @@
       document.addEventListener("DOMContentLoaded", () => {
         console.log("DOM cargado, iniciando carga de componentes");
 
-        loadComponent("/components/header.html", "header-container").then(
+        loadComponent("../components/header.php", "header-container").then(
           (success) => {
             if (!success) {
               console.warn("No se pudo cargar el header, reintentando...");
               setTimeout(() => {
-                loadComponent("/components/header.html", "header-container");
+                loadComponent("../components/header.php", "header-container");
               }, 500);
             }
           }
         );
 
         if (document.getElementById("footer-container")) {
-          loadComponent("/components/footer.html", "footer-container");
+          loadComponent("../components/footer.php", "footer-container");
         }
       });
     </script>

@@ -84,19 +84,19 @@ async function loadComponent(url, containerId) {
       console.log(`Componente ${url} cargado correctamente`);
 
       if (containerId === "header-container") {
-        if (!document.querySelector('script[src="/js/components/header.js"]')) {
+        if (!document.querySelector('script[src="../js/components/header.js"]')) {
           console.log('Cargando script del header...');
           const headerScript = document.createElement('script');
-          headerScript.src = '/js/components/header.js';
+          headerScript.src = '../js/components/header.js';
           document.body.appendChild(headerScript);
         }
       }
 
       if (containerId === "footer-container") {
-        if (!document.querySelector('script[src="/js/components/footer.js"]')) {
+        if (!document.querySelector('script[src="../js/components/footer.js"]')) {
           console.log('Cargando script del footer...');
           const footerScript = document.createElement('script');
-          footerScript.src = '/js/components/footer.js';
+          footerScript.src = '../js/components/footer.js';
           document.body.appendChild(footerScript);
         }
       }
@@ -130,10 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerContainer = document.getElementById('footer-container');
   
   if (headerContainer) {
-    loadComponent('/components/header.html', 'header-container');
+    loadComponent('../components/header.php', 'header-container');
   }
   
   if (footerContainer) {
-    loadComponent('/components/footer.html', 'footer-container');
+    loadComponent('../components/footer.php', 'footer-container');
   }
 });

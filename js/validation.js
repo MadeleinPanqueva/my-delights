@@ -35,7 +35,7 @@ function initLoginForm() {
     
     saveUserSession(userInfo, rememberMe);
     
-    const returnUrl = getParameterByName('returnUrl') || '/index.html';
+    const returnUrl = getParameterByName('returnUrl') || '/index.php';
     window.location.href = returnUrl;
   });
   
@@ -81,7 +81,7 @@ function initDemoButtons() {
       
       saveUserSession(userInfo, false);
       
-      const returnUrl = getParameterByName('returnUrl') || '/index.html';
+      const returnUrl = getParameterByName('returnUrl') || '/index.php';
       window.location.href = returnUrl;
     });
   });
@@ -91,7 +91,7 @@ function checkExistingSession() {
   const userSession = getUserSession();
   
   if (userSession) {
-    const returnUrl = getParameterByName('returnUrl') || '/index.html';
+    const returnUrl = getParameterByName('returnUrl') || '/index.php';
     window.location.href = returnUrl;
   }
 }

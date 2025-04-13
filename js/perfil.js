@@ -1,7 +1,7 @@
 // Función para redirigir a la página de inicio de sesión
 function redirectToLoginPage(returnUrl = null) {
   // Corregimos la forma en que formamos la URL para evitar doble codificación
-  let redirectUrl = "/pages/login.html";
+  let redirectUrl = "/pages/login.php";
 
   if (returnUrl) {
     try {
@@ -22,10 +22,10 @@ function redirectToLoginPage(returnUrl = null) {
 function checkUserSession() {
   // Definir páginas protegidas
   const protectedPages = [
-    "carrito.html",
-    "perfil.html",
-    "ordenes.html",
-    "checkout.html",
+    "carrito.php",
+    "perfil.php",
+    "ordenes.php",
+    "checkout.php",
   ];
 
   // Verificar si estamos en una página protegida
@@ -48,7 +48,7 @@ function checkUserSession() {
   }
 
   // Inicializar el carrito sólo si estamos en la página del carrito y hay sesión
-  if (currentPath.includes("carrito.html")) {
+  if (currentPath.includes("carrito.php")) {
     if (!localStorage.getItem("cartItems")) {
       localStorage.setItem("cartItems", JSON.stringify([]));
     }
@@ -660,7 +660,7 @@ function proceedToCheckout() {
   );
 
   setTimeout(() => {
-    window.location.href = "/pages/orden-confirmacion.html";
+    window.location.href = "/pages/orden-confirmacion.php";
   }, 1500);
 }
 
@@ -881,18 +881,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const userSession = getUserSession();
 
   // Configurar diferentes comportamientos según la página
-  if (window.location.pathname.includes("login.html")) {
+  if (window.location.pathname.includes("login.php")) {
     // Configurar eventos específicos para la página de login
     setupLoginPageEvents();
     return;
-  } else if (window.location.pathname.includes("perfil.html")) {
+  } else if (window.location.pathname.includes("perfil.php")) {
     // Configurar eventos específicos para la página de perfil
     if (!userSession) {
       redirectToLoginPage(window.location.pathname);
       return;
     }
     setupProfilePage(userSession);
-  } else if (window.location.pathname.includes("registro.html")) {
+  } else if (window.location.pathname.includes("registro.php")) {
     // Configurar eventos específicos para la página de registro
     setupRegistrationPage();
     return;
@@ -900,10 +900,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Verificar acceso a páginas protegidas
   const protectedPages = [
-    "carrito.html",
-    "perfil.html",
-    "checkout.html",
-    "ordenes.html",
+    "carrito.php",
+    "perfil.php",
+    "checkout.php",
+    "ordenes.php",
   ];
 
   const isProtectedPage = protectedPages.some((page) =>
@@ -916,7 +916,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       displayUserInfo(userSession);
 
-      if (window.location.pathname.includes("carrito.html")) {
+      if (window.location.pathname.includes("carrito.php")) {
         renderCartItems();
         initCartControls();
         initDeliveryOptions();
@@ -938,7 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (registerBtn) {
     registerBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "/pages/registro.html";
+      window.location.href = "/pages/registro.php";
     });
   }
 
