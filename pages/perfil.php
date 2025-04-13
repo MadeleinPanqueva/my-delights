@@ -417,7 +417,8 @@
     <div id="footer-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/login.js"></script>
     <script src="../js/perfil.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -608,9 +609,13 @@
           personalInfoDisplay.style.display = "none";
           personalInfoForm.style.display = "block";
 
-          // Llenar los campos del formulario
+          // Llenar los campos del formulario con la información del usuario
           document.getElementById("userName").value = userSession.name || "";
           document.getElementById("userEmail").value = userSession.email || "";
+          document.getElementById("userCedula").value = userSession.cedula || "";
+          document.getElementById("userSexo").value = userSession.sexo || "";
+          document.getElementById("userNacimiento").value = userSession.nacimiento || "";
+          document.getElementById("userDireccion").value = userSession.direccion || "";
           document.getElementById("userPhone").value = userSession.phone || "";
 
           const customerTypeDisplay = document.getElementById(
@@ -639,6 +644,10 @@
           const updatedUserData = {
             name: document.getElementById("userName").value.trim(),
             email: document.getElementById("userEmail").value.trim(),
+            cedula: document.getElementById("userCedula").value.trim(),
+            sexo: document.getElementById("userSexo").value.trim(),
+            nacimiento: document.getElementById("userNacimiento").value.trim(),
+            direccion: document.getElementById("userDireccion").value.trim(),
             phone: document.getElementById("userPhone").value.trim(),
           };
 
@@ -705,15 +714,11 @@
           // Guardar lista actualizada de usuarios
           localStorage.setItem("registeredUsers", JSON.stringify(users));
 
-          // Actualizar sesión actual
-          const updatedSession = {
+          // Actualizar sesión actual usando la función creada
+          createUserSession({
             ...userSession,
-            ...updatedData,
-            updatedAt: new Date().toISOString(),
-          };
-
-          // Guardar sesión actualizada
-          localStorage.setItem("userSession", JSON.stringify(updatedSession));
+            ...updatedData
+          });
 
           return true;
         } catch (error) {
