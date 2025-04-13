@@ -221,7 +221,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        loadComponent("/components/header.html", "header-container").then(() => {
+        loadComponent("/components/header.php", "header-container").then(() => {
           if (!document.querySelector('script[src="/js/components/header.js"]')) {
             const headerScript = document.createElement("script");
             headerScript.src = "/js/components/header.js";
@@ -229,7 +229,7 @@
           }
         });
 
-        loadComponent("/components/footer.html", "footer-container").then(() => {
+        loadComponent("/components/footer.php", "footer-container").then(() => {
           if (!document.querySelector('script[src="/js/components/footer.js"]')) {
             const footerScript = document.createElement("script");
             footerScript.src = "/js/components/footer.js";
@@ -296,14 +296,14 @@
             localStorage.setItem("registeredUsers", JSON.stringify(users));
             localStorage.setItem("userSession", JSON.stringify(newUser));
 
-            window.location.href = "/pages/perfil.html";
+            window.location.href = "/pages/perfil.php";
           } else {
             // Inicio de sesión
             let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
             const user = users.find(u => u.email === email && u.password === password);
             if (user) {
               localStorage.setItem("userSession", JSON.stringify(user));
-              window.location.href = "/pages/perfil.html";
+              window.location.href = "/pages/perfil.php";
             } else {
               document.getElementById("loginErrorMessage").textContent = "Correo o contraseña incorrectos.";
             }
