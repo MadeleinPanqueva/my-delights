@@ -9,9 +9,9 @@
       content="Inicia sesión o regístrate en My Delights para acceder a descuentos exclusivos y gestionar tus pedidos."
     />
 
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/login.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -221,7 +221,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        loadComponent("/components/header.php", "header-container").then(() => {
+        loadComponent("/components/header.html", "header-container").then(() => {
           if (!document.querySelector('script[src="/js/components/header.js"]')) {
             const headerScript = document.createElement("script");
             headerScript.src = "/js/components/header.js";
@@ -229,7 +229,7 @@
           }
         });
 
-        loadComponent("/components/footer.php", "footer-container").then(() => {
+        loadComponent("/components/footer.html", "footer-container").then(() => {
           if (!document.querySelector('script[src="/js/components/footer.js"]')) {
             const footerScript = document.createElement("script");
             footerScript.src = "/js/components/footer.js";
@@ -256,6 +256,60 @@
           toggleMode.textContent = isRegistering
             ? "¿Ya tienes cuenta? Inicia sesión aquí"
             : "¿No tienes cuenta? Regístrate aquí";
+        
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          if (!email || !password) {
+            document.getElementById("loginErrorMessage").textContent = "Email y contraseña son obligatorios.";
+            return;
+          }
+
+          if (isRegistering) {
+            // Registro de nuevo usuario
+            const newUser = {
+              id: Date.now().toString(),
+              name: email.split("@")[0],
+              email: email,
+              password: password,
+              cedula: document.getElementById("cedula").value.trim(),
+              sexo: document.getElementById("sexo").value,
+              nacimiento: document.getElementById("fechaNacimiento").value,
+              direccion: document.getElementById("direccion").value.trim(),
+              phone: document.getElementById("telefono").value.trim(),
+              createdAt: new Date().toISOString(),
+              customerType: "nuevo"
+            };
+
+            let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+            const existingUser = users.find(u => u.email === newUser.email);
+            if (existingUser) {
+              document.getElementById("loginErrorMessage").textContent = "Este correo ya está registrado.";
+              return;
+            }
+
+            users.push(newUser);
+            localStorage.setItem("registeredUsers", JSON.stringify(users));
+            localStorage.setItem("userSession", JSON.stringify(newUser));
+
+            window.location.href = "/pages/perfil.html";
+          } else {
+            // Inicio de sesión
+            let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+            const user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+              localStorage.setItem("userSession", JSON.stringify(user));
+              window.location.href = "/pages/perfil.html";
+            } else {
+              document.getElementById("loginErrorMessage").textContent = "Correo o contraseña incorrectos.";
+            }
+          }
+        });
+
         });
       });
     </script>
