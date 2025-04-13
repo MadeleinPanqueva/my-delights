@@ -126,8 +126,33 @@
                         />
                       </div>
 
-                      <div class="mb-3">
-                        <label for="userPhone" class="form-label"
+                      
+<div class="mb-3">
+  <label for="userCedula" class="form-label">Cédula</label>
+  <input type="text" class="form-control" id="userCedula" name="cedula" />
+</div>
+
+<div class="mb-3">
+  <label for="userSexo" class="form-label">Sexo</label>
+  <select class="form-control" id="userSexo" name="sexo">
+    <option value="">Selecciona</option>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+  </select>
+</div>
+
+<div class="mb-3">
+  <label for="userNacimiento" class="form-label">Fecha de Nacimiento</label>
+  <input type="date" class="form-control" id="userNacimiento" name="nacimiento" />
+</div>
+
+<div class="mb-3">
+  <label for="userDireccion" class="form-label">Dirección</label>
+  <input type="text" class="form-control" id="userDireccion" name="direccion" />
+</div>
+
+<div class="mb-3">
+  <label for="userPhone" class="form-label"
                           >Teléfono</label
                         >
                         <input
@@ -510,8 +535,29 @@
       <div class="value">${userSession.email || "No especificado"}</div>
     </div>
     
-    <div class="info-group">
-      <label>Teléfono</label>
+    
+<div class="info-group">
+  <label>Cédula</label>
+  <div class="value">${userSession.cedula || "No especificado"}</div>
+</div>
+
+<div class="info-group">
+  <label>Sexo</label>
+  <div class="value">${userSession.sexo === "M" ? "Masculino" : userSession.sexo === "F" ? "Femenino" : "No especificado"}</div>
+</div>
+
+<div class="info-group">
+  <label>Fecha de Nacimiento</label>
+  <div class="value">${userSession.nacimiento ? new Date(userSession.nacimiento).toLocaleDateString("es-ES") : "No especificado"}</div>
+</div>
+
+<div class="info-group">
+  <label>Dirección</label>
+  <div class="value">${userSession.direccion || "No especificado"}</div>
+</div>
+
+<div class="info-group">
+  <label>Teléfono</label>
       <div class="value">${userSession.phone || "No especificado"}</div>
     </div>
     
