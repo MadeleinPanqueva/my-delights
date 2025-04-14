@@ -65,6 +65,10 @@
                     <!-- Campos de Registro -->
                     <div class="register-fields">
                       <div class="mb-3">
+                        <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+                        <input type="text" class="form-control" id="nombreCompleto" required />
+                      </div>
+                      <div class="mb-3">
                         <label for="cedula" class="form-label">Cédula</label>
                         <input type="text" class="form-control" id="cedula" />
                       </div>
@@ -270,10 +274,17 @@
           }
 
           if (isRegistering) {
+            // Validar campos de registro
+            const nombreCompleto = document.getElementById("nombreCompleto").value.trim();
+            if (!nombreCompleto) {
+              document.getElementById("loginErrorMessage").textContent = "El nombre completo es obligatorio.";
+              return;
+            }
+            
             // Registro de nuevo usuario
             const newUser = {
               id: Date.now().toString(),
-              name: email.split("@")[0],
+              name: document.getElementById("nombreCompleto").value.trim(),
               email: email,
               password: password,
               cedula: document.getElementById("cedula").value.trim(),
