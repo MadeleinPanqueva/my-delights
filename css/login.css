@@ -168,4 +168,11 @@
   .demo-login {
     width: 100%;
   }
+  @media (max-width: 768px) {
+  .contenedor-login {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
 }
