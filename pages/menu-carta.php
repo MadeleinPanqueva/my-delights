@@ -1,572 +1,526 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menú Gourmet | Alta Cocina y Platos de Autor | My Delights Restaurante</title>
-    <meta
-      name="description"
-      content="Descubra nuestra exquisita selección de platos gourmet a la carta, elaborados con ingredientes de temporada y técnicas de alta cocina. Creaciones exclusivas de nuestro chef ejecutivo."
-    />
-    <meta name="keywords" content="menú gourmet, alta cocina, gastronomía de autor, platos gourmet, cocina de vanguardia, restaurante fine dining, chef ejecutivo, maridaje, degustación" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Menú Gourmet y Alta Cocina | My Delights Restaurante" />
-    <meta property="og:description" content="Descubra nuestra exquisita selección de platos gourmet elaborados con ingredientes de temporada y técnicas de alta cocina. Experiencia gastronómica exclusiva." />
-    <meta property="og:image" content="../images/banners/menu-carta.jpg" />
-    <meta property="og:url" content="https://mydelights.com/pages/menu-carta.php" />
-    <meta property="og:type" content="website" />
-    <link rel="canonical" href="https://mydelights.com/pages/menu-carta.php" />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/menu.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
-  </head>
-  <body>
-    <div id="header-container"></div>
 
-    <main class="menu-page" itemscope itemtype="https://schema.org/Restaurant">
-      <meta itemprop="name" content="My Delights" />
-      <meta itemprop="servesCuisine" content="Gourmet, Alta Cocina, Contemporánea" />
-      <section class="menu-hero">
-        <div class="container">
-          <div class="menu-hero-content">
-            <h1 itemprop="menu">Menú Gourmet de Alta Cocina</h1>
-            <p itemprop="description">
-              Descubra nuestra selección de creaciones culinarias exclusivas, elaboradas por
-              nuestro chef ejecutivo con ingredientes premium de temporada y técnicas de vanguardia
-            </p>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Gourmet | Alta Cocina y Platos de Autor | My Delights Restaurante</title>
+  <meta name="description"
+    content="Descubra nuestra exquisita selección de platos gourmet a la carta, elaborados con ingredientes de temporada y técnicas de alta cocina. Creaciones exclusivas de nuestro chef ejecutivo." />
+  <meta name="keywords"
+    content="menú gourmet, alta cocina, gastronomía de autor, platos gourmet, cocina de vanguardia, restaurante fine dining, chef ejecutivo, maridaje, degustación" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Menú Gourmet y Alta Cocina | My Delights Restaurante" />
+  <meta property="og:description"
+    content="Descubra nuestra exquisita selección de platos gourmet elaborados con ingredientes de temporada y técnicas de alta cocina. Experiencia gastronómica exclusiva." />
+  <meta property="og:image" content="../images/banners/menu-carta.jpg" />
+  <meta property="og:url" content="https://mydelights.com/pages/menu-carta.php" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://mydelights.com/pages/menu-carta.php" />
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/menu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <main class="menu-page" itemscope itemtype="https://schema.org/Restaurant">
+    <meta itemprop="name" content="My Delights" />
+    <meta itemprop="servesCuisine" content="Gourmet, Alta Cocina, Contemporánea" />
+    <section class="menu-hero">
+      <div class="container">
+        <div class="menu-hero-content">
+          <h1 itemprop="menu">Menú Gourmet de Alta Cocina</h1>
+          <p itemprop="description">
+            Descubra nuestra selección de creaciones culinarias exclusivas, elaboradas por
+            nuestro chef ejecutivo con ingredientes premium de temporada y técnicas de vanguardia
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="menu-navigation">
-        <div class="container">
-          <div class="category-tabs" role="tablist" aria-label="Categorías del menú gourmet">
-            <button class="category-btn active" data-category="entradas" role="tab" aria-selected="true" aria-controls="entradas" id="tab-entradas">
-              Entrantes Gourmet
-            </button>
-            <button class="category-btn" data-category="principales" role="tab" aria-selected="false" aria-controls="principales" id="tab-principales">
-              Platos Principales
-            </button>
-            <button class="category-btn" data-category="postres" role="tab" aria-selected="false" aria-controls="postres" id="tab-postres">
-              Postres Artesanales
-            </button>
-            <button class="category-btn" data-category="bebidas" role="tab" aria-selected="false" aria-controls="bebidas" id="tab-bebidas">
-              Bebidas y Maridaje
-            </button>
-          </div>
+    <section class="menu-navigation">
+      <div class="container">
+        <div class="category-tabs" role="tablist" aria-label="Categorías del menú gourmet">
+          <button class="category-btn active" data-category="entradas" role="tab" aria-selected="true"
+            aria-controls="entradas" id="tab-entradas">
+            Entrantes Gourmet
+          </button>
+          <button class="category-btn" data-category="principales" role="tab" aria-selected="false"
+            aria-controls="principales" id="tab-principales">
+            Platos Principales
+          </button>
+          <button class="category-btn" data-category="postres" role="tab" aria-selected="false" aria-controls="postres"
+            id="tab-postres">
+            Postres Artesanales
+          </button>
+          <button class="category-btn" data-category="bebidas" role="tab" aria-selected="false" aria-controls="bebidas"
+            id="tab-bebidas">
+            Bebidas y Maridaje
+          </button>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="menu-content section-padding">
-        <div class="container">
-          <div class="menu-category active" id="entradas" role="tabpanel" aria-labelledby="tab-entradas" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Entrantes Gourmet" />
-            <div class="menu-items">
-              <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
-                <div class="menu-item-image">
-                  <img
+    <section class="menu-content section-padding">
+      <div class="container">
+        <div class="menu-category active" id="entradas" role="tabpanel" aria-labelledby="tab-entradas" itemscope
+          itemtype="https://schema.org/MenuSection">
+          <meta itemprop="name" content="Entrantes Gourmet" />
+          <div class="menu-items">
+            <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="menu-item-image">
+                <img
                   src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/66/46/db/fb/0c/v1_E11/E115KKAQ.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0f524f40fe0fb75462ccd9c9c6bb38fb08b39eebfdba8176ceb953e2267d352c"
-                  alt="Carpaccio de Salmón Premium con alcaparras, aceite de oliva virgen extra y queso parmesano DOP" 
-                  itemprop="image"
-                  loading="lazy"
-                  width="300"
-                  height="200" />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3 itemprop="name">Carpaccio de Salmón Noruego</h3>
-                    <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                      <span itemprop="price" content="15900">$15.900</span>
-                      <meta itemprop="priceCurrency" content="COP" />
-                    </span>
-                  </div>
-                  <p class="menu-item-description" itemprop="description">
-                    Finas láminas de salmón salvaje noruego con alcaparras sicilianas, queso
-                    parmesano DOP y aceite de oliva virgen extra con esencia de limón.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Fresco</span>
-                    <span class="tag">Mariscos Premium</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="e1"
-                    data-name="Carpaccio de Salmón Noruego"
-                    data-price="15900"
-                    aria-label="Añadir Carpaccio de Salmón Noruego al carrito"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+                  alt="Carpaccio de Salmón Premium con alcaparras, aceite de oliva virgen extra y queso parmesano DOP"
+                  itemprop="image" loading="lazy" width="300" height="200" />
               </div>
-
-              <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/43/43/be/18/e5/v1_E10/E104R1DZ.JPG?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0b4060c9a27ee26d773d252df69bb4d75de40573088efede4238eceb24c3b3bb"
-                    alt="Bruschetta de Tomate con albahaca, ajo y aceite de oliva"
-                    itemprop="image"
-                    loading="lazy"
-                    width="300"
-                    height="200"
-                  />
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3 itemprop="name">Carpaccio de Salmón Noruego</h3>
+                  <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="15900">$15.900</span>
+                    <meta itemprop="priceCurrency" content="COP" />
+                  </span>
                 </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3 itemprop="name">Bruschetta de Tomate</h3>
-                    <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                      <span itemprop="price" content="12500">$12.500</span>
-                      <meta itemprop="priceCurrency" content="COP" />
-                    </span>
-                  </div>
-                  <p class="menu-item-description" itemprop="description">
-                    Pan rústico tostado con tomate, albahaca, ajo y un toque de
-                    aceite de oliva.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Vegetariano</span>
-                    <span class="tag">Clásico</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="e2"
-                    data-name="Bruschetta de Tomate"
-                    data-price="12500"
-                    aria-label="Añadir Bruschetta de Tomate al carrito"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
+                <p class="menu-item-description" itemprop="description">
+                  Finas láminas de salmón salvaje noruego con alcaparras sicilianas, queso
+                  parmesano DOP y aceite de oliva virgen extra con esencia de limón.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Fresco</span>
+                  <span class="tag">Mariscos Premium</span>
                 </div>
-              </div>
-
-              <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/65/a6/15/9f/35/v1_E10/E104R25Z.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=630c65263b6385c027e1184b7407ef1d5ed3eef973b39fae0592fefff555629a"
-                    alt="Croquetas de Jamón crujientes y cremosas con jamón serrano y bechamel"
-                    itemprop="image"
-                    loading="lazy"
-                    width="300"
-                    height="200"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3 itemprop="name">Croquetas de Jamón</h3>
-                    <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                      <span itemprop="price" content="14200">$14.200</span>
-                      <meta itemprop="priceCurrency" content="COP" />
-                    </span>
-                  </div>
-                  <p class="menu-item-description" itemprop="description">
-                    Crujientes por fuera y cremosas por dentro, preparadas con
-                    jamón serrano y bechamel.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Caliente</span>
-                    <span class="tag">Popular</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="e3"
-                    data-name="Croquetas de Jamón"
-                    data-price="14200"
-                    aria-label="Añadir Croquetas de Jamón al carrito"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+                <button class="btn btn-sm add-to-cart" data-id="e1" data-name="Carpaccio de Salmón Noruego"
+                  data-price="15900" aria-label="Añadir Carpaccio de Salmón Noruego al carrito">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
               </div>
             </div>
-          </div>
 
-          <div class="menu-category" id="principales" role="tabpanel" aria-labelledby="tab-principales" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Platos Principales" />
-            <div class="menu-items">
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/05/21/9b/5d/34/v1_E10/E108GOCJ.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=94992afbae8bd3c19d76613e73d51cc67153680314a36ce1f75e901cd76ccb4f"
-                    alt="Lomo al Vino Tinto"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Lomo al Vino Tinto</h3>
-                    <span class="menu-item-price">$28.900</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Medallones de lomo fino con reducción de vino tinto,
-                    acompañados de puré de papas y vegetales asados.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Especialidad</span>
-                    <span class="tag">Carnes</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="p1"
-                    data-name="Lomo al Vino Tinto"
-                    data-price="28900"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+            <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/43/43/be/18/e5/v1_E10/E104R1DZ.JPG?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0b4060c9a27ee26d773d252df69bb4d75de40573088efede4238eceb24c3b3bb"
+                  alt="Bruschetta de Tomate con albahaca, ajo y aceite de oliva" itemprop="image" loading="lazy"
+                  width="300" height="200" />
               </div>
-
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/f1/1f/0e/47/1c/v1_E10/E10ARUYD.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=761cb20071b91749bd83332ba6a16ad25181c3702d242650ee596f57bf18a748"
-                    alt="Risotto de Hongos"
-                  />
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3 itemprop="name">Bruschetta de Tomate</h3>
+                  <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="12500">$12.500</span>
+                    <meta itemprop="priceCurrency" content="COP" />
+                  </span>
                 </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Risotto de Hongos</h3>
-                    <span class="menu-item-price">$24.500</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Cremoso risotto con variedad de hongos silvestres y queso
-                    parmesano.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Vegetariano</span>
-                    <span class="tag">Cremoso</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="p2"
-                    data-name="Risotto de Hongos"
-                    data-price="24500"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
+                <p class="menu-item-description" itemprop="description">
+                  Pan rústico tostado con tomate, albahaca, ajo y un toque de
+                  aceite de oliva.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Vegetariano</span>
+                  <span class="tag">Clásico</span>
                 </div>
-              </div>
-
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/46/4e/c7/88/a4/v1_E10/E108QQQA.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=e398245b80f9f6e331ecb212e487d06c8dc92a046f35df01a972e3cf186ec029"
-                    alt="Salmón a la Plancha"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Salmón a la Plancha</h3>
-                    <span class="menu-item-price">$26.700</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Filete de salmón a la plancha con salsa de eneldo,
-                    acompañado de espárragos y arroz al limón.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Saludable</span>
-                    <span class="tag">Mariscos</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="p3"
-                    data-name="Salmón a la Plancha"
-                    data-price="26700"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+                <button class="btn btn-sm add-to-cart" data-id="e2" data-name="Bruschetta de Tomate" data-price="12500"
+                  aria-label="Añadir Bruschetta de Tomate al carrito">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
               </div>
             </div>
-          </div>
 
-          <div class="menu-category" id="postres" role="tabpanel" aria-labelledby="tab-postres" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Postres Artesanales" />
-            <div class="menu-items">
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/64/88/bd/31/86/v1_E10/E10ART5T.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=c534115a7e1d18fad3f6f9dc89b63240f35fc8a2874971cb10beead5e366d36e"
-                    alt="Tiramisú Casero"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Tiramisú Casero</h3>
-                    <span class="menu-item-price">$12.900</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Capas de bizcocho empapado en café y licor, intercaladas con
-                    crema de mascarpone.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Clásico</span>
-                    <span class="tag">Casero</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="d1"
-                    data-name="Tiramisú Casero"
-                    data-price="12900"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+            <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/65/a6/15/9f/35/v1_E10/E104R25Z.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=630c65263b6385c027e1184b7407ef1d5ed3eef973b39fae0592fefff555629a"
+                  alt="Croquetas de Jamón crujientes y cremosas con jamón serrano y bechamel" itemprop="image"
+                  loading="lazy" width="300" height="200" />
               </div>
-
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-shoebox/f5ba/ca78-fe91-44ac-a00b-01b913925f52/PhilippeDegroote_ID14475_435327_019.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=37a9bb5ed0f56462f381102a8c44d2615c2111665219fe1a798d9a1e1b8eab01"
-                    alt="Coulant de Chocolate"
-                  />
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3 itemprop="name">Croquetas de Jamón</h3>
+                  <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="14200">$14.200</span>
+                    <meta itemprop="priceCurrency" content="COP" />
+                  </span>
                 </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Coulant de Chocolate</h3>
-                    <span class="menu-item-price">$13.500</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Bizcocho de chocolate con interior fundido, acompañado de
-                    helado de vainilla.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Caliente</span>
-                    <span class="tag">Popular</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="d2"
-                    data-name="Coulant de Chocolate"
-                    data-price="13500"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
+                <p class="menu-item-description" itemprop="description">
+                  Crujientes por fuera y cremosas por dentro, preparadas con
+                  jamón serrano y bechamel.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Caliente</span>
+                  <span class="tag">Popular</span>
                 </div>
-              </div>
-
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/67/7e/78/a0/9b/v1_E10/E10295JK.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=49e6ead031db144359474842ca6bdb23c1c2c3b48e3498d75cbea61ee2ddbb91"
-                    alt="Cheesecake de Frutos Rojos"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Cheesecake de Frutos Rojos</h3>
-                    <span class="menu-item-price">$11.800</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Cremoso cheesecake con base de galleta y cobertura de coulis
-                    de frutos rojos.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Frío</span>
-                    <span class="tag">Frutal</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="d3"
-                    data-name="Cheesecake de Frutos Rojos"
-                    data-price="11800"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-category" id="bebidas" role="tabpanel" aria-labelledby="tab-bebidas" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Bebidas y Maridaje" />
-            <div class="menu-items">
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/06/7f/fe/93/cb/v1_E10/E109CZ7X.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=8206dcb23d2a2bd6c591bfc790e3d857366acf7773af016363dd8b3960369f7a"
-                    alt="Vino Tinto Reserva"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Vino Tinto Reserva</h3>
-                    <span class="menu-item-price">$32.000</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Botella de vino tinto reserva con notas de frutos rojos y un
-                    toque de roble.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Alcohol</span>
-                    <span class="tag">Reserva</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="b1"
-                    data-name="Vino Tinto Reserva"
-                    data-price="32000"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
-              </div>
-
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/f0/e9/df/68/ca/v1_E11/E115VHO.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=673c76e2527194155c5a0ce7a7c67b252f7b04c900f45b2315c8ba547492704e"
-                    alt="Limonada de Coco"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Limonada de Coco</h3>
-                    <span class="menu-item-price">$8.500</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Refrescante limonada con leche de coco y hielo triturado.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Sin Alcohol</span>
-                    <span class="tag">Refrescante</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="b2"
-                    data-name="Limonada de Coco"
-                    data-price="8500"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
-              </div>
-
-              <div class="menu-item">
-                <div class="menu-item-image">
-                  <img
-                    src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/4c/d8/51/56/83/v1_E10/E108YBC1.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=61a890f645d259c4e2b7ae570038412bf2eef8b35bea264704f70ce2ae70e7aa"
-                    alt="Mojito Clásico"
-                  />
-                </div>
-                <div class="menu-item-info">
-                  <div class="menu-item-header">
-                    <h3>Mojito Clásico</h3>
-                    <span class="menu-item-price">$10.900</span>
-                  </div>
-                  <p class="menu-item-description">
-                    Cóctel a base de ron blanco, hierbabuena fresca, limón y
-                    soda.
-                  </p>
-                  <div class="menu-item-tags">
-                    <span class="tag">Alcohol</span>
-                    <span class="tag">Cóctel</span>
-                  </div>
-                  <button
-                    class="btn btn-sm add-to-cart"
-                    data-id="b3"
-                    data-name="Mojito Clásico"
-                    data-price="10900"
-                  >
-                    <i class="fas fa-cart-plus"></i> Añadir
-                  </button>
-                </div>
+                <button class="btn btn-sm add-to-cart" data-id="e3" data-name="Croquetas de Jamón" data-price="14200"
+                  aria-label="Añadir Croquetas de Jamón al carrito">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="cart-notification" id="cartNotification">
-        <div class="notification-content">
-          <p><span id="itemAddedName"></span> agregado al carrito</p>
-          <div class="notification-actions">
-            <button class="btn btn-sm continue-shopping">
-              Seguir comprando
-            </button>
-            <a href="/pages/carrito.php" class="btn btn-sm view-cart"
-              >Ver carrito</a
-            >
+        <div class="menu-category" id="principales" role="tabpanel" aria-labelledby="tab-principales" itemscope
+          itemtype="https://schema.org/MenuSection">
+          <meta itemprop="name" content="Platos Principales" />
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/05/21/9b/5d/34/v1_E10/E108GOCJ.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=94992afbae8bd3c19d76613e73d51cc67153680314a36ce1f75e901cd76ccb4f"
+                  alt="Lomo al Vino Tinto" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Lomo al Vino Tinto</h3>
+                  <span class="menu-item-price">$28.900</span>
+                </div>
+                <p class="menu-item-description">
+                  Medallones de lomo fino con reducción de vino tinto,
+                  acompañados de puré de papas y vegetales asados.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Especialidad</span>
+                  <span class="tag">Carnes</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="p1" data-name="Lomo al Vino Tinto" data-price="28900">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/f1/1f/0e/47/1c/v1_E10/E10ARUYD.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=761cb20071b91749bd83332ba6a16ad25181c3702d242650ee596f57bf18a748"
+                  alt="Risotto de Hongos" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Risotto de Hongos</h3>
+                  <span class="menu-item-price">$24.500</span>
+                </div>
+                <p class="menu-item-description">
+                  Cremoso risotto con variedad de hongos silvestres y queso
+                  parmesano.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Vegetariano</span>
+                  <span class="tag">Cremoso</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="p2" data-name="Risotto de Hongos" data-price="24500">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/46/4e/c7/88/a4/v1_E10/E108QQQA.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=e398245b80f9f6e331ecb212e487d06c8dc92a046f35df01a972e3cf186ec029"
+                  alt="Salmón a la Plancha" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Salmón a la Plancha</h3>
+                  <span class="menu-item-price">$26.700</span>
+                </div>
+                <p class="menu-item-description">
+                  Filete de salmón a la plancha con salsa de eneldo,
+                  acompañado de espárragos y arroz al limón.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Saludable</span>
+                  <span class="tag">Mariscos</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="p3" data-name="Salmón a la Plancha" data-price="26700">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
 
-    <div id="footer-container"></div>
+        <div class="menu-category" id="postres" role="tabpanel" aria-labelledby="tab-postres" itemscope
+          itemtype="https://schema.org/MenuSection">
+          <meta itemprop="name" content="Postres Artesanales" />
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/64/88/bd/31/86/v1_E10/E10ART5T.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=c534115a7e1d18fad3f6f9dc89b63240f35fc8a2874971cb10beead5e366d36e"
+                  alt="Tiramisú Casero" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Tiramisú Casero</h3>
+                  <span class="menu-item-price">$12.900</span>
+                </div>
+                <p class="menu-item-description">
+                  Capas de bizcocho empapado en café y licor, intercaladas con
+                  crema de mascarpone.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Clásico</span>
+                  <span class="tag">Casero</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="d1" data-name="Tiramisú Casero" data-price="12900">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
 
-    <script src="/js/main.js"></script>
-    <script src="/js/cart.js"></script>
-    <script src="/js/menu.js"></script>
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-shoebox/f5ba/ca78-fe91-44ac-a00b-01b913925f52/PhilippeDegroote_ID14475_435327_019.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=37a9bb5ed0f56462f381102a8c44d2615c2111665219fe1a798d9a1e1b8eab01"
+                  alt="Coulant de Chocolate" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Coulant de Chocolate</h3>
+                  <span class="menu-item-price">$13.500</span>
+                </div>
+                <p class="menu-item-description">
+                  Bizcocho de chocolate con interior fundido, acompañado de
+                  helado de vainilla.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Caliente</span>
+                  <span class="tag">Popular</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="d2" data-name="Coulant de Chocolate" data-price="13500">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
 
-    <script>
-      async function loadComponent(url, containerId) {
-        try {
-          console.log(`Intentando cargar componente desde: ${url}`);
-          const response = await fetch(url);
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/67/7e/78/a0/9b/v1_E10/E10295JK.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=49e6ead031db144359474842ca6bdb23c1c2c3b48e3498d75cbea61ee2ddbb91"
+                  alt="Cheesecake de Frutos Rojos" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Cheesecake de Frutos Rojos</h3>
+                  <span class="menu-item-price">$11.800</span>
+                </div>
+                <p class="menu-item-description">
+                  Cremoso cheesecake con base de galleta y cobertura de coulis
+                  de frutos rojos.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Frío</span>
+                  <span class="tag">Frutal</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="d3" data-name="Cheesecake de Frutos Rojos"
+                  data-price="11800">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          if (!response.ok) {
-            throw new Error(`Error cargando ${url}: ${response.status}`);
-          }
+        <div class="menu-category" id="bebidas" role="tabpanel" aria-labelledby="tab-bebidas" itemscope
+          itemtype="https://schema.org/MenuSection">
+          <meta itemprop="name" content="Bebidas y Maridaje" />
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/06/7f/fe/93/cb/v1_E10/E109CZ7X.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=8206dcb23d2a2bd6c591bfc790e3d857366acf7773af016363dd8b3960369f7a"
+                  alt="Vino Tinto Reserva" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Vino Tinto Reserva</h3>
+                  <span class="menu-item-price">$32.000</span>
+                </div>
+                <p class="menu-item-description">
+                  Botella de vino tinto reserva con notas de frutos rojos y un
+                  toque de roble.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Alcohol</span>
+                  <span class="tag">Reserva</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="b1" data-name="Vino Tinto Reserva" data-price="32000">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
 
-          const html = await response.text();
-          const container = document.getElementById(containerId);
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/f0/e9/df/68/ca/v1_E11/E115VHO.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=673c76e2527194155c5a0ce7a7c67b252f7b04c900f45b2315c8ba547492704e"
+                  alt="Limonada de Coco" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Limonada de Coco</h3>
+                  <span class="menu-item-price">$8.500</span>
+                </div>
+                <p class="menu-item-description">
+                  Refrescante limonada con leche de coco y hielo triturado.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Sin Alcohol</span>
+                  <span class="tag">Refrescante</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="b2" data-name="Limonada de Coco" data-price="8500">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
 
-          if (container) {
-            container.innerHTML = html;
-            console.log(`Componente ${url} cargado correctamente`);
+            <div class="menu-item">
+              <div class="menu-item-image">
+                <img
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/4c/d8/51/56/83/v1_E10/E108YBC1.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=61a890f645d259c4e2b7ae570038412bf2eef8b35bea264704f70ce2ae70e7aa"
+                  alt="Mojito Clásico" />
+              </div>
+              <div class="menu-item-info">
+                <div class="menu-item-header">
+                  <h3>Mojito Clásico</h3>
+                  <span class="menu-item-price">$10.900</span>
+                </div>
+                <p class="menu-item-description">
+                  Cóctel a base de ron blanco, hierbabuena fresca, limón y
+                  soda.
+                </p>
+                <div class="menu-item-tags">
+                  <span class="tag">Alcohol</span>
+                  <span class="tag">Cóctel</span>
+                </div>
+                <button class="btn btn-sm add-to-cart" data-id="b3" data-name="Mojito Clásico" data-price="10900">
+                  <i class="fas fa-cart-plus"></i> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            const event = new CustomEvent("componentLoaded", {
-              detail: { id: containerId, url: url },
-            });
-            document.dispatchEvent(event);
-          } else {
-            console.error(`Contenedor #${containerId} no encontrado`);
-          }
-        } catch (error) {
-          console.error(`Error al cargar componente ${url}:`, error);
+    <section class="cart-notification" id="cartNotification">
+      <div class="notification-content">
+        <p><span id="itemAddedName"></span> agregado al carrito</p>
+        <div class="notification-actions">
+          <button class="btn btn-sm continue-shopping">
+            Seguir comprando
+          </button>
+          <a href="/pages/carrito.php" class="btn btn-sm view-cart">Ver carrito</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/menu.js"></script>
+
+  <script>
+    async function loadComponent(url, containerId) {
+      try {
+        console.log(`Intentando cargar componente desde: ${url}`);
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error(`Error cargando ${url}: ${response.status}`);
         }
+
+        const html = await response.text();
+        const container = document.getElementById(containerId);
+
+        if (container) {
+          container.innerHTML = html;
+          console.log(`Componente ${url} cargado correctamente`);
+
+          const event = new CustomEvent("componentLoaded", {
+            detail: { id: containerId, url: url },
+          });
+          document.dispatchEvent(event);
+        } else {
+          console.error(`Contenedor #${containerId} no encontrado`);
+        }
+      } catch (error) {
+        console.error(`Error al cargar componente ${url}:`, error);
       }
+    }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("DOM cargado, iniciando carga de componentes");
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM cargado, iniciando carga de componentes");
 
-        loadComponent("/components/header.php", "header-container").then(
+      loadComponent("../components/header.php", "header-container").then(() => {
+
+        setTimeout(() => {
+          const menuToggle = document.getElementById("menuToggle") || document.querySelector(".menu-toggle");
+          const navList = document.getElementById("navList") || document.querySelector(".nav-list");
+          const menuOverlay = document.getElementById("menuOverlay") || document.querySelector(".menu-overlay");
+
+          console.log("Elementos encontrados después de timeout:", {
+            menuToggle: menuToggle ? true : false,
+            navList: navList ? true : false,
+            menuOverlay: menuOverlay ? true : false
+          });
+
+          if (menuToggle && navList) {
+            menuToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              navList.classList.toggle("active");
+              menuToggle.classList.toggle("active");
+              if (menuOverlay) menuOverlay.classList.toggle("active");
+
+              if (navList.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+              } else {
+                document.body.style.overflow = "";
+              }
+            });
+
+            if (menuOverlay) {
+              menuOverlay.addEventListener("click", function () {
+                navList.classList.remove("active");
+                menuToggle.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                document.body.style.overflow = "";
+              });
+            }
+          } else {
+            console.error("No se encontraron los elementos del menú móvil");
+          }
+        }, 500);
+      });
+
+      if (document.getElementById("footer-container")) {
+        loadComponent("/components/footer.php", "footer-container").then(
           () => {
-            console.log("Header cargado, verificando scripts...");
+            console.log("Footer cargado, verificando scripts...");
 
             if (
-              !document.querySelector('script[src="/js/components/header.js"]')
+              !document.querySelector(
+                'script[src="/js/components/footer.js"]'
+              )
             ) {
-              console.log("Cargando script del header...");
-              const headerScript = document.createElement("script");
-              headerScript.src = "/js/components/header.js";
-              document.body.appendChild(headerScript);
+              console.log("Cargando script del footer...");
+              const footerScript = document.createElement("script");
+              footerScript.src = "/js/components/footer.js";
+              document.body.appendChild(footerScript);
             }
           }
         );
+      }
+    });
+  </script>
+</body>
 
-        if (document.getElementById("footer-container")) {
-          loadComponent("/components/footer.php", "footer-container").then(
-            () => {
-              console.log("Footer cargado, verificando scripts...");
-
-              if (
-                !document.querySelector(
-                  'script[src="/js/components/footer.js"]'
-                )
-              ) {
-                console.log("Cargando script del footer...");
-                const footerScript = document.createElement("script");
-                footerScript.src = "/js/components/footer.js";
-                document.body.appendChild(footerScript);
-              }
-            }
-          );
-        }
-      });
-    </script>
-  </body>
 </html>

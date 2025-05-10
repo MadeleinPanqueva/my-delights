@@ -7,10 +7,12 @@
   <title>My Delights - Restaurante Gourmet de Alta Cocina | Delivery Premium</title>
   <meta name="description"
     content="My Delights ofrece la mejor experiencia culinaria en la ciudad con platos gourmet elaborados por chefs expertos. Gastronomía de autor y cocina de vanguardia con servicio a domicilio premium." />
-  <meta name="keywords" content="restaurante gourmet, alta cocina, gastronomía de autor, menú degustación, cocina de vanguardia, platos gourmet, delivery premium, experiencia gastronómica, chef ejecutivo" />
+  <meta name="keywords"
+    content="restaurante gourmet, alta cocina, gastronomía de autor, menú degustación, cocina de vanguardia, platos gourmet, delivery premium, experiencia gastronómica, chef ejecutivo" />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="My Delights - Restaurante Gourmet de Alta Cocina" />
-  <meta property="og:description" content="Disfruta de la mejor experiencia gastronómica con ingredientes frescos seleccionados y técnicas culinarias de vanguardia. Delivery premium disponible." />
+  <meta property="og:description"
+    content="Disfruta de la mejor experiencia gastronómica con ingredientes frescos seleccionados y técnicas culinarias de vanguardia. Delivery premium disponible." />
   <meta property="og:image" content="./images/banners/logo.png" />
   <meta property="og:url" content="https://mydelights.com" />
   <meta property="og:type" content="website" />
@@ -50,27 +52,35 @@
         <h2 class="section-title">Nuestras especialidades culinarias</h2>
         <div class="category-grid">
           <div class="category-card" itemprop="hasMenu" itemscope itemtype="https://schema.org/Menu">
-            <img src="images/categorias/categoria1.jpg" alt="Alta Cocina Gourmet - Creaciones exclusivas de nuestro chef ejecutivo con técnicas de vanguardia" itemprop="image" loading="lazy" width="300" height="200" />
+            <img src="images/categorias/categoria1.jpg"
+              alt="Alta Cocina Gourmet - Creaciones exclusivas de nuestro chef ejecutivo con técnicas de vanguardia"
+              itemprop="image" loading="lazy" width="300" height="200" />
             <h3 itemprop="name">Alta Cocina Gourmet</h3>
             <p itemprop="description">
-              Descubre nuestras creaciones exclusivas preparadas por chefs 
+              Descubre nuestras creaciones exclusivas preparadas por chefs
               con técnicas de vanguardia y presentaciones artísticas.
             </p>
             <a href="pages/menu-carta.php" class="btn btn-sm">Explorar Menú</a>
           </div>
           <div class="category-card" itemprop="hasMenu" itemscope itemtype="https://schema.org/Menu">
-            <img src="images/categorias/categoria2.jpg" alt="Gastronomía Ejecutiva - Menús gourmet diarios elaborados con ingredientes premium de temporada" itemprop="image" loading="lazy" width="300" height="200" />
+            <img src="images/categorias/categoria2.jpg"
+              alt="Gastronomía Ejecutiva - Menús gourmet diarios elaborados con ingredientes premium de temporada"
+              itemprop="image" loading="lazy" width="300" height="200" />
             <h3 itemprop="name">Gastronomía Ejecutiva</h3>
             <p itemprop="description">
-              Menús gourmet diarios elaborados con ingredientes premium de temporada y el toque distintivo de My Delights.
+              Menús gourmet diarios elaborados con ingredientes premium de temporada y el toque distintivo de My
+              Delights.
             </p>
             <a href="pages/menu-corriente.php" class="btn btn-sm">Explorar Menú</a>
           </div>
           <div class="category-card" itemscope itemtype="https://schema.org/Service">
-            <img src="images/categorias/categoria3.jpg" alt="Catering Premium - Servicio gastronómico de lujo para eventos corporativos y celebraciones especiales" itemprop="image" loading="lazy" width="300" height="200" />
+            <img src="images/categorias/categoria3.jpg"
+              alt="Catering Premium - Servicio gastronómico de lujo para eventos corporativos y celebraciones especiales"
+              itemprop="image" loading="lazy" width="300" height="200" />
             <h3 itemprop="name">Catering Premium</h3>
             <p itemprop="description">
-              Servicio gastronómico de lujo para eventos corporativos y celebraciones especiales con atención personalizada.
+              Servicio gastronómico de lujo para eventos corporativos y celebraciones especiales con atención
+              personalizada.
             </p>
             <a href="pages/servicios.php" class="btn btn-sm">Conocer Servicios</a>
           </div>
@@ -84,7 +94,8 @@
         <div class="promotion-grid">
           <div class="promotion-card" itemscope itemtype="https://schema.org/Offer">
             <div class="discount-badge">-20%</div>
-            <img src="images/banners/promo1.jpg" alt="Promoción Familiar - Pack con 20% de descuento" itemprop="image" loading="lazy" width="300" height="200" />
+            <img src="images/banners/promo1.jpg" alt="Promoción Familiar - Pack con 20% de descuento" itemprop="image"
+              loading="lazy" width="300" height="200" />
             <div class="promotion-content">
               <h3 itemprop="name">Pack Familiar</h3>
               <p itemprop="description">
@@ -97,7 +108,8 @@
           </div>
           <div class="promotion-card" itemscope itemtype="https://schema.org/Offer">
             <div class="discount-badge">2x1</div>
-            <img src="images/banners/promo2.jpg" alt="Promoción 2x1 en postres los martes" itemprop="image" loading="lazy" width="300" height="200" />
+            <img src="images/banners/promo2.jpg" alt="Promoción 2x1 en postres los martes" itemprop="image"
+              loading="lazy" width="300" height="200" />
             <div class="promotion-content">
               <h3 itemprop="name">Martes de 2x1</h3>
               <p itemprop="description">
@@ -110,7 +122,8 @@
           </div>
           <div class="promotion-card" itemscope itemtype="https://schema.org/Offer">
             <div class="discount-badge">NUEVO</div>
-            <img src="images/banners/promo3.jpg" alt="Nuevo Menú Ejecutivo para almuerzos de negocios" itemprop="image" loading="lazy" width="300" height="200" />
+            <img src="images/banners/promo3.jpg" alt="Nuevo Menú Ejecutivo para almuerzos de negocios" itemprop="image"
+              loading="lazy" width="300" height="200" />
             <div class="promotion-content">
               <h3 itemprop="name">Menú Ejecutivo</h3>
               <p itemprop="description">
@@ -149,7 +162,7 @@
               <span>Cliente habitual</span>
             </div>
           </div>
-          
+
           <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
             <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
               <meta itemprop="ratingValue" content="4.5" />
@@ -172,7 +185,7 @@
               <span>Gerente de Eventos</span>
             </div>
           </div>
-          
+
           <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
             <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
               <meta itemprop="ratingValue" content="5" />
@@ -209,7 +222,8 @@
           <form id="newsletterForm" class="newsletter-form">
             <div class="form-group">
               <label for="emailNewsletter" class="sr-only">Tu correo electrónico</label>
-              <input type="email" id="emailNewsletter" placeholder="Tu correo electrónico" required aria-required="true" />
+              <input type="email" id="emailNewsletter" placeholder="Tu correo electrónico" required
+                aria-required="true" />
               <button type="submit" class="btn btn-primary">
                 Suscribirme
               </button>
@@ -270,20 +284,47 @@
     document.addEventListener("DOMContentLoaded", () => {
       console.log("DOM cargado, iniciando carga de componentes");
 
-      loadComponent("./components/header.php", "header-container").then(
-        () => {
-          console.log("Header cargado, verificando scripts...");
+      loadComponent("./components/header.php", "header-container").then(() => {
 
-          if (
-            !document.querySelector('script[src="./js/components/header.js"]')
-          ) {
-            console.log("Cargando script del header...");
-            const headerScript = document.createElement("script");
-            headerScript.src = "./js/components/header.js";
-            document.body.appendChild(headerScript);
+        setTimeout(() => {
+          const menuToggle = document.getElementById("menuToggle") || document.querySelector(".menu-toggle");
+          const navList = document.getElementById("navList") || document.querySelector(".nav-list");
+          const menuOverlay = document.getElementById("menuOverlay") || document.querySelector(".menu-overlay");
+
+          console.log("Elementos encontrados después de timeout:", {
+            menuToggle: menuToggle ? true : false,
+            navList: navList ? true : false,
+            menuOverlay: menuOverlay ? true : false
+          });
+
+          if (menuToggle && navList) {
+            menuToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              navList.classList.toggle("active");
+              menuToggle.classList.toggle("active");
+              if (menuOverlay) menuOverlay.classList.toggle("active");
+
+              if (navList.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+              } else {
+                document.body.style.overflow = "";
+              }
+            });
+
+            if (menuOverlay) {
+              menuOverlay.addEventListener("click", function () {
+                navList.classList.remove("active");
+                menuToggle.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                document.body.style.overflow = "";
+              });
+            }
+          } else {
+            console.error("No se encontraron los elementos del menú móvil");
           }
-        }
-      );
+        }, 500);
+      });
 
       if (document.getElementById("footer-container")) {
         loadComponent("./components/footer.php", "footer-container").then(

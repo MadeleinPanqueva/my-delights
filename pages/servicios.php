@@ -5,11 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catering Gourmet y Eventos Premium | Gastronomía Exclusiva | My Delights</title>
-  <meta name="description" content="Servicio exclusivo de catering gourmet para eventos corporativos, celebraciones especiales y reuniones ejecutivas. Propuestas gastronómicas de autor, menús personalizados y servicio de alta categoría." />
-  <meta name="keywords" content="catering gourmet, eventos exclusivos, gastronomía de autor para eventos, banquetes corporativos premium, cocktail gourmet, fine dining catering, chef a domicilio, eventos gastronómicos, experiencias culinarias" />
+  <meta name="description"
+    content="Servicio exclusivo de catering gourmet para eventos corporativos, celebraciones especiales y reuniones ejecutivas. Propuestas gastronómicas de autor, menús personalizados y servicio de alta categoría." />
+  <meta name="keywords"
+    content="catering gourmet, eventos exclusivos, gastronomía de autor para eventos, banquetes corporativos premium, cocktail gourmet, fine dining catering, chef a domicilio, eventos gastronómicos, experiencias culinarias" />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Catering Gourmet y Eventos Premium | My Delights" />
-  <meta property="og:description" content="Experiencias gastronómicas exclusivas para eventos corporativos y celebraciones especiales. Propuestas culinarias de autor adaptadas a cada ocasión." />
+  <meta property="og:description"
+    content="Experiencias gastronómicas exclusivas para eventos corporativos y celebraciones especiales. Propuestas culinarias de autor adaptadas a cada ocasión." />
   <meta property="og:image" content="../images/categorias/categoria3.jpg" />
   <meta property="og:url" content="https://mydelights.com/pages/servicios.php" />
   <meta property="og:type" content="website" />
@@ -32,7 +35,7 @@
       <div class="container">
         <h1 itemprop="name">Catering Gourmet y Eventos Premium</h1>
         <p itemprop="description">
-          Experiencias gastronómicas exclusivas para sus eventos corporativos y 
+          Experiencias gastronómicas exclusivas para sus eventos corporativos y
           celebraciones especiales, con propuestas culinarias de autor
         </p>
       </div>
@@ -47,7 +50,8 @@
             Servicio de catering gourmet para eventos empresariales, congresos y reuniones ejecutivas.
             Menús de alta cocina personalizados con servicio de excelencia.
           </p>
-          <button class="btn schedule-btn" data-service="Banquetes Corporativos Premium" aria-label="Agendar servicio de Banquetes Corporativos Premium">
+          <button class="btn schedule-btn" data-service="Banquetes Corporativos Premium"
+            aria-label="Agendar servicio de Banquetes Corporativos Premium">
             Solicitar Propuesta
           </button>
         </div>
@@ -59,7 +63,8 @@
             Celebraciones únicas con propuestas gastronómicas de autor. Bodas, aniversarios,
             cumpleaños y reuniones familiares con un toque sofisticado.
           </p>
-          <button class="btn schedule-btn" data-service="Eventos Sociales Exclusivos" aria-label="Agendar servicio de Eventos Sociales Exclusivos">
+          <button class="btn schedule-btn" data-service="Eventos Sociales Exclusivos"
+            aria-label="Agendar servicio de Eventos Sociales Exclusivos">
             Solicitar Propuesta
           </button>
         </div>
@@ -71,7 +76,8 @@
             Estaciones gastronómicas temáticas y bufets de alta cocina para todo tipo de
             celebraciones. Creaciones culinarias vanguardistas servidas con elegancia.
           </p>
-          <button class="btn schedule-btn" data-service="Cocktail y Bufets Gourmet" aria-label="Agendar servicio de Cocktail y Bufets Gourmet">
+          <button class="btn schedule-btn" data-service="Cocktail y Bufets Gourmet"
+            aria-label="Agendar servicio de Cocktail y Bufets Gourmet">
             Solicitar Propuesta
           </button>
         </div>
@@ -112,11 +118,14 @@
           </div>
           <div class="form-group">
             <label for="guests">Número de Invitados</label>
-            <input type="number" id="guests" placeholder="Número aproximado de invitados" required aria-required="true" />
+            <input type="number" id="guests" placeholder="Número aproximado de invitados" required
+              aria-required="true" />
           </div>
           <div class="form-group">
             <label for="details">Detalles del evento y requerimientos especiales</label>
-            <textarea id="details" placeholder="Describe brevemente el tipo de evento y cualquier requerimiento especial" rows="4"></textarea>
+            <textarea id="details"
+              placeholder="Describe brevemente el tipo de evento y cualquier requerimiento especial"
+              rows="4"></textarea>
           </div>
           <button type="submit" class="btn">Enviar Solicitud</button>
         </form>
@@ -159,20 +168,48 @@
     document.addEventListener("DOMContentLoaded", () => {
       console.log("DOM cargado, iniciando carga de componentes");
 
-      loadComponent("../components/header.php", "header-container").then(
-        () => {
-          console.log("Header cargado, verificando scripts...");
+      loadComponent("../components/header.php", "header-container").then(() => {
 
-          if (
-            !document.querySelector('script[src="../js/components/header.js"]')
-          ) {
-            console.log("Cargando script del header...");
-            const headerScript = document.createElement("script");
-            headerScript.src = "../js/components/header.js";
-            document.body.appendChild(headerScript);
+        setTimeout(() => {
+          const menuToggle = document.getElementById("menuToggle") || document.querySelector(".menu-toggle");
+          const navList = document.getElementById("navList") || document.querySelector(".nav-list");
+          const menuOverlay = document.getElementById("menuOverlay") || document.querySelector(".menu-overlay");
+
+          console.log("Elementos encontrados después de timeout:", {
+            menuToggle: menuToggle ? true : false,
+            navList: navList ? true : false,
+            menuOverlay: menuOverlay ? true : false
+          });
+
+          if (menuToggle && navList) {
+            menuToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              navList.classList.toggle("active");
+              menuToggle.classList.toggle("active");
+              if (menuOverlay) menuOverlay.classList.toggle("active");
+
+              if (navList.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+              } else {
+                document.body.style.overflow = "";
+              }
+            });
+
+            if (menuOverlay) {
+              menuOverlay.addEventListener("click", function () {
+                navList.classList.remove("active");
+                menuToggle.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                document.body.style.overflow = "";
+              });
+            }
+          } else {
+            console.error("No se encontraron los elementos del menú móvil");
           }
-        }
-      );
+        }, 500);
+      });
+
 
       if (document.getElementById("footer-container")) {
         loadComponent("../components/footer.php", "footer-container").then(

@@ -1,244 +1,249 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Delights - Carrito de Compra</title>
-    <meta
-      name="description"
-      content="Revisa los productos seleccionados en tu carrito de compra y finaliza tu pedido en My Delights."
-    />
 
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
-    <link rel="stylesheet" href="../css/carrito.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Delights - Carrito de Compra</title>
+  <meta name="description"
+    content="Revisa los productos seleccionados en tu carrito de compra y finaliza tu pedido en My Delights." />
+
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/carrito.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 
-    <style>
-      html,
-      body,
-      #header-container,
-      header,
-      main {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-      }
+  <style>
+    html,
+    body,
+    #header-container,
+    header,
+    main {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
 
-      body {
-        overflow-x: hidden;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="header-container"></div>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+</head>
 
-    <main class="cart-page">
-      <section class="cart-hero">
-        <div class="container">
-          <div class="cart-hero-content">
-            <h1>Tu Carrito</h1>
-            <p>Revisa tus productos seleccionados y finaliza tu pedido</p>
-          </div>
+<body>
+  <div id="header-container"></div>
+
+  <main class="cart-page">
+    <section class="cart-hero">
+      <div class="container">
+        <div class="cart-hero-content">
+          <h1>Tu Carrito</h1>
+          <p>Revisa tus productos seleccionados y finaliza tu pedido</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="cart-content section-padding">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="cart-items-container">
-                <div class="empty-cart-message" id="emptyCartMessage">
-                  <i class="fas fa-shopping-cart"></i>
-                  <h3>Tu carrito está vacío</h3>
-                  <p>Parece que aún no has añadido productos a tu carrito</p>
-                  <a href="/pages/menu-carta.php" class="btn btn-primary"
-                    >Ver menú</a
-                  >
-                </div>
-
-                <div id="cartItemsContainer"></div>
+    <section class="cart-content section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="cart-items-container">
+              <div class="empty-cart-message" id="emptyCartMessage">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Tu carrito está vacío</h3>
+                <p>Parece que aún no has añadido productos a tu carrito</p>
+                <a href="/pages/menu-carta.php" class="btn btn-primary">Ver menú</a>
               </div>
 
-              <div class="cart-actions">
-                <button id="clearCartBtn" class="btn btn-outline-danger">
-                  <i class="fas fa-trash-alt"></i> Vaciar carrito
-                </button>
-                <a
-                  href="/pages/menu-carta.php"
-                  class="btn btn-outline-primary"
-                >
-                  <i class="fas fa-utensils"></i> Seguir comprando
-                </a>
-              </div>
+              <div id="cartItemsContainer"></div>
             </div>
 
-            <div class="col-lg-4">
-              <div class="cart-summary-container">
-                <div class="cart-summary-header">
-                  <h3>Resumen del pedido</h3>
-                </div>
+            <div class="cart-actions">
+              <button id="clearCartBtn" class="btn btn-outline-danger">
+                <i class="fas fa-trash-alt"></i> Vaciar carrito
+              </button>
+              <a href="/pages/menu-carta.php" class="btn btn-outline-primary">
+                <i class="fas fa-utensils"></i> Seguir comprando
+              </a>
+            </div>
+          </div>
 
-                <div class="cart-summary" id="cartSummary">
-                  <!-- El resumen del carrito se cargará aquí mediante JavaScript -->
-                </div>
+          <div class="col-lg-4">
+            <div class="cart-summary-container">
+              <div class="cart-summary-header">
+                <h3>Resumen del pedido</h3>
+              </div>
 
-                <div class="promo-code">
-                  <h4>¿Tienes un código promocional?</h4>
-                  <div class="promo-code-input">
-                    <input
-                      type="text"
-                      id="promoCodeInput"
-                      placeholder="Ingresa tu código"
-                    />
-                    <button id="applyPromoBtn" class="btn btn-sm">
-                      Aplicar
-                    </button>
-                  </div>
-                  <div class="promo-code-message" id="promoCodeMessage"></div>
-                </div>
+              <div class="cart-summary" id="cartSummary">
+                <!-- El resumen del carrito se cargará aquí mediante JavaScript -->
+              </div>
 
-                <div class="delivery-options">
-                  <h4>Opciones de entrega</h4>
-                  <div class="form-check">
-                    <input
-                      type="radio"
-                      id="pickupOption"
-                      name="deliveryOption"
-                      class="form-check-input"
-                      checked
-                    />
-                    <label for="pickupOption" class="form-check-label"
-                      >Recoger en restaurante</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="radio"
-                      id="deliveryOption"
-                      name="deliveryOption"
-                      class="form-check-input"
-                    />
-                    <label for="deliveryOption" class="form-check-label"
-                      >Entrega a domicilio</label
-                    >
-                  </div>
+              <div class="promo-code">
+                <h4>¿Tienes un código promocional?</h4>
+                <div class="promo-code-input">
+                  <input type="text" id="promoCodeInput" placeholder="Ingresa tu código" />
+                  <button id="applyPromoBtn" class="btn btn-sm">
+                    Aplicar
+                  </button>
+                </div>
+                <div class="promo-code-message" id="promoCodeMessage"></div>
+              </div>
+
+              <div class="delivery-options">
+                <h4>Opciones de entrega</h4>
+                <div class="form-check">
+                  <input type="radio" id="pickupOption" name="deliveryOption" class="form-check-input" checked />
+                  <label for="pickupOption" class="form-check-label">Recoger en restaurante</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="deliveryOption" name="deliveryOption" class="form-check-input" />
+                  <label for="deliveryOption" class="form-check-label">Entrega a domicilio</label>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <div id="footer-container"></div>
+  <div id="footer-container"></div>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/cart.js"></script>
 
-    <script>
-      async function loadComponent(url, containerId) {
-        try {
-          console.log(`Cargando componente desde: ${url}`);
-          const response = await fetch(url);
+  <script>
+    async function loadComponent(url, containerId) {
+      try {
+        console.log(`Cargando componente desde: ${url}`);
+        const response = await fetch(url);
 
-          if (!response.ok) {
-            throw new Error(`Error cargando ${url}: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`Error cargando ${url}: ${response.status}`);
+        }
+
+        const html = await response.text();
+        const container = document.getElementById(containerId);
+
+        if (container) {
+          container.style.margin = "0";
+          container.style.padding = "0";
+          container.style.display = "block";
+
+          container.innerHTML = html;
+          console.log(`Componente ${url} cargado correctamente`);
+
+          if (containerId === "header-container") {
+            if (
+              !document.querySelector(
+                'script[src="/js/components/header.js"]'
+              )
+            ) {
+              console.log("Cargando script del header...");
+
+              const headerScript = document.createElement("script");
+              headerScript.src = "/js/components/header.js";
+              headerScript.onload = function () {
+                console.log("Script del header cargado correctamente");
+                if (typeof initHeader === "function") {
+                  initHeader();
+                } else {
+                  console.log(
+                    "Función initHeader no disponible, se espera ejecución automática"
+                  );
+                }
+              };
+              document.body.appendChild(headerScript);
+            } else {
+              console.log("Script del header ya está cargado");
+              setTimeout(() => {
+                if (typeof initHeader === "function") {
+                  initHeader();
+                }
+              }, 100);
+            }
           }
 
-          const html = await response.text();
-          const container = document.getElementById(containerId);
-
-          if (container) {
-            container.style.margin = "0";
-            container.style.padding = "0";
-            container.style.display = "block";
-
-            container.innerHTML = html;
-            console.log(`Componente ${url} cargado correctamente`);
-
-            if (containerId === "header-container") {
-              if (
-                !document.querySelector(
-                  'script[src="/js/components/header.js"]'
-                )
-              ) {
-                console.log("Cargando script del header...");
-
-                const headerScript = document.createElement("script");
-                headerScript.src = "/js/components/header.js";
-                headerScript.onload = function () {
-                  console.log("Script del header cargado correctamente");
-                  if (typeof initHeader === "function") {
-                    initHeader();
-                  } else {
-                    console.log(
-                      "Función initHeader no disponible, se espera ejecución automática"
-                    );
-                  }
-                };
-                document.body.appendChild(headerScript);
-              } else {
-                console.log("Script del header ya está cargado");
-                setTimeout(() => {
-                  if (typeof initHeader === "function") {
-                    initHeader();
-                  }
-                }, 100);
-              }
+          if (containerId === "footer-container") {
+            if (
+              !document.querySelector(
+                'script[src="/js/components/footer.js"]'
+              )
+            ) {
+              console.log("Cargando script del footer...");
+              const footerScript = document.createElement("script");
+              footerScript.src = "/js/components/footer.js";
+              document.body.appendChild(footerScript);
             }
-
-            if (containerId === "footer-container") {
-              if (
-                !document.querySelector(
-                  'script[src="/js/components/footer.js"]'
-                )
-              ) {
-                console.log("Cargando script del footer...");
-                const footerScript = document.createElement("script");
-                footerScript.src = "/js/components/footer.js";
-                document.body.appendChild(footerScript);
-              }
-            }
-
-            const event = new CustomEvent("componentLoaded", {
-              detail: { id: containerId, url: url },
-            });
-            document.dispatchEvent(event);
-
-            return true;
-          } else {
-            console.error(`Contenedor #${containerId} no encontrado`);
-            return false;
           }
-        } catch (error) {
-          console.error(`Error al cargar componente ${url}:`, error);
+
+          const event = new CustomEvent("componentLoaded", {
+            detail: { id: containerId, url: url },
+          });
+          document.dispatchEvent(event);
+
+          return true;
+        } else {
+          console.error(`Contenedor #${containerId} no encontrado`);
           return false;
         }
+      } catch (error) {
+        console.error(`Error al cargar componente ${url}:`, error);
+        return false;
       }
+    }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("DOM cargado, iniciando carga de componentes");
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM cargado, iniciando carga de componentes");
 
-        loadComponent("../components/header.php", "header-container").then(
-          (success) => {
-            if (!success) {
-              console.warn("No se pudo cargar el header, reintentando...");
-              setTimeout(() => {
-                loadComponent("../components/header.php", "header-container");
-              }, 500);
+      loadComponent("../components/header.php", "header-container").then(() => {
+
+        setTimeout(() => {
+          const menuToggle = document.getElementById("menuToggle") || document.querySelector(".menu-toggle");
+          const navList = document.getElementById("navList") || document.querySelector(".nav-list");
+          const menuOverlay = document.getElementById("menuOverlay") || document.querySelector(".menu-overlay");
+
+          console.log("Elementos encontrados después de timeout:", {
+            menuToggle: menuToggle ? true : false,
+            navList: navList ? true : false,
+            menuOverlay: menuOverlay ? true : false
+          });
+
+          if (menuToggle && navList) {
+            menuToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+
+              navList.classList.toggle("active");
+              menuToggle.classList.toggle("active");
+              if (menuOverlay) menuOverlay.classList.toggle("active");
+
+              if (navList.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+              } else {
+                document.body.style.overflow = "";
+              }
+            });
+
+            if (menuOverlay) {
+              menuOverlay.addEventListener("click", function () {
+                navList.classList.remove("active");
+                menuToggle.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                document.body.style.overflow = "";
+              });
             }
+          } else {
+            console.error("No se encontraron los elementos del menú móvil");
           }
-        );
-
-        if (document.getElementById("footer-container")) {
-          loadComponent("../components/footer.php", "footer-container");
-        }
+        }, 500);
       });
-    </script>
-  </body>
+
+      if (document.getElementById("footer-container")) {
+        loadComponent("../components/footer.php", "footer-container");
+      }
+    });
+  </script>
+</body>
+
 </html>

@@ -1,515 +1,421 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Delights - Perfil de Usuario</title>
-    <meta
-      name="description"
-      content="Gestiona tu información personal, revisa tu historial de pedidos y configura tus preferencias en My Delights."
-    />
 
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/perfil.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Delights - Perfil de Usuario</title>
+  <meta name="description"
+    content="Gestiona tu información personal, revisa tu historial de pedidos y configura tus preferencias en My Delights." />
 
-    <style>
-      html,
-      body,
-      #header-container,
-      header,
-      main {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-      }
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/perfil.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-      body {
-        overflow-x: hidden;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="header-container"></div>
+  <style>
+    html,
+    body,
+    #header-container,
+    header,
+    main {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
 
-    <main class="profile-page">
-      <section class="profile-hero">
-        <div class="container">
-          <div class="profile-hero-content">
-            <h1>Mi Perfil</h1>
-            <p>Gestiona tu información personal y preferencias</p>
-          </div>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <main class="profile-page">
+    <section class="profile-hero">
+      <div class="container">
+        <div class="profile-hero-content">
+          <h1>Mi Perfil</h1>
+          <p>Gestiona tu información personal y preferencias</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="profile-content section-padding">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-4">
-              <div class="profile-sidebar">
-                <div class="user-info-summary" id="userInfoSummary"></div>
+    <section class="profile-content section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-4">
+            <div class="profile-sidebar">
+              <div class="user-info-summary" id="userInfoSummary"></div>
 
-                <ul class="profile-menu" id="profileMenu">
-                  <li class="active" data-section="personal-info">
-                    <a href="#personal-info"
-                      ><i class="fas fa-user"></i> Información Personal</a
-                    >
-                  </li>
-                  <li data-section="order-history">
-                    <a href="#order-history"
-                      ><i class="fas fa-shopping-bag"></i> Historial de
-                      Pedidos</a
-                    >
-                  </li>
-                  <li data-section="preferences">
-                    <a href="#preferences"
-                      ><i class="fas fa-cog"></i> Preferencias</a
-                    >
-                  </li>
-                  <li class="logout-option">
-                    <a href="#" id="logoutBtn"
-                      ><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a
-                    >
-                  </li>
-                </ul>
-              </div>
+              <ul class="profile-menu" id="profileMenu">
+                <li class="active" data-section="personal-info">
+                  <a href="#personal-info"><i class="fas fa-user"></i> Información Personal</a>
+                </li>
+                <li data-section="order-history">
+                  <a href="#order-history"><i class="fas fa-shopping-bag"></i> Historial de
+                    Pedidos</a>
+                </li>
+                <li data-section="preferences">
+                  <a href="#preferences"><i class="fas fa-cog"></i> Preferencias</a>
+                </li>
+                <li class="logout-option">
+                  <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <div class="col-lg-9 col-md-8">
-              <div class="profile-main-content">
-                <div class="profile-section active" id="personal-info">
-                  <div class="section-header">
-                    <h2>Información Personal</h2>
-                    <button
-                      class="btn btn-sm btn-outline-primary edit-btn"
-                      id="editPersonalInfoBtn"
-                    >
-                      <i class="fas fa-edit"></i> Editar
-                    </button>
-                  </div>
-
-                  <div
-                    class="profile-info-display"
-                    id="personalInfoDisplay"
-                  ></div>
-
-                  <div
-                    class="profile-info-form"
-                    id="personalInfoForm"
-                    style="display: none"
-                  >
-                    <form id="userProfileForm">
-                      <div class="mb-3">
-                        <label for="userName" class="form-label"
-                          >Nombre Completo</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="userName"
-                          name="name"
-                        />
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="userEmail" class="form-label"
-                          >Correo Electrónico</label
-                        >
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="userEmail"
-                          name="email"
-                        />
-                      </div>
-
-                      
-<div class="mb-3">
-  <label for="userCedula" class="form-label">Cédula</label>
-  <input type="text" class="form-control" id="userCedula" name="cedula" />
-</div>
-
-<div class="mb-3">
-  <label for="userSexo" class="form-label">Sexo</label>
-  <select class="form-control" id="userSexo" name="sexo">
-    <option value="">Selecciona</option>
-    <option value="M">Masculino</option>
-    <option value="F">Femenino</option>
-  </select>
-</div>
-
-<div class="mb-3">
-  <label for="userNacimiento" class="form-label">Fecha de Nacimiento</label>
-  <input type="date" class="form-control" id="userNacimiento" name="nacimiento" />
-</div>
-
-<div class="mb-3">
-  <label for="userDireccion" class="form-label">Dirección</label>
-  <input type="text" class="form-control" id="userDireccion" name="direccion" />
-</div>
-
-<div class="mb-3">
-  <label for="userPhone" class="form-label"
-                          >Teléfono</label
-                        >
-                        <input
-                          type="tel"
-                          class="form-control"
-                          id="userPhone"
-                          name="phone"
-                          placeholder="+57 300 123 4567"
-                        />
-                      </div>
-
-                      <div class="mb-3">
-                        <label class="form-label">Tipo de Cliente</label>
-                        <div
-                          class="customer-type-badge"
-                          id="customerTypeDisplay"
-                        ></div>
-                        <small class="text-muted"
-                          >El tipo de cliente se asigna automáticamente según tu
-                          historial de compras.</small
-                        >
-                      </div>
-
-                      <div class="form-buttons">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          id="cancelEditBtn"
-                        >
-                          Cancelar
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                          Guardar Cambios
-                        </button>
-                      </div>
-                    </form>
-                  </div>
+          <div class="col-lg-9 col-md-8">
+            <div class="profile-main-content">
+              <div class="profile-section active" id="personal-info">
+                <div class="section-header">
+                  <h2>Información Personal</h2>
+                  <button class="btn btn-sm btn-outline-primary edit-btn" id="editPersonalInfoBtn">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>
                 </div>
 
-                <div class="profile-section" id="order-history">
-                  <div class="section-header">
-                    <h2>Historial de Pedidos</h2>
-                  </div>
+                <div class="profile-info-display" id="personalInfoDisplay"></div>
 
-                  <div class="order-filters">
-                    <div class="row align-items-center">
-                      <div class="col-md-6">
-                        <div class="input-group">
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Buscar pedidos..."
-                            id="orderSearchInput"
-                          />
-                          <button
-                            class="btn btn-outline-secondary"
-                            type="button"
-                            id="orderSearchBtn"
-                          >
-                            <i class="fas fa-search"></i>
-                          </button>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="filter-options">
-                          <label for="orderFilterSelect">Filtrar por:</label>
-                          <select class="form-select" id="orderFilterSelect">
-                            <option value="all">Todos los pedidos</option>
-                            <option value="recent">Últimos 30 días</option>
-                            <option value="pending">Pendientes</option>
-                            <option value="completed">Completados</option>
-                          </select>
-                        </div>
+                <div class="profile-info-form" id="personalInfoForm" style="display: none">
+                  <form id="userProfileForm">
+                    <div class="mb-3">
+                      <label for="userName" class="form-label">Nombre Completo</label>
+                      <input type="text" class="form-control" id="userName" name="name" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="userEmail" class="form-label">Correo Electrónico</label>
+                      <input type="email" class="form-control" id="userEmail" name="email" />
+                    </div>
+
+
+                    <div class="mb-3">
+                      <label for="userCedula" class="form-label">Cédula</label>
+                      <input type="text" class="form-control" id="userCedula" name="cedula" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="userSexo" class="form-label">Sexo</label>
+                      <select class="form-control" id="userSexo" name="sexo">
+                        <option value="">Selecciona</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="userNacimiento" class="form-label">Fecha de Nacimiento</label>
+                      <input type="date" class="form-control" id="userNacimiento" name="nacimiento" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="userDireccion" class="form-label">Dirección</label>
+                      <input type="text" class="form-control" id="userDireccion" name="direccion" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="userPhone" class="form-label">Teléfono</label>
+                      <input type="tel" class="form-control" id="userPhone" name="phone"
+                        placeholder="+57 300 123 4567" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Tipo de Cliente</label>
+                      <div class="customer-type-badge" id="customerTypeDisplay"></div>
+                      <small class="text-muted">El tipo de cliente se asigna automáticamente según tu
+                        historial de compras.</small>
+                    </div>
+
+                    <div class="form-buttons">
+                      <button type="button" class="btn btn-secondary" id="cancelEditBtn">
+                        Cancelar
+                      </button>
+                      <button type="submit" class="btn btn-primary">
+                        Guardar Cambios
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="profile-section" id="order-history">
+                <div class="section-header">
+                  <h2>Historial de Pedidos</h2>
+                </div>
+
+                <div class="order-filters">
+                  <div class="row align-items-center">
+                    <div class="col-md-6">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar pedidos..." id="orderSearchInput" />
+                        <button class="btn btn-outline-secondary" type="button" id="orderSearchBtn">
+                          <i class="fas fa-search"></i>
+                        </button>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="orders-list" id="ordersList">
-                    <div class="no-orders-message" id="noOrdersMessage">
-                      <i class="fas fa-shopping-bag"></i>
-                      <p>No tienes pedidos registrados</p>
-                      <a href="/pages/menu-carta.php" class="btn btn-primary"
-                        >Ir al Menú</a
-                      >
+                    <div class="col-md-6">
+                      <div class="filter-options">
+                        <label for="orderFilterSelect">Filtrar por:</label>
+                        <select class="form-select" id="orderFilterSelect">
+                          <option value="all">Todos los pedidos</option>
+                          <option value="recent">Últimos 30 días</option>
+                          <option value="pending">Pendientes</option>
+                          <option value="completed">Completados</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="profile-section" id="preferences">
-                  <div class="section-header">
-                    <h2>Preferencias</h2>
+                <div class="orders-list" id="ordersList">
+                  <div class="no-orders-message" id="noOrdersMessage">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p>No tienes pedidos registrados</p>
+                    <a href="/pages/menu-carta.php" class="btn btn-primary">Ir al Menú</a>
                   </div>
+                </div>
+              </div>
 
-                  <div class="preferences-form">
-                    <form id="userPreferencesForm">
-                      <div class="mb-4">
-                        <h3>Notificaciones</h3>
+              <div class="profile-section" id="preferences">
+                <div class="section-header">
+                  <h2>Preferencias</h2>
+                </div>
 
-                        <div class="form-check form-switch mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="emailNotif"
-                            checked
-                          />
-                          <label class="form-check-label" for="emailNotif"
-                            >Notificaciones por correo electrónico</label
-                          >
-                        </div>
+                <div class="preferences-form">
+                  <form id="userPreferencesForm">
+                    <div class="mb-4">
+                      <h3>Notificaciones</h3>
 
-                        <div class="form-check form-switch mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="promoNotif"
-                            checked
-                          />
-                          <label class="form-check-label" for="promoNotif"
-                            >Recibir ofertas y promociones</label
-                          >
-                        </div>
-
-                        <div class="form-check form-switch mb-2">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="orderStatusNotif"
-                            checked
-                          />
-                          <label class="form-check-label" for="orderStatusNotif"
-                            >Actualizaciones de estado de pedidos</label
-                          >
-                        </div>
+                      <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="emailNotif" checked />
+                        <label class="form-check-label" for="emailNotif">Notificaciones por correo electrónico</label>
                       </div>
 
-                      <div class="mb-4">
-                        <h3>Preferencias de Menú</h3>
+                      <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="promoNotif" checked />
+                        <label class="form-check-label" for="promoNotif">Recibir ofertas y promociones</label>
+                      </div>
 
-                        <div class="mb-3">
-                          <label for="favoriteFoods" class="form-label"
-                            >Comidas Favoritas</label
-                          >
-                          <select
-                            class="form-select"
-                            id="favoriteFoods"
-                            multiple
-                          >
-                            <option value="carnes">Carnes</option>
-                            <option value="pescados">
-                              Pescados y Mariscos
-                            </option>
-                            <option value="vegetariano">Vegetariano</option>
-                            <option value="postres">Postres</option>
-                            <option value="bebidas">Bebidas</option>
-                          </select>
-                          <small class="text-muted"
-                            >Mantén presionada la tecla Ctrl (o Cmd en Mac) para
-                            seleccionar múltiples opciones.</small
-                          >
-                        </div>
+                      <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="orderStatusNotif" checked />
+                        <label class="form-check-label" for="orderStatusNotif">Actualizaciones de estado de
+                          pedidos</label>
+                      </div>
+                    </div>
 
-                        <div class="mb-3">
-                          <label for="dietaryRestrictions" class="form-label"
-                            >Restricciones Alimentarias</label
-                          >
-                          <div class="dietary-options">
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="glutenFree"
-                                value="gluten-free"
-                              />
-                              <label class="form-check-label" for="glutenFree"
-                                >Sin Gluten</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="lactoseFree"
-                                value="lactose-free"
-                              />
-                              <label class="form-check-label" for="lactoseFree"
-                                >Sin Lactosa</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="vegan"
-                                value="vegan"
-                              />
-                              <label class="form-check-label" for="vegan"
-                                >Vegano</label
-                              >
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="vegetarian"
-                                value="vegetarian"
-                              />
-                              <label class="form-check-label" for="vegetarian"
-                                >Vegetariano</label
-                              >
-                            </div>
+                    <div class="mb-4">
+                      <h3>Preferencias de Menú</h3>
+
+                      <div class="mb-3">
+                        <label for="favoriteFoods" class="form-label">Comidas Favoritas</label>
+                        <select class="form-select" id="favoriteFoods" multiple>
+                          <option value="carnes">Carnes</option>
+                          <option value="pescados">
+                            Pescados y Mariscos
+                          </option>
+                          <option value="vegetariano">Vegetariano</option>
+                          <option value="postres">Postres</option>
+                          <option value="bebidas">Bebidas</option>
+                        </select>
+                        <small class="text-muted">Mantén presionada la tecla Ctrl (o Cmd en Mac) para
+                          seleccionar múltiples opciones.</small>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="dietaryRestrictions" class="form-label">Restricciones Alimentarias</label>
+                        <div class="dietary-options">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="glutenFree" value="gluten-free" />
+                            <label class="form-check-label" for="glutenFree">Sin Gluten</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="lactoseFree" value="lactose-free" />
+                            <label class="form-check-label" for="lactoseFree">Sin Lactosa</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="vegan" value="vegan" />
+                            <label class="form-check-label" for="vegan">Vegano</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="vegetarian" value="vegetarian" />
+                            <label class="form-check-label" for="vegetarian">Vegetariano</label>
                           </div>
                         </div>
                       </div>
+                    </div>
 
-                      <button type="submit" class="btn btn-primary">
-                        Guardar Preferencias
-                      </button>
-                    </form>
-                  </div>
+                    <button type="submit" class="btn btn-primary">
+                      Guardar Preferencias
+                    </button>
+                  </form>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div
-        class="modal fade"
-        id="orderDetailsModal"
-        tabindex="-1"
-        aria-labelledby="orderDetailsModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="orderDetailsModalLabel">
-                Detalles del Pedido
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body" id="orderDetailsContent"></div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Cerrar
-              </button>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </section>
 
-    <div id="footer-container"></div>
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="orderDetailsModalLabel">
+              Detalles del Pedido
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="orderDetailsContent"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/login.js"></script>
-    <script src="../js/perfil.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const userSession = getUserSession();
+  <div id="footer-container"></div>
 
-        // Verificar si hay sesión activa
-        if (!userSession) {
-          redirectToLoginPage(window.location.pathname);
-          return;
-        }
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/login.js"></script>
+  <script src="../js/perfil.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadComponent("../components/header.php", "header-container").then(() => {
 
-        // Configurar navegación entre secciones del perfil
-        setupProfileNavigation();
+        setTimeout(() => {
+          const menuToggle = document.getElementById("menuToggle") || document.querySelector(".menu-toggle");
+          const navList = document.getElementById("navList") || document.querySelector(".nav-list");
+          const menuOverlay = document.getElementById("menuOverlay") || document.querySelector(".menu-overlay");
 
-        // Mostrar información del usuario
-        setupUserInfoDisplay(userSession);
+          console.log("Elementos encontrados después de timeout:", {
+            menuToggle: menuToggle ? true : false,
+            navList: navList ? true : false,
+            menuOverlay: menuOverlay ? true : false
+          });
 
-        // Configurar edición de información personal
-        setupPersonalInfoEditing(userSession);
-
-        // Configurar preferencias de usuario
-        setupUserPreferences(userSession);
-
-        // Cargar historial de pedidos
-        loadPurchaseHistory();
-
-        // Configurar botón de cerrar sesión
-        setupLogoutButton();
-      });
-
-      // Configurar navegación entre secciones del perfil
-      function setupProfileNavigation() {
-        const profileMenu = document.getElementById("profileMenu");
-        const profileSections = document.querySelectorAll(".profile-section");
-
-        if (profileMenu) {
-          profileMenu.addEventListener("click", (e) => {
-            const link = e.target.closest("a");
-            if (link && link.id !== "logoutBtn") {
+          if (menuToggle && navList) {
+            menuToggle.addEventListener("click", function (e) {
               e.preventDefault();
-              const href = link.getAttribute("href");
-              const sectionId = href.substring(1);
 
-              // Actualizar estado activo en el menú
-              const menuItems = profileMenu.querySelectorAll("li");
-              menuItems.forEach((item) => {
-                if (item.dataset.section === sectionId) {
-                  item.classList.add("active");
-                } else {
-                  item.classList.remove("active");
-                }
-              });
+              navList.classList.toggle("active");
+              menuToggle.classList.toggle("active");
+              if (menuOverlay) menuOverlay.classList.toggle("active");
 
-              // Mostrar sección correspondiente
-              profileSections.forEach((section) => {
-                if (section.id === sectionId) {
-                  section.classList.add("active");
-                } else {
-                  section.classList.remove("active");
-                }
+              if (navList.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+              } else {
+                document.body.style.overflow = "";
+              }
+            });
+
+            if (menuOverlay) {
+              menuOverlay.addEventListener("click", function () {
+                navList.classList.remove("active");
+                menuToggle.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                document.body.style.overflow = "";
               });
             }
-          });
-        }
+          } else {
+            console.error("No se encontraron los elementos del menú móvil");
+          }
+        }, 500);
+      });
+
+      const userSession = getUserSession();
+
+      // Verificar si hay sesión activa
+      if (!userSession) {
+        redirectToLoginPage(window.location.pathname);
+        return;
       }
+
+      // Configurar navegación entre secciones del perfil
+      setupProfileNavigation();
 
       // Mostrar información del usuario
-      function setupUserInfoDisplay(userSession) {
-        // Actualizar sidebar
-        const userInfoSummary = document.getElementById("userInfoSummary");
-        updateSidebarInfo(userSession, userInfoSummary);
+      setupUserInfoDisplay(userSession);
 
-        // Actualizar panel principal
-        const personalInfoDisplay = document.getElementById(
-          "personalInfoDisplay"
-        );
-        updateMainProfileInfo(userSession, personalInfoDisplay);
+      // Configurar edición de información personal
+      setupPersonalInfoEditing(userSession);
+
+      // Configurar preferencias de usuario
+      setupUserPreferences(userSession);
+
+      // Cargar historial de pedidos
+      loadPurchaseHistory();
+
+      // Configurar botón de cerrar sesión
+      setupLogoutButton();
+    });
+
+    // Configurar navegación entre secciones del perfil
+    function setupProfileNavigation() {
+      const profileMenu = document.getElementById("profileMenu");
+      const profileSections = document.querySelectorAll(".profile-section");
+
+      if (profileMenu) {
+        profileMenu.addEventListener("click", (e) => {
+          const link = e.target.closest("a");
+          if (link && link.id !== "logoutBtn") {
+            e.preventDefault();
+            const href = link.getAttribute("href");
+            const sectionId = href.substring(1);
+
+            const menuItems = profileMenu.querySelectorAll("li");
+            menuItems.forEach((item) => {
+              if (item.dataset.section === sectionId) {
+                item.classList.add("active");
+              } else {
+                item.classList.remove("active");
+              }
+            });
+
+            profileSections.forEach((section) => {
+              if (section.id === sectionId) {
+                section.classList.add("active");
+              } else {
+                section.classList.remove("active");
+              }
+            });
+          }
+        });
       }
+    }
 
-      // Actualizar información en el sidebar
-      function updateSidebarInfo(userSession, container) {
-        if (!container) return;
+    // Mostrar información del usuario
+    function setupUserInfoDisplay(userSession) {
+      // Actualizar sidebar
+      const userInfoSummary = document.getElementById("userInfoSummary");
+      updateSidebarInfo(userSession, userInfoSummary);
 
-        const initials = userSession.name
-          .split(" ")
-          .map((word) => word.charAt(0))
-          .join("")
-          .toUpperCase()
-          .substring(0, 2);
+      // Actualizar panel principal
+      const personalInfoDisplay = document.getElementById(
+        "personalInfoDisplay"
+      );
+      updateMainProfileInfo(userSession, personalInfoDisplay);
+    }
 
-        container.innerHTML = `
+    // Actualizar información en el sidebar
+    function updateSidebarInfo(userSession, container) {
+      if (!container) return;
+
+      const initials = userSession.name
+        .split(" ")
+        .map((word) => word.charAt(0))
+        .join("")
+        .toUpperCase()
+        .substring(0, 2);
+
+      container.innerHTML = `
     <div class="user-avatar">
       ${initials}
     </div>
@@ -519,13 +425,13 @@
       ${getCustomerTypeText(userSession.customerType)}
     </div>
   `;
-      }
+    }
 
-      // Actualizar información en el panel principal
-      function updateMainProfileInfo(userSession, container) {
-        if (!container) return;
+    // Actualizar información en el panel principal
+    function updateMainProfileInfo(userSession, container) {
+      if (!container) return;
 
-        container.innerHTML = `
+      container.innerHTML = `
     <div class="info-group">
       <label>Nombre Completo</label>
       <div class="value">${userSession.name || "No especificado"}</div>
@@ -572,288 +478,274 @@
     <div class="info-group">
       <label>Fecha de Registro</label>
       <div class="value">
-        ${
-          userSession.createdAt
-            ? new Date(userSession.createdAt).toLocaleDateString("es-ES")
-            : "No disponible"
+        ${userSession.createdAt
+          ? new Date(userSession.createdAt).toLocaleDateString("es-ES")
+          : "No disponible"
         }
       </div>
     </div>
   `;
+    }
+
+    function setupPersonalInfoEditing(userSession) {
+      const editBtn = document.getElementById("editPersonalInfoBtn");
+      const cancelBtn = document.getElementById("cancelEditBtn");
+      const personalInfoDisplay = document.getElementById(
+        "personalInfoDisplay"
+      );
+      const personalInfoForm = document.getElementById("personalInfoForm");
+      const userProfileForm = document.getElementById("userProfileForm");
+      const userInfoSummary = document.getElementById("userInfoSummary");
+
+      if (
+        !editBtn ||
+        !personalInfoDisplay ||
+        !personalInfoForm ||
+        !userProfileForm
+      ) {
+        console.error(
+          "Faltan elementos necesarios para la edición del perfil"
+        );
+        return;
       }
 
-      // Configurar edición de información personal
-      function setupPersonalInfoEditing(userSession) {
-        const editBtn = document.getElementById("editPersonalInfoBtn");
-        const cancelBtn = document.getElementById("cancelEditBtn");
-        const personalInfoDisplay = document.getElementById(
-          "personalInfoDisplay"
-        );
-        const personalInfoForm = document.getElementById("personalInfoForm");
-        const userProfileForm = document.getElementById("userProfileForm");
-        const userInfoSummary = document.getElementById("userInfoSummary");
+      editBtn.addEventListener("click", () => {
+        personalInfoDisplay.style.display = "none";
+        personalInfoForm.style.display = "block";
 
-        if (
-          !editBtn ||
-          !personalInfoDisplay ||
-          !personalInfoForm ||
-          !userProfileForm
-        ) {
-          console.error(
-            "Faltan elementos necesarios para la edición del perfil"
+        document.getElementById("userName").value = userSession.name || "";
+        document.getElementById("userEmail").value = userSession.email || "";
+        document.getElementById("userCedula").value = userSession.cedula || "";
+        document.getElementById("userSexo").value = userSession.sexo || "";
+        document.getElementById("userNacimiento").value = userSession.nacimiento || "";
+        document.getElementById("userDireccion").value = userSession.direccion || "";
+        document.getElementById("userPhone").value = userSession.phone || "";
+
+        const customerTypeDisplay = document.getElementById(
+          "customerTypeDisplay"
+        );
+        if (customerTypeDisplay) {
+          customerTypeDisplay.textContent = getCustomerTypeText(
+            userSession.customerType
+          );
+          customerTypeDisplay.className = `customer-type-badge ${userSession.customerType || "nuevo"
+            }`;
+        }
+      });
+
+      cancelBtn.addEventListener("click", () => {
+        personalInfoDisplay.style.display = "block";
+        personalInfoForm.style.display = "none";
+      });
+
+      userProfileForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const updatedUserData = {
+          name: document.getElementById("userName").value.trim(),
+          email: document.getElementById("userEmail").value.trim(),
+          cedula: document.getElementById("userCedula").value.trim(),
+          sexo: document.getElementById("userSexo").value.trim(),
+          nacimiento: document.getElementById("userNacimiento").value.trim(),
+          direccion: document.getElementById("userDireccion").value.trim(),
+          phone: document.getElementById("userPhone").value.trim(),
+        };
+
+        if (!updatedUserData.name || !updatedUserData.email) {
+          showToast(
+            "Error",
+            "Por favor, completa los campos obligatorios.",
+            "error"
           );
           return;
         }
 
-        editBtn.addEventListener("click", () => {
-          personalInfoDisplay.style.display = "none";
-          personalInfoForm.style.display = "block";
-
-          // Llenar los campos del formulario con la información del usuario
-          document.getElementById("userName").value = userSession.name || "";
-          document.getElementById("userEmail").value = userSession.email || "";
-          document.getElementById("userCedula").value = userSession.cedula || "";
-          document.getElementById("userSexo").value = userSession.sexo || "";
-          document.getElementById("userNacimiento").value = userSession.nacimiento || "";
-          document.getElementById("userDireccion").value = userSession.direccion || "";
-          document.getElementById("userPhone").value = userSession.phone || "";
-
-          const customerTypeDisplay = document.getElementById(
-            "customerTypeDisplay"
+        if (updateUserProfile(userSession, updatedUserData)) {
+          const updatedSession = JSON.parse(
+            localStorage.getItem("userSession")
           );
-          if (customerTypeDisplay) {
-            customerTypeDisplay.textContent = getCustomerTypeText(
-              userSession.customerType
-            );
-            customerTypeDisplay.className = `customer-type-badge ${
-              userSession.customerType || "nuevo"
-            }`;
-          }
-        });
 
-        // Configurar botón cancelar
-        cancelBtn.addEventListener("click", () => {
+          updateMainProfileInfo(updatedSession, personalInfoDisplay);
+          updateSidebarInfo(updatedSession, userInfoSummary);
+
           personalInfoDisplay.style.display = "block";
           personalInfoForm.style.display = "none";
-        });
-
-        // Configurar envío del formulario
-        userProfileForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          const updatedUserData = {
-            name: document.getElementById("userName").value.trim(),
-            email: document.getElementById("userEmail").value.trim(),
-            cedula: document.getElementById("userCedula").value.trim(),
-            sexo: document.getElementById("userSexo").value.trim(),
-            nacimiento: document.getElementById("userNacimiento").value.trim(),
-            direccion: document.getElementById("userDireccion").value.trim(),
-            phone: document.getElementById("userPhone").value.trim(),
-          };
-
-          if (!updatedUserData.name || !updatedUserData.email) {
-            showToast(
-              "Error",
-              "Por favor, completa los campos obligatorios.",
-              "error"
-            );
-            return;
-          }
-
-          if (updateUserProfile(userSession, updatedUserData)) {
-            const updatedSession = JSON.parse(
-              localStorage.getItem("userSession")
-            );
-
-            updateMainProfileInfo(updatedSession, personalInfoDisplay);
-            updateSidebarInfo(updatedSession, userInfoSummary);
-
-            personalInfoDisplay.style.display = "block";
-            personalInfoForm.style.display = "none";
-
-            showToast(
-              "Éxito",
-              "Información personal actualizada correctamente.",
-              "success"
-            );
-          } else {
-            showToast(
-              "Error",
-              "No se pudo actualizar la información.",
-              "error"
-            );
-          }
-        });
-      }
-      function updateUserProfile(userSession, updatedData) {
-        try {
-          // Obtener lista de usuarios registrados
-          const users =
-            JSON.parse(localStorage.getItem("registeredUsers")) || [];
-
-          // Encontrar el índice del usuario actual
-          const userIndex = users.findIndex(
-            (user) => user.id === userSession.id
-          );
-
-          if (userIndex === -1) {
-            console.error("Usuario no encontrado");
-            return false;
-          }
-
-          // Actualizar datos del usuario
-          const updatedUser = {
-            ...users[userIndex],
-            ...updatedData,
-            updatedAt: new Date().toISOString(),
-          };
-
-          // Reemplazar el usuario en la lista
-          users[userIndex] = updatedUser;
-
-          // Guardar lista actualizada de usuarios
-          localStorage.setItem("registeredUsers", JSON.stringify(users));
-
-          // Actualizar sesión actual usando la función creada
-          createUserSession({
-            ...userSession,
-            ...updatedData
-          });
-
-          return true;
-        } catch (error) {
-          console.error("Error al actualizar perfil:", error);
-          return false;
-        }
-      }
-
-      function setupUserPreferences(userSession) {
-        const preferencesForm = document.getElementById("userPreferencesForm");
-
-        if (!preferencesForm) return;
-
-        const savedPreferences = JSON.parse(
-          localStorage.getItem(`userPreferences_${userSession.id}`)
-        ) || {
-          emailNotif: true,
-          promoNotif: true,
-          orderStatusNotif: true,
-          favoriteFoods: [],
-          dietaryRestrictions: [],
-        };
-
-        document.getElementById("emailNotif").checked =
-          savedPreferences.emailNotif;
-        document.getElementById("promoNotif").checked =
-          savedPreferences.promoNotif;
-        document.getElementById("orderStatusNotif").checked =
-          savedPreferences.orderStatusNotif;
-
-        const favoriteFoodsSelect = document.getElementById("favoriteFoods");
-        savedPreferences.favoriteFoods.forEach((food) => {
-          const option = favoriteFoodsSelect.querySelector(
-            `option[value="${food}"]`
-          );
-          if (option) option.selected = true;
-        });
-
-        savedPreferences.dietaryRestrictions.forEach((restriction) => {
-          const checkbox = document.getElementById(restriction);
-          if (checkbox) checkbox.checked = true;
-        });
-
-        preferencesForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          const updatedPreferences = {
-            emailNotif: document.getElementById("emailNotif").checked,
-            promoNotif: document.getElementById("promoNotif").checked,
-            orderStatusNotif:
-              document.getElementById("orderStatusNotif").checked,
-            favoriteFoods: Array.from(
-              document.getElementById("favoriteFoods").selectedOptions
-            ).map((option) => option.value),
-            dietaryRestrictions: [
-              "glutenFree",
-              "lactoseFree",
-              "vegan",
-              "vegetarian",
-            ].filter(
-              (restriction) => document.getElementById(restriction).checked
-            ),
-          };
-
-          // Guardar preferencias en localStorage
-          localStorage.setItem(
-            `userPreferences_${userSession.id}`,
-            JSON.stringify(updatedPreferences)
-          );
 
           showToast(
             "Éxito",
-            "Preferencias actualizadas correctamente.",
+            "Información personal actualizada correctamente.",
             "success"
           );
-        });
-      }
-
-      // Función para cargar el historial de pedidos
-      function loadPurchaseHistory() {
-        const ordersList = document.getElementById("ordersList");
-        const noOrdersMessage = document.getElementById("noOrdersMessage");
-
-        if (!ordersList) return;
-
-        const userSession = getUserSession();
-
-        if (!userSession) {
-          console.error("No hay sesión de usuario activa");
-          return;
+        } else {
+          showToast(
+            "Error",
+            "No se pudo actualizar la información.",
+            "error"
+          );
         }
+      });
+    }
+    function updateUserProfile(userSession, updatedData) {
+      try {
+        const users =
+          JSON.parse(localStorage.getItem("registeredUsers")) || [];
 
-        const userId = userSession.id;
-        const orderHistory =
-          JSON.parse(localStorage.getItem("orderHistory")) || [];
-
-        // Filtrar pedidos del usuario actual
-        const userOrders = orderHistory.filter(
-          (order) => order.customer && order.customer.id === userId
+        const userIndex = users.findIndex(
+          (user) => user.id === userSession.id
         );
 
-        if (userOrders.length === 0) {
-          if (noOrdersMessage) {
-            noOrdersMessage.style.display = "block";
-          }
-          ordersList.innerHTML = "";
-          return;
+        if (userIndex === -1) {
+          console.error("Usuario no encontrado");
+          return false;
         }
 
+        const updatedUser = {
+          ...users[userIndex],
+          ...updatedData,
+          updatedAt: new Date().toISOString(),
+        };
+
+        users[userIndex] = updatedUser;
+
+        localStorage.setItem("registeredUsers", JSON.stringify(users));
+
+        createUserSession({
+          ...userSession,
+          ...updatedData
+        });
+
+        return true;
+      } catch (error) {
+        console.error("Error al actualizar perfil:", error);
+        return false;
+      }
+    }
+
+    function setupUserPreferences(userSession) {
+      const preferencesForm = document.getElementById("userPreferencesForm");
+
+      if (!preferencesForm) return;
+
+      const savedPreferences = JSON.parse(
+        localStorage.getItem(`userPreferences_${userSession.id}`)
+      ) || {
+        emailNotif: true,
+        promoNotif: true,
+        orderStatusNotif: true,
+        favoriteFoods: [],
+        dietaryRestrictions: [],
+      };
+
+      document.getElementById("emailNotif").checked =
+        savedPreferences.emailNotif;
+      document.getElementById("promoNotif").checked =
+        savedPreferences.promoNotif;
+      document.getElementById("orderStatusNotif").checked =
+        savedPreferences.orderStatusNotif;
+
+      const favoriteFoodsSelect = document.getElementById("favoriteFoods");
+      savedPreferences.favoriteFoods.forEach((food) => {
+        const option = favoriteFoodsSelect.querySelector(
+          `option[value="${food}"]`
+        );
+        if (option) option.selected = true;
+      });
+
+      savedPreferences.dietaryRestrictions.forEach((restriction) => {
+        const checkbox = document.getElementById(restriction);
+        if (checkbox) checkbox.checked = true;
+      });
+
+      preferencesForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const updatedPreferences = {
+          emailNotif: document.getElementById("emailNotif").checked,
+          promoNotif: document.getElementById("promoNotif").checked,
+          orderStatusNotif:
+            document.getElementById("orderStatusNotif").checked,
+          favoriteFoods: Array.from(
+            document.getElementById("favoriteFoods").selectedOptions
+          ).map((option) => option.value),
+          dietaryRestrictions: [
+            "glutenFree",
+            "lactoseFree",
+            "vegan",
+            "vegetarian",
+          ].filter(
+            (restriction) => document.getElementById(restriction).checked
+          ),
+        };
+
+        localStorage.setItem(
+          `userPreferences_${userSession.id}`,
+          JSON.stringify(updatedPreferences)
+        );
+
+        showToast(
+          "Éxito",
+          "Preferencias actualizadas correctamente.",
+          "success"
+        );
+      });
+    }
+
+    function loadPurchaseHistory() {
+      const ordersList = document.getElementById("ordersList");
+      const noOrdersMessage = document.getElementById("noOrdersMessage");
+
+      if (!ordersList) return;
+
+      const userSession = getUserSession();
+
+      if (!userSession) {
+        console.error("No hay sesión de usuario activa");
+        return;
+      }
+
+      const userId = userSession.id;
+      const orderHistory =
+        JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+      // Filtrar pedidos del usuario actual
+      const userOrders = orderHistory.filter(
+        (order) => order.customer && order.customer.id === userId
+      );
+
+      if (userOrders.length === 0) {
         if (noOrdersMessage) {
-          noOrdersMessage.style.display = "none";
+          noOrdersMessage.style.display = "block";
         }
+        ordersList.innerHTML = "";
+        return;
+      }
 
-        let ordersHTML = "";
+      if (noOrdersMessage) {
+        noOrdersMessage.style.display = "none";
+      }
 
-        userOrders.forEach((order, index) => {
-          const totalItems = order.items.reduce(
-            (sum, item) => sum + item.quantity,
+      let ordersHTML = "";
+
+      userOrders.forEach((order, index) => {
+        const totalItems = order.items.reduce(
+          (sum, item) => sum + item.quantity,
+          0
+        );
+        const totalPrice = order.summary
+          ? order.summary.total
+          : order.items.reduce(
+            (sum, item) => sum + item.price * item.quantity,
             0
           );
-          const totalPrice = order.summary
-            ? order.summary.total
-            : order.items.reduce(
-                (sum, item) => sum + item.price * item.quantity,
-                0
-              );
 
-          ordersHTML += `
+        ordersHTML += `
       <div class="order-card">
         <div class="order-header">
           <div>
             <span class="order-number">Pedido #${index + 1}</span>
             <span class="order-date">${new Date(
-              order.orderDate
-            ).toLocaleDateString()}</span>
+          order.orderDate
+        ).toLocaleDateString()}</span>
           </div>
           <div class="order-status ${order.status}">
             ${getOrderStatusLabel(order.status)}
@@ -872,45 +764,46 @@
         </div>
       </div>
     `;
+      });
+
+      ordersList.innerHTML = ordersHTML;
+
+      const viewDetailsButtons = ordersList.querySelectorAll(
+        ".view-order-details"
+      );
+      viewDetailsButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const orderIndex = button.dataset.orderIndex;
+          showOrderDetails(userOrders[orderIndex]);
         });
+      });
+    }
 
-        ordersList.innerHTML = ordersHTML;
-
-        const viewDetailsButtons = ordersList.querySelectorAll(
-          ".view-order-details"
-        );
-        viewDetailsButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            const orderIndex = button.dataset.orderIndex;
-            showOrderDetails(userOrders[orderIndex]);
-          });
+    function setupLogoutButton() {
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          logout();
         });
       }
+    }
 
-      function setupLogoutButton() {
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-          logoutBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            logout();
-          });
-        }
+    function getCustomerTypeText(customerType) {
+      switch (customerType) {
+        case "nuevo":
+          return "Cliente Nuevo";
+        case "casual":
+          return "Cliente Casual";
+        case "permanente":
+          return "Cliente Permanente";
+        case "credito":
+          return "Cliente con Crédito";
+        default:
+          return "Cliente";
       }
+    }
+  </script>
+</body>
 
-      function getCustomerTypeText(customerType) {
-        switch (customerType) {
-          case "nuevo":
-            return "Cliente Nuevo";
-          case "casual":
-            return "Cliente Casual";
-          case "permanente":
-            return "Cliente Permanente";
-          case "credito":
-            return "Cliente con Crédito";
-          default:
-            return "Cliente";
-        }
-      }
-    </script>
-  </body>
 </html>
