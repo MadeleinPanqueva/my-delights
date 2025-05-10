@@ -3,12 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Delights - Menú a la Carta</title>
+    <title>Menú a la Carta | Platos Gourmet | My Delights Restaurante</title>
     <meta
       name="description"
-      content="Descubre nuestra exquisita selección de platos a la carta, preparados con los mejores ingredientes y técnicas culinarias."
+      content="Descubre nuestra exquisita selección de platos a la carta, preparados con los mejores ingredientes frescos y técnicas culinarias por nuestros chefs expertos."
     />
-
+    <meta name="keywords" content="menú a la carta, platos gourmet, restaurante, gastronomía, comida de calidad, chef" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Menú a la Carta | My Delights Restaurante" />
+    <meta property="og:description" content="Descubre nuestra exquisita selección de platos gourmet preparados por chefs expertos con los mejores ingredientes." />
+    <meta property="og:image" content="../images/banners/menu-carta.jpg" />
+    <meta property="og:url" content="https://mydelights.com/pages/menu-carta.php" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://mydelights.com/pages/menu-carta.php" />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/menu.css" />
@@ -16,16 +23,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div id="header-container"></div>
 
-    <main class="menu-page">
+    <main class="menu-page" itemscope itemtype="https://schema.org/Restaurant">
+      <meta itemprop="name" content="My Delights" />
       <section class="menu-hero">
         <div class="container">
           <div class="menu-hero-content">
-            <h1>Menú a la Carta</h1>
-            <p>
+            <h1 itemprop="menu">Menú a la Carta</h1>
+            <p itemprop="description">
               Descubre nuestra selección de platos gourmet preparados por
               nuestros chefs expertos con ingredientes de la más alta calidad
             </p>
@@ -35,17 +44,17 @@
 
       <section class="menu-navigation">
         <div class="container">
-          <div class="category-tabs">
-            <button class="category-btn active" data-category="entradas">
+          <div class="category-tabs" role="tablist" aria-label="Categorías del menú">
+            <button class="category-btn active" data-category="entradas" role="tab" aria-selected="true" aria-controls="entradas" id="tab-entradas">
               Entradas
             </button>
-            <button class="category-btn" data-category="principales">
+            <button class="category-btn" data-category="principales" role="tab" aria-selected="false" aria-controls="principales" id="tab-principales">
               Platos Principales
             </button>
-            <button class="category-btn" data-category="postres">
+            <button class="category-btn" data-category="postres" role="tab" aria-selected="false" aria-controls="postres" id="tab-postres">
               Postres
             </button>
-            <button class="category-btn" data-category="bebidas">
+            <button class="category-btn" data-category="bebidas" role="tab" aria-selected="false" aria-controls="bebidas" id="tab-bebidas">
               Bebidas
             </button>
           </div>
@@ -54,20 +63,28 @@
 
       <section class="menu-content section-padding">
         <div class="container">
-          <div class="menu-category active" id="entradas">
+          <div class="menu-category active" id="entradas" role="tabpanel" aria-labelledby="tab-entradas" itemscope itemtype="https://schema.org/MenuSection">
+            <meta itemprop="name" content="Entradas" />
             <div class="menu-items">
-              <div class="menu-item">
+              <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
                 <div class="menu-item-image">
                   <img
-                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/66/46/db/fb/0c/v1_E11/E115KKAQ.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0f524f40fe0fb75462ccd9c9c6bb38fb08b39eebfdba8176ceb953e2267d352c""
-                  alt="Carpaccio de Salmón" />
+                  src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/66/46/db/fb/0c/v1_E11/E115KKAQ.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0f524f40fe0fb75462ccd9c9c6bb38fb08b39eebfdba8176ceb953e2267d352c"
+                  alt="Carpaccio de Salmón fresco con alcaparras y queso parmesano" 
+                  itemprop="image"
+                  loading="lazy"
+                  width="300"
+                  height="200" />
                 </div>
                 <div class="menu-item-info">
                   <div class="menu-item-header">
-                    <h3>Carpaccio de Salmón</h3>
-                    <span class="menu-item-price">$15.900</span>
+                    <h3 itemprop="name">Carpaccio de Salmón</h3>
+                    <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                      <span itemprop="price" content="15900">$15.900</span>
+                      <meta itemprop="priceCurrency" content="COP" />
+                    </span>
                   </div>
-                  <p class="menu-item-description">
+                  <p class="menu-item-description" itemprop="description">
                     Finas láminas de salmón fresco con alcaparras, queso
                     parmesano y aliño de limón.
                   </p>
@@ -80,25 +97,33 @@
                     data-id="e1"
                     data-name="Carpaccio de Salmón"
                     data-price="15900"
+                    aria-label="Añadir Carpaccio de Salmón al carrito"
                   >
                     <i class="fas fa-cart-plus"></i> Añadir
                   </button>
                 </div>
               </div>
 
-              <div class="menu-item">
+              <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
                 <div class="menu-item-image">
                   <img
                     src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/43/43/be/18/e5/v1_E10/E104R1DZ.JPG?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0b4060c9a27ee26d773d252df69bb4d75de40573088efede4238eceb24c3b3bb"
-                    alt="Bruschetta de Tomate"
+                    alt="Bruschetta de Tomate con albahaca, ajo y aceite de oliva"
+                    itemprop="image"
+                    loading="lazy"
+                    width="300"
+                    height="200"
                   />
                 </div>
                 <div class="menu-item-info">
                   <div class="menu-item-header">
-                    <h3>Bruschetta de Tomate</h3>
-                    <span class="menu-item-price">$12.500</span>
+                    <h3 itemprop="name">Bruschetta de Tomate</h3>
+                    <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                      <span itemprop="price" content="12500">$12.500</span>
+                      <meta itemprop="priceCurrency" content="COP" />
+                    </span>
                   </div>
-                  <p class="menu-item-description">
+                  <p class="menu-item-description" itemprop="description">
                     Pan rústico tostado con tomate, albahaca, ajo y un toque de
                     aceite de oliva.
                   </p>
@@ -111,25 +136,33 @@
                     data-id="e2"
                     data-name="Bruschetta de Tomate"
                     data-price="12500"
+                    aria-label="Añadir Bruschetta de Tomate al carrito"
                   >
                     <i class="fas fa-cart-plus"></i> Añadir
                   </button>
                 </div>
               </div>
 
-              <div class="menu-item">
+              <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
                 <div class="menu-item-image">
                   <img
                     src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/65/a6/15/9f/35/v1_E10/E104R25Z.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=630c65263b6385c027e1184b7407ef1d5ed3eef973b39fae0592fefff555629a"
-                    alt="Croquetas de Jamón"
+                    alt="Croquetas de Jamón crujientes y cremosas con jamón serrano y bechamel"
+                    itemprop="image"
+                    loading="lazy"
+                    width="300"
+                    height="200"
                   />
                 </div>
                 <div class="menu-item-info">
                   <div class="menu-item-header">
-                    <h3>Croquetas de Jamón</h3>
-                    <span class="menu-item-price">$14.200</span>
+                    <h3 itemprop="name">Croquetas de Jamón</h3>
+                    <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                      <span itemprop="price" content="14200">$14.200</span>
+                      <meta itemprop="priceCurrency" content="COP" />
+                    </span>
                   </div>
-                  <p class="menu-item-description">
+                  <p class="menu-item-description" itemprop="description">
                     Crujientes por fuera y cremosas por dentro, preparadas con
                     jamón serrano y bechamel.
                   </p>
@@ -142,6 +175,7 @@
                     data-id="e3"
                     data-name="Croquetas de Jamón"
                     data-price="14200"
+                    aria-label="Añadir Croquetas de Jamón al carrito"
                   >
                     <i class="fas fa-cart-plus"></i> Añadir
                   </button>
@@ -150,7 +184,8 @@
             </div>
           </div>
 
-          <div class="menu-category" id="principales">
+          <div class="menu-category" id="principales" role="tabpanel" aria-labelledby="tab-principales" itemscope itemtype="https://schema.org/MenuSection">
+            <meta itemprop="name" content="Platos Principales" />
             <div class="menu-items">
               <div class="menu-item">
                 <div class="menu-item-image">
@@ -247,7 +282,8 @@
             </div>
           </div>
 
-          <div class="menu-category" id="postres">
+          <div class="menu-category" id="postres" role="tabpanel" aria-labelledby="tab-postres" itemscope itemtype="https://schema.org/MenuSection">
+            <meta itemprop="name" content="Postres" />
             <div class="menu-items">
               <div class="menu-item">
                 <div class="menu-item-image">
@@ -344,7 +380,8 @@
             </div>
           </div>
 
-          <div class="menu-category" id="bebidas">
+          <div class="menu-category" id="bebidas" role="tabpanel" aria-labelledby="tab-bebidas" itemscope itemtype="https://schema.org/MenuSection">
+            <meta itemprop="name" content="Bebidas" />
             <div class="menu-items">
               <div class="menu-item">
                 <div class="menu-item-image">

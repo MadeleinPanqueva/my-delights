@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /js/components/
+Disallow: /database/
+Disallow: /backend/admin/
+
+Sitemap: https://mydelights.com/sitemap.xml 

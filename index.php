@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Delights - Restaurante de Comida Gourmet</title>
+  <title>My Delights - Restaurante de Comida Gourmet y Corriente | Delivery</title>
   <meta name="description"
-    content="My Delights ofrece la mejor experiencia culinaria con platos gourmet y comida corriente de alta calidad. Realiza tu pedido online." />
+    content="My Delights ofrece la mejor experiencia culinaria en la ciudad con platos gourmet y comida corriente de alta calidad. Realiza tu pedido online o reserva una mesa." />
+  <meta name="keywords" content="restaurante, comida gourmet, menú del día, delivery, comida a domicilio, eventos, catering" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="My Delights - Restaurante de Comida Gourmet" />
+  <meta property="og:description" content="Disfruta de la mejor experiencia gastronómica con ingredientes frescos y de calidad. Delivery disponible." />
+  <meta property="og:image" content="./images/banners/logo.png" />
+  <meta property="og:url" content="https://mydelights.com" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://mydelights.com" />
   <link rel="stylesheet" href="./css/normalize.css" />
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
   <div id="header-container"></div>
 
-  <main>
+  <main itemscope itemtype="https://schema.org/Restaurant">
+    <meta itemprop="name" content="My Delights" />
+    <meta itemprop="image" content="./images/banners/logo.png" />
+    <meta itemprop="priceRange" content="$$-$$$" />
     <section class="hero-banner">
       <div class="container">
         <div class="hero-content">
-          <h2>Descubre el placer de la buena comida</h2>
-          <p>
+          <h1 itemprop="slogan">Descubre el placer de la buena comida</h1>
+          <p itemprop="description">
             En My Delights te ofrecemos la mejor experiencia gastronómica con
             ingredientes frescos y de calidad
           </p>
@@ -36,27 +48,27 @@
       <div class="container">
         <h2 class="section-title">Nuestras especialidades</h2>
         <div class="category-grid">
-          <div class="category-card">
-            <img src="images/categorias/categoria1.jpg" alt="Platos Gourmet" />
-            <h3>Platos Gourmet</h3>
-            <p>
+          <div class="category-card" itemprop="hasMenu" itemscope itemtype="https://schema.org/Menu">
+            <img src="images/categorias/categoria1.jpg" alt="Platos Gourmet - Selección de platos preparados por chefs expertos" itemprop="image" loading="lazy" width="300" height="200" />
+            <h3 itemprop="name">Platos Gourmet</h3>
+            <p itemprop="description">
               Descubre nuestra selección de platos preparados por chefs
               expertos.
             </p>
             <a href="pages/menu-carta.php" class="btn btn-sm">Ver más</a>
           </div>
-          <div class="category-card">
-            <img src="images/categorias/categoria2.jpg" alt="Comida Corriente" />
-            <h3>Comida Corriente</h3>
-            <p>
+          <div class="category-card" itemprop="hasMenu" itemscope itemtype="https://schema.org/Menu">
+            <img src="images/categorias/categoria2.jpg" alt="Comida Corriente - Deliciosa comida casera con el toque especial de My Delights" itemprop="image" loading="lazy" width="300" height="200" />
+            <h3 itemprop="name">Comida Corriente</h3>
+            <p itemprop="description">
               Deliciosa comida casera con el toque especial de My Delights.
             </p>
             <a href="pages/menu-corriente.php" class="btn btn-sm">Ver más</a>
           </div>
-          <div class="category-card">
-            <img src="images/categorias/categoria3.jpg" alt="Servicios para Eventos" />
-            <h3>Eventos</h3>
-            <p>
+          <div class="category-card" itemscope itemtype="https://schema.org/Service">
+            <img src="images/categorias/categoria3.jpg" alt="Servicios para Eventos - Hacemos de tu evento una experiencia gastronómica inolvidable" itemprop="image" loading="lazy" width="300" height="200" />
+            <h3 itemprop="name">Eventos</h3>
+            <p itemprop="description">
               Hacemos de tu evento una experiencia gastronómica inolvidable.
             </p>
             <a href="pages/servicios.php" class="btn btn-sm">Ver más</a>
@@ -69,36 +81,38 @@
       <div class="container">
         <h2 class="section-title">Promociones Especiales</h2>
         <div class="promotion-grid">
-          <div class="promotion-card">
+          <div class="promotion-card" itemscope itemtype="https://schema.org/Offer">
             <div class="discount-badge">-20%</div>
-            <img src="images/banners/promo1.jpg" alt="Promoción Familiar" />
+            <img src="images/banners/promo1.jpg" alt="Promoción Familiar - Pack con 20% de descuento" itemprop="image" loading="lazy" width="300" height="200" />
             <div class="promotion-content">
-              <h3>Pack Familiar</h3>
-              <p>
+              <h3 itemprop="name">Pack Familiar</h3>
+              <p itemprop="description">
                 Disfruta de nuestro menú familiar con 20% de descuento. Válido
                 de lunes a jueves.
               </p>
+              <meta itemprop="discount" content="20%" />
               <a href="#" class="btn btn-sm btn-promo" data-promo-code="FAMILIA20">Obtener código</a>
             </div>
           </div>
-          <div class="promotion-card">
+          <div class="promotion-card" itemscope itemtype="https://schema.org/Offer">
             <div class="discount-badge">2x1</div>
-            <img src="images/banners/promo2.jpg" alt="Promoción 2x1" />
+            <img src="images/banners/promo2.jpg" alt="Promoción 2x1 en postres los martes" itemprop="image" loading="lazy" width="300" height="200" />
             <div class="promotion-content">
-              <h3>Martes de 2x1</h3>
-              <p>
+              <h3 itemprop="name">Martes de 2x1</h3>
+              <p itemprop="description">
                 Todos los martes disfruta de nuestros postres con promoción
                 2x1. ¡No te lo pierdas!
               </p>
+              <meta itemprop="offers" content="2x1" />
               <a href="#" class="btn btn-sm btn-promo" data-promo-code="MARTES2X1">Obtener código</a>
             </div>
           </div>
-          <div class="promotion-card">
+          <div class="promotion-card" itemscope itemtype="https://schema.org/Offer">
             <div class="discount-badge">NUEVO</div>
-            <img src="images/banners/promo3.jpg" alt="Nuevo Menú" />
+            <img src="images/banners/promo3.jpg" alt="Nuevo Menú Ejecutivo para almuerzos de negocios" itemprop="image" loading="lazy" width="300" height="200" />
             <div class="promotion-content">
-              <h3>Menú Ejecutivo</h3>
-              <p>
+              <h3 itemprop="name">Menú Ejecutivo</h3>
+              <p itemprop="description">
                 Prueba nuestro nuevo menú ejecutivo. Perfecto para tus
                 almuerzos de negocios.
               </p>
@@ -113,55 +127,69 @@
       <div class="container">
         <h2 class="section-title">Lo que dicen nuestros clientes</h2>
         <div class="testimonial-grid">
-          <div class="testimonial-card">
-            <div class="rating">
+          <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+            <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5" />
+              <meta itemprop="bestRating" content="5" />
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <p>
+            <p itemprop="reviewBody">
               "La mejor experiencia gastronómica que he tenido. Los platos son
               deliciosos y el servicio es excepcional."
             </p>
             <div class="client-info">
-              <h4>Ana Martínez</h4>
+              <h4 itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">Ana Martínez</span>
+              </h4>
               <span>Cliente habitual</span>
             </div>
           </div>
-          <div class="testimonial-card">
-            <div class="rating">
+          
+          <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+            <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="4.5" />
+              <meta itemprop="bestRating" content="5" />
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star-half-alt"></i>
             </div>
-            <p>
+            <p itemprop="reviewBody">
               "Contratamos el servicio de catering para nuestro evento
               empresarial y quedamos encantados. Comida deliciosa y
               presentación impecable."
             </p>
             <div class="client-info">
-              <h4>Carlos Rodríguez</h4>
+              <h4 itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">Carlos Rodríguez</span>
+              </h4>
               <span>Gerente de Eventos</span>
             </div>
           </div>
-          <div class="testimonial-card">
-            <div class="rating">
+          
+          <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+            <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5" />
+              <meta itemprop="bestRating" content="5" />
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <p>
+            <p itemprop="reviewBody">
               "El menú ejecutivo es perfecto para mis almuerzos de trabajo.
               Excelente relación calidad-precio. ¡Lo recomiendo totalmente!"
             </p>
             <div class="client-info">
-              <h4>Laura Sánchez</h4>
+              <h4 itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">Laura Sánchez</span>
+              </h4>
               <span>Ejecutiva de Marketing</span>
             </div>
           </div>
@@ -179,13 +207,14 @@
           </p>
           <form id="newsletterForm" class="newsletter-form">
             <div class="form-group">
-              <input type="email" id="emailNewsletter" placeholder="Tu correo electrónico" required />
+              <label for="emailNewsletter" class="sr-only">Tu correo electrónico</label>
+              <input type="email" id="emailNewsletter" placeholder="Tu correo electrónico" required aria-required="true" />
               <button type="submit" class="btn btn-primary">
                 Suscribirme
               </button>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="termsNewsletter" required />
+              <input type="checkbox" id="termsNewsletter" required aria-required="true" />
               <label for="termsNewsletter">Acepto recibir comunicaciones comerciales</label>
             </div>
           </form>
@@ -196,11 +225,11 @@
 
   <div id="footer-container"></div>
 
-  <div class="modal" id="promoModal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
+  <div class="modal" id="promoModal" aria-hidden="true" role="dialog">
+    <div class="modal-content" role="document">
+      <span class="close-modal" aria-label="Cerrar">&times;</span>
       <h3>Tu código promocional</h3>
-      <div class="promo-code-display" id="promoCodeDisplay"></div>
+      <div class="promo-code-display" id="promoCodeDisplay" aria-live="polite"></div>
       <p>Utiliza este código durante tu compra para aplicar el descuento</p>
       <button class="btn btn-primary" id="copyPromoBtn">Copiar código</button>
     </div>
