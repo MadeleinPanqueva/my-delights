@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Servicios de Catering y Eventos | My Delights Restaurante</title>
-  <meta name="description" content="Contrata nuestros servicios de catering para eventos corporativos, familiares y celebraciones especiales. Menús personalizados y servicio de primera calidad." />
-  <meta name="keywords" content="catering, eventos, banquetes corporativos, celebraciones, servicio de comida, bufetes, fiestas" />
+  <title>Catering Gourmet y Eventos Premium | Gastronomía Exclusiva | My Delights</title>
+  <meta name="description" content="Servicio exclusivo de catering gourmet para eventos corporativos, celebraciones especiales y reuniones ejecutivas. Propuestas gastronómicas de autor, menús personalizados y servicio de alta categoría." />
+  <meta name="keywords" content="catering gourmet, eventos exclusivos, gastronomía de autor para eventos, banquetes corporativos premium, cocktail gourmet, fine dining catering, chef a domicilio, eventos gastronómicos, experiencias culinarias" />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Servicios de Catering para Eventos | My Delights" />
-  <meta property="og:description" content="Soluciones gastronómicas para todos tus eventos y momentos especiales. Catering corporativo y familiar." />
+  <meta property="og:title" content="Catering Gourmet y Eventos Premium | My Delights" />
+  <meta property="og:description" content="Experiencias gastronómicas exclusivas para eventos corporativos y celebraciones especiales. Propuestas culinarias de autor adaptadas a cada ocasión." />
   <meta property="og:image" content="../images/categorias/categoria3.jpg" />
   <meta property="og:url" content="https://mydelights.com/pages/servicios.php" />
   <meta property="og:type" content="website" />
@@ -25,15 +25,15 @@
   <div id="header-container"></div>
 
   <main class="services-page" itemscope itemtype="https://schema.org/Service">
-    <meta itemprop="serviceType" content="Catering y Eventos" />
+    <meta itemprop="serviceType" content="Catering Gourmet y Eventos Premium" />
     <meta itemprop="provider" itemscope itemtype="https://schema.org/Restaurant">
     <meta itemprop="name" content="My Delights" />
     <section class="services-hero">
       <div class="container">
-        <h1 itemprop="name">Nuestros Servicios</h1>
+        <h1 itemprop="name">Catering Gourmet y Eventos Premium</h1>
         <p itemprop="description">
-          Soluciones gastronómicas para todos tus eventos y momentos
-          especiales
+          Experiencias gastronómicas exclusivas para sus eventos corporativos y 
+          celebraciones especiales, con propuestas culinarias de autor
         </p>
       </div>
     </section>
@@ -42,37 +42,37 @@
       <div class="service-grid">
         <div class="service-card" itemscope itemtype="https://schema.org/Service">
           <i class="fas fa-utensils"></i>
-          <h2 itemprop="name">Banquetes Corporativos</h2>
+          <h2 itemprop="name">Banquetes Corporativos Premium</h2>
           <p itemprop="description">
-            Servicio de catering profesional para eventos empresariales. Menús
-            personalizados y servicio de primera.
+            Servicio de catering gourmet para eventos empresariales, congresos y reuniones ejecutivas.
+            Menús de alta cocina personalizados con servicio de excelencia.
           </p>
-          <button class="btn schedule-btn" data-service="Banquetes Corporativos" aria-label="Agendar servicio de Banquetes Corporativos">
-            Agendar Servicio
+          <button class="btn schedule-btn" data-service="Banquetes Corporativos Premium" aria-label="Agendar servicio de Banquetes Corporativos Premium">
+            Solicitar Propuesta
           </button>
         </div>
 
         <div class="service-card" itemscope itemtype="https://schema.org/Service">
           <i class="fas fa-home"></i>
-          <h2 itemprop="name">Eventos Familiares</h2>
+          <h2 itemprop="name">Eventos Sociales Exclusivos</h2>
           <p itemprop="description">
-            Celebraciones únicas con menús adaptados a tus necesidades. Desde
-            cumpleaños hasta reuniones familiares.
+            Celebraciones únicas con propuestas gastronómicas de autor. Bodas, aniversarios,
+            cumpleaños y reuniones familiares con un toque sofisticado.
           </p>
-          <button class="btn schedule-btn" data-service="Eventos Familiares" aria-label="Agendar servicio de Eventos Familiares">
-            Agendar Servicio
+          <button class="btn schedule-btn" data-service="Eventos Sociales Exclusivos" aria-label="Agendar servicio de Eventos Sociales Exclusivos">
+            Solicitar Propuesta
           </button>
         </div>
 
         <div class="service-card" itemscope itemtype="https://schema.org/Service">
           <i class="fas fa-birthday-cake"></i>
-          <h2 itemprop="name">Bufetes Especiales</h2>
+          <h2 itemprop="name">Cocktail y Bufets Gourmet</h2>
           <p itemprop="description">
-            Buffets temáticos y personalizados para todo tipo de
-            celebraciones. Variedad gastronómica excepcional.
+            Estaciones gastronómicas temáticas y bufets de alta cocina para todo tipo de
+            celebraciones. Creaciones culinarias vanguardistas servidas con elegancia.
           </p>
-          <button class="btn schedule-btn" data-service="Bufetes Especiales" aria-label="Agendar servicio de Bufetes Especiales">
-            Agendar Servicio
+          <button class="btn schedule-btn" data-service="Cocktail y Bufets Gourmet" aria-label="Agendar servicio de Cocktail y Bufets Gourmet">
+            Solicitar Propuesta
           </button>
         </div>
       </div>
@@ -81,7 +81,7 @@
     <div id="scheduleModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
       <div class="modal-content" role="document">
         <span class="close-btn" aria-label="Cerrar">&times;</span>
-        <h2 id="modalTitle">Agendar Servicio</h2>
+        <h2 id="modalTitle">Solicite una Propuesta Gastronómica</h2>
         <form id="scheduleForm">
           <div class="form-group">
             <label for="fullName">Nombre Completo</label>
@@ -96,14 +96,14 @@
             <input type="tel" id="phone" placeholder="Teléfono" required aria-required="true" />
           </div>
           <div class="form-group">
-            <label for="serviceType">Tipo de Servicio</label>
+            <label for="serviceType">Tipo de Servicio Gourmet</label>
             <select id="serviceType" required aria-required="true">
               <option value="">Seleccionar Tipo de Servicio</option>
-              <option value="Banquetes Corporativos">
-                Banquetes Corporativos
+              <option value="Banquetes Corporativos Premium">
+                Banquetes Corporativos Premium
               </option>
-              <option value="Eventos Familiares">Eventos Familiares</option>
-              <option value="Bufetes Especiales">Bufetes Especiales</option>
+              <option value="Eventos Sociales Exclusivos">Eventos Sociales Exclusivos</option>
+              <option value="Cocktail y Bufets Gourmet">Cocktail y Bufets Gourmet</option>
             </select>
           </div>
           <div class="form-group">
@@ -111,8 +111,12 @@
             <input type="date" id="eventDate" placeholder="Fecha del Evento" required aria-required="true" />
           </div>
           <div class="form-group">
-            <label for="details">Detalles adicionales</label>
-            <textarea id="details" placeholder="Detalles adicionales" rows="4"></textarea>
+            <label for="guests">Número de Invitados</label>
+            <input type="number" id="guests" placeholder="Número aproximado de invitados" required aria-required="true" />
+          </div>
+          <div class="form-group">
+            <label for="details">Detalles del evento y requerimientos especiales</label>
+            <textarea id="details" placeholder="Describe brevemente el tipo de evento y cualquier requerimiento especial" rows="4"></textarea>
           </div>
           <button type="submit" class="btn">Enviar Solicitud</button>
         </form>

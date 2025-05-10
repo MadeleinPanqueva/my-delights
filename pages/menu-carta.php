@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menú a la Carta | Platos Gourmet | My Delights Restaurante</title>
+    <title>Menú Gourmet | Alta Cocina y Platos de Autor | My Delights Restaurante</title>
     <meta
       name="description"
-      content="Descubre nuestra exquisita selección de platos a la carta, preparados con los mejores ingredientes frescos y técnicas culinarias por nuestros chefs expertos."
+      content="Descubra nuestra exquisita selección de platos gourmet a la carta, elaborados con ingredientes de temporada y técnicas de alta cocina. Creaciones exclusivas de nuestro chef ejecutivo."
     />
-    <meta name="keywords" content="menú a la carta, platos gourmet, restaurante, gastronomía, comida de calidad, chef" />
+    <meta name="keywords" content="menú gourmet, alta cocina, gastronomía de autor, platos gourmet, cocina de vanguardia, restaurante fine dining, chef ejecutivo, maridaje, degustación" />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Menú a la Carta | My Delights Restaurante" />
-    <meta property="og:description" content="Descubre nuestra exquisita selección de platos gourmet preparados por chefs expertos con los mejores ingredientes." />
+    <meta property="og:title" content="Menú Gourmet y Alta Cocina | My Delights Restaurante" />
+    <meta property="og:description" content="Descubra nuestra exquisita selección de platos gourmet elaborados con ingredientes de temporada y técnicas de alta cocina. Experiencia gastronómica exclusiva." />
     <meta property="og:image" content="../images/banners/menu-carta.jpg" />
     <meta property="og:url" content="https://mydelights.com/pages/menu-carta.php" />
     <meta property="og:type" content="website" />
@@ -30,13 +30,14 @@
 
     <main class="menu-page" itemscope itemtype="https://schema.org/Restaurant">
       <meta itemprop="name" content="My Delights" />
+      <meta itemprop="servesCuisine" content="Gourmet, Alta Cocina, Contemporánea" />
       <section class="menu-hero">
         <div class="container">
           <div class="menu-hero-content">
-            <h1 itemprop="menu">Menú a la Carta</h1>
+            <h1 itemprop="menu">Menú Gourmet de Alta Cocina</h1>
             <p itemprop="description">
-              Descubre nuestra selección de platos gourmet preparados por
-              nuestros chefs expertos con ingredientes de la más alta calidad
+              Descubra nuestra selección de creaciones culinarias exclusivas, elaboradas por
+              nuestro chef ejecutivo con ingredientes premium de temporada y técnicas de vanguardia
             </p>
           </div>
         </div>
@@ -44,18 +45,18 @@
 
       <section class="menu-navigation">
         <div class="container">
-          <div class="category-tabs" role="tablist" aria-label="Categorías del menú">
+          <div class="category-tabs" role="tablist" aria-label="Categorías del menú gourmet">
             <button class="category-btn active" data-category="entradas" role="tab" aria-selected="true" aria-controls="entradas" id="tab-entradas">
-              Entradas
+              Entrantes Gourmet
             </button>
             <button class="category-btn" data-category="principales" role="tab" aria-selected="false" aria-controls="principales" id="tab-principales">
               Platos Principales
             </button>
             <button class="category-btn" data-category="postres" role="tab" aria-selected="false" aria-controls="postres" id="tab-postres">
-              Postres
+              Postres Artesanales
             </button>
             <button class="category-btn" data-category="bebidas" role="tab" aria-selected="false" aria-controls="bebidas" id="tab-bebidas">
-              Bebidas
+              Bebidas y Maridaje
             </button>
           </div>
         </div>
@@ -64,13 +65,13 @@
       <section class="menu-content section-padding">
         <div class="container">
           <div class="menu-category active" id="entradas" role="tabpanel" aria-labelledby="tab-entradas" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Entradas" />
+            <meta itemprop="name" content="Entrantes Gourmet" />
             <div class="menu-items">
               <div class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
                 <div class="menu-item-image">
                   <img
                   src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/66/46/db/fb/0c/v1_E11/E115KKAQ.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=0f524f40fe0fb75462ccd9c9c6bb38fb08b39eebfdba8176ceb953e2267d352c"
-                  alt="Carpaccio de Salmón fresco con alcaparras y queso parmesano" 
+                  alt="Carpaccio de Salmón Premium con alcaparras, aceite de oliva virgen extra y queso parmesano DOP" 
                   itemprop="image"
                   loading="lazy"
                   width="300"
@@ -78,26 +79,26 @@
                 </div>
                 <div class="menu-item-info">
                   <div class="menu-item-header">
-                    <h3 itemprop="name">Carpaccio de Salmón</h3>
+                    <h3 itemprop="name">Carpaccio de Salmón Noruego</h3>
                     <span class="menu-item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                       <span itemprop="price" content="15900">$15.900</span>
                       <meta itemprop="priceCurrency" content="COP" />
                     </span>
                   </div>
                   <p class="menu-item-description" itemprop="description">
-                    Finas láminas de salmón fresco con alcaparras, queso
-                    parmesano y aliño de limón.
+                    Finas láminas de salmón salvaje noruego con alcaparras sicilianas, queso
+                    parmesano DOP y aceite de oliva virgen extra con esencia de limón.
                   </p>
                   <div class="menu-item-tags">
                     <span class="tag">Fresco</span>
-                    <span class="tag">Mariscos</span>
+                    <span class="tag">Mariscos Premium</span>
                   </div>
                   <button
                     class="btn btn-sm add-to-cart"
                     data-id="e1"
-                    data-name="Carpaccio de Salmón"
+                    data-name="Carpaccio de Salmón Noruego"
                     data-price="15900"
-                    aria-label="Añadir Carpaccio de Salmón al carrito"
+                    aria-label="Añadir Carpaccio de Salmón Noruego al carrito"
                   >
                     <i class="fas fa-cart-plus"></i> Añadir
                   </button>
@@ -283,7 +284,7 @@
           </div>
 
           <div class="menu-category" id="postres" role="tabpanel" aria-labelledby="tab-postres" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Postres" />
+            <meta itemprop="name" content="Postres Artesanales" />
             <div class="menu-items">
               <div class="menu-item">
                 <div class="menu-item-image">
@@ -381,7 +382,7 @@
           </div>
 
           <div class="menu-category" id="bebidas" role="tabpanel" aria-labelledby="tab-bebidas" itemscope itemtype="https://schema.org/MenuSection">
-            <meta itemprop="name" content="Bebidas" />
+            <meta itemprop="name" content="Bebidas y Maridaje" />
             <div class="menu-items">
               <div class="menu-item">
                 <div class="menu-item-image">

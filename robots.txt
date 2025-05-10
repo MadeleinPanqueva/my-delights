@@ -1,8 +1,24 @@
 User-agent: *
 Allow: /
+Allow: /pages/
+Allow: /images/
+Allow: /blog/
+
+# Archivos y directorios privados
 Disallow: /api/
 Disallow: /js/components/
 Disallow: /database/
 Disallow: /backend/admin/
+Disallow: /backend/config/
+Disallow: /temp/
+Disallow: /pages/admin/
+Disallow: /logs/
+
+# Archivos específicos
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.zip$
+Disallow: /*.tar$
+Disallow: /*.gz$
 
 Sitemap: https://mydelights.com/sitemap.xml 

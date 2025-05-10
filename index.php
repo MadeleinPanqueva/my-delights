@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Delights - Restaurante de Comida Gourmet y Corriente | Delivery</title>
+  <title>My Delights - Restaurante Gourmet de Alta Cocina | Delivery Premium</title>
   <meta name="description"
-    content="My Delights ofrece la mejor experiencia culinaria en la ciudad con platos gourmet y comida corriente de alta calidad. Realiza tu pedido online o reserva una mesa." />
-  <meta name="keywords" content="restaurante, comida gourmet, menú del día, delivery, comida a domicilio, eventos, catering" />
+    content="My Delights ofrece la mejor experiencia culinaria en la ciudad con platos gourmet elaborados por chefs expertos. Gastronomía de autor y cocina de vanguardia con servicio a domicilio premium." />
+  <meta name="keywords" content="restaurante gourmet, alta cocina, gastronomía de autor, menú degustación, cocina de vanguardia, platos gourmet, delivery premium, experiencia gastronómica, chef ejecutivo" />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="My Delights - Restaurante de Comida Gourmet" />
-  <meta property="og:description" content="Disfruta de la mejor experiencia gastronómica con ingredientes frescos y de calidad. Delivery disponible." />
+  <meta property="og:title" content="My Delights - Restaurante Gourmet de Alta Cocina" />
+  <meta property="og:description" content="Disfruta de la mejor experiencia gastronómica con ingredientes frescos seleccionados y técnicas culinarias de vanguardia. Delivery premium disponible." />
   <meta property="og:image" content="./images/banners/logo.png" />
   <meta property="og:url" content="https://mydelights.com" />
   <meta property="og:type" content="website" />
@@ -28,17 +28,18 @@
     <meta itemprop="name" content="My Delights" />
     <meta itemprop="image" content="./images/banners/logo.png" />
     <meta itemprop="priceRange" content="$$-$$$" />
+    <meta itemprop="servesCuisine" content="Gourmet, Alta Cocina, Contemporánea" />
     <section class="hero-banner">
       <div class="container">
         <div class="hero-content">
-          <h1 itemprop="slogan">Descubre el placer de la buena comida</h1>
+          <h1 itemprop="slogan">Descubre el arte de la alta gastronomía</h1>
           <p itemprop="description">
-            En My Delights te ofrecemos la mejor experiencia gastronómica con
-            ingredientes frescos y de calidad
+            En My Delights te ofrecemos una experiencia culinaria excepcional con
+            ingredientes frescos seleccionados y técnicas de vanguardia
           </p>
           <div class="cta-buttons">
-            <a href="pages/menu-carta.php" class="btn btn-primary">Ver Menú</a>
-            <a href="#promociones" class="btn btn-secondary">Promociones</a>
+            <a href="pages/menu-carta.php" class="btn btn-primary">Ver Menú Gourmet</a>
+            <a href="#promociones" class="btn btn-secondary">Promociones Exclusivas</a>
           </div>
         </div>
       </div>
@@ -46,32 +47,32 @@
 
     <section class="categories section-padding">
       <div class="container">
-        <h2 class="section-title">Nuestras especialidades</h2>
+        <h2 class="section-title">Nuestras especialidades culinarias</h2>
         <div class="category-grid">
           <div class="category-card" itemprop="hasMenu" itemscope itemtype="https://schema.org/Menu">
-            <img src="images/categorias/categoria1.jpg" alt="Platos Gourmet - Selección de platos preparados por chefs expertos" itemprop="image" loading="lazy" width="300" height="200" />
-            <h3 itemprop="name">Platos Gourmet</h3>
+            <img src="images/categorias/categoria1.jpg" alt="Alta Cocina Gourmet - Creaciones exclusivas de nuestro chef ejecutivo con técnicas de vanguardia" itemprop="image" loading="lazy" width="300" height="200" />
+            <h3 itemprop="name">Alta Cocina Gourmet</h3>
             <p itemprop="description">
-              Descubre nuestra selección de platos preparados por chefs
-              expertos.
+              Descubre nuestras creaciones exclusivas preparadas por chefs 
+              con técnicas de vanguardia y presentaciones artísticas.
             </p>
-            <a href="pages/menu-carta.php" class="btn btn-sm">Ver más</a>
+            <a href="pages/menu-carta.php" class="btn btn-sm">Explorar Menú</a>
           </div>
           <div class="category-card" itemprop="hasMenu" itemscope itemtype="https://schema.org/Menu">
-            <img src="images/categorias/categoria2.jpg" alt="Comida Corriente - Deliciosa comida casera con el toque especial de My Delights" itemprop="image" loading="lazy" width="300" height="200" />
-            <h3 itemprop="name">Comida Corriente</h3>
+            <img src="images/categorias/categoria2.jpg" alt="Gastronomía Ejecutiva - Menús gourmet diarios elaborados con ingredientes premium de temporada" itemprop="image" loading="lazy" width="300" height="200" />
+            <h3 itemprop="name">Gastronomía Ejecutiva</h3>
             <p itemprop="description">
-              Deliciosa comida casera con el toque especial de My Delights.
+              Menús gourmet diarios elaborados con ingredientes premium de temporada y el toque distintivo de My Delights.
             </p>
-            <a href="pages/menu-corriente.php" class="btn btn-sm">Ver más</a>
+            <a href="pages/menu-corriente.php" class="btn btn-sm">Explorar Menú</a>
           </div>
           <div class="category-card" itemscope itemtype="https://schema.org/Service">
-            <img src="images/categorias/categoria3.jpg" alt="Servicios para Eventos - Hacemos de tu evento una experiencia gastronómica inolvidable" itemprop="image" loading="lazy" width="300" height="200" />
-            <h3 itemprop="name">Eventos</h3>
+            <img src="images/categorias/categoria3.jpg" alt="Catering Premium - Servicio gastronómico de lujo para eventos corporativos y celebraciones especiales" itemprop="image" loading="lazy" width="300" height="200" />
+            <h3 itemprop="name">Catering Premium</h3>
             <p itemprop="description">
-              Hacemos de tu evento una experiencia gastronómica inolvidable.
+              Servicio gastronómico de lujo para eventos corporativos y celebraciones especiales con atención personalizada.
             </p>
-            <a href="pages/servicios.php" class="btn btn-sm">Ver más</a>
+            <a href="pages/servicios.php" class="btn btn-sm">Conocer Servicios</a>
           </div>
         </div>
       </div>
